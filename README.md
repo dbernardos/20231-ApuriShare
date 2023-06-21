@@ -1,5 +1,4 @@
 <h1>ApuriShare</h1>
-<h2>Plataforma Web de Ensino Explorando a Metodologia Ativa Think-Pair-Share</h2> 
 
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=react&message=framework&color=blue&style=for-the-badge&logo=REACT"/>
@@ -27,7 +26,7 @@
 ## Descrição do projeto 
 
 <p align="justify">
-  Descrição breve do projeto compondo um paragrafo ou dois. 
+  ApuriShare é uma plataforma Web de ensino que explora a metodologia ativa Think-Pair-Share
 </p>
 
 ## Funcionalidades

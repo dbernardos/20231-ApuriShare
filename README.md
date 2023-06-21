@@ -1,4 +1,5 @@
-<h1>ApuriShare: Sistema de... </h1> 
+<h1>ApuriShare</h1>
+<h2>Plataforma Web de Ensino Explorando a Metodologia Ativa Think-Pair-Share</h2> 
 
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=react&message=framework&color=blue&style=for-the-badge&logo=REACT"/>
@@ -11,7 +12,7 @@
    <img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge"/>
 </p>
 
-> Status do Projeto: :heavy_check_mark: :warning: (concluido, em desenvolvimento, etc)
+> Status do Projeto: :warning: em desenvolvimento
 
 ### Tópicos 
 
@@ -19,15 +20,9 @@
 
 :small_blue_diamond: [Funcionalidades](#funcionalidades)
 
-:small_blue_diamond: [Deploy da Aplicação](#deploy-da-aplicação-dash)
-
 :small_blue_diamond: [Pré-requisitos](#pré-requisitos)
 
 :small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
-
-... 
-
-Insira os tópicos do README em links para facilitar a navegação do leitor
 
 ## Descrição do projeto 
 
@@ -44,14 +39,6 @@ Insira os tópicos do README em links para facilitar a navegação do leitor
 :heavy_check_mark: Funcionalidade 3  
 
 :heavy_check_mark: Funcionalidade 4  
-
-## Layout ou Deploy da Aplicação :dash:
-
-> Link do deploy da aplicação. Exemplo com netlify: https://certificates-for-everyone-womakerscode.netlify.app/
-
-... 
-
-Se ainda não houver deploy, insira capturas de tela da aplicação ou gifs
 
 ## Pré-requisitos
 
@@ -99,7 +86,7 @@ Exemplo: Caso a sua aplicação tenha alguma funcionalidade de login apresente n
 
 Se quiser, coloque uma amostra do banco de dados 
 
-## Iniciando/Configurando banco de dados
+## Configuração do banco de dados
 
 Se for necessário configurar algo antes de iniciar o banco de dados insira os comandos a serem executados 
 

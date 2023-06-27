@@ -18,14 +18,21 @@
     <br><br><br><br><br><br>
     <div class="esquerda">
         <form action="" method="post">
+        <br>
         <h3>Nome da Sala</h3>
         <input type="text" name="nomeSala"> <br>
-        <h3>*Atividade</h3> 
-        <textarea class="form-control" rows="6" name="atividade"></textarea> <br>
-        <h3>Comentário</h3> 
-        <textarea class="form-control" rows="6" name="comentario"></textarea> <br>
+        <div class="textareas">
+        <br><h3>*Atividade</h3>
+        <textarea class="form-control textoarea" placeholder="Se João comprar um..." id="atividade" style="height: 100px"></textarea>
+        <br><h3>Comentário</h3> 
+        <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." id="comentario" style="height: 100px"></textarea>
+        </div>
+        <br><br>
         <h3>Adicionar Imagem</h3>
-        <input type="file" name="imagem" id="input-imagem">
+        <br>
+        <div class="addImagem">
+            <input type="file" name="imagem">
+        </div>
         <br>
         <br>
         <button class="btn btn-outline-dark">Enviar</button>
@@ -35,24 +42,28 @@
 
     <div class="direita">
     </form>
-        <h3>*Assunto/Materia</h3>
+        <br><h3>*Assunto/Materia</h3>
         <input type="text" name="assunto_materia"> <br>
-        <h3>*Primeiro Tempo</h3>
+        <br><h3>*Primeiro Tempo</h3>
         <input type="text" name="TempoUm"> <br>
-        <h3>*Segundo Tempo</h3>
+        <br><h3>*Segundo Tempo</h3>
         <input type="text" name="TempoDois"> <br>
-        <h3 for="numPessoas">*Número Máximo de Pessoas</h3>
-        <select name="numPessoas" id="numPessoas">
+        <br><h3>*Número Máximo de Pessoas</h3>
+        <div class="selecao">
+<select class="form-select numPessoas" aria-label="Default select example">
+            <option selected>Escolha a Quantidade</option>
             <option value="2">2</option>
             <option value="8">8</option>
             <option value="12">12</option>
             <option value="18">18</option>
             <option value="22">22</option>
           </select>
-          <br><br><br><br><br><br>
-          <div class="btnCriar">
-            <button href="" class="btn btn-outline-dark btnCriar">Criar</button>
         </div>
+        
+          <br><br><br><br>
+    
+            <button href="" class="btn btn-outline-dark btnCriar">  Criar  </button>
+          
         <form>
             <br><br><br>
             <p>Ps: Todos os campos com asterisco devem ser preenchidos!</p>

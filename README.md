@@ -31,13 +31,23 @@
 
 ## Funcionalidades
 
-:heavy_check_mark: Funcionalidade 1  
+:heavy_check_mark: O sistema deve permitir ao usuário cadastrar-se no site  
 
-:heavy_check_mark: Funcionalidade 2  
+:heavy_check_mark: O sistema deve permitir ao usuário entrar em uma conta existente  
 
-:heavy_check_mark: Funcionalidade 3  
+:heavy_check_mark: O sistema deve permitir ao usuário entrar em uma sala  
 
-:heavy_check_mark: Funcionalidade 4  
+:heavy_check_mark: O sistema  deve permitir ao usuário/criador criar uma sala
+
+:heavy_check_mark: O sistema deve permitir ao usuário/aluno visualizar a atividade
+
+:heavy_check_mark: O sistema deve permitir ao usuário/aluno enviar resposta
+
+:heavy_check_mark: O sistema deve permitir ao usuário/aluno a visualizar a atividade de seu par
+
+:heavy_check_mark: O sistema deve permitir ao usuário/aluno visualizar a resposta do criador
+
+:heavy_check_mark: O sistema deve permitir ao usuário/criador iniciar a atividade 
 
 ## Pré-requisitos :books:
 

@@ -39,6 +39,8 @@
 
 :heavy_check_mark: O sistema  deve permitir ao usuário/criador criar uma sala
 
+:heavy_check_mark: O sistema deve permitir ao usuário/criador iniciar a atividade
+
 :heavy_check_mark: O sistema deve permitir ao usuário/aluno visualizar a atividade
 
 :heavy_check_mark: O sistema deve permitir ao usuário/aluno enviar resposta

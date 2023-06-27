@@ -22,7 +22,7 @@ button{
 }
 .btnEntrar{
     border-radius: 20px;
-    margin: 0;
+    margin: 10px;
     font-size:20px;
     padding: 5px;
 }
@@ -71,7 +71,12 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    float: left;
   }
+.logo{
+    margin: 0%;
+    float: left;
+}
 
 .esquerda{
     width: 50%; 

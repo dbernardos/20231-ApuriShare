@@ -1,0 +1,74 @@
+h1{
+    align-self: center;
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 35px;
+    padding: 1%;
+}
+h3{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 150%;
+}
+p{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.cabecalho input{
+    border-radius: 200%;
+    font-size: 200%;
+    float: right;
+    padding: 0.5%;
+}
+.cabecalho{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    float: left;
+}
+.btnCriar input{
+    border-radius: 20%;
+    font-size: 200%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.esquerda{
+width: 40%; 
+margin-left: 10%;
+margin-right: auto;
+float:left;
+background-color:rgb(233, 219, 201);
+border-radius: 10%;
+border: 1px solid black;
+.grid_480{width:480}
+.margin-top-60{margin-top:60px}
+.margin-bottom-60{margin-bottom:60px}
+.f-left{float:left}
+}
+.direita{
+width: 40%; 
+margin-left: 1%;
+margin-right: auto;
+float:left;
+background-color:rgb(233, 219, 201);
+border-radius: 10%;
+border: 1px solid black;
+.grid_480{width:480}
+.margin-top-60{margin-top:60px}
+.margin-bottom-60{margin-bottom:60px}
+.f-left{float:left}
+}
+input{
+    font-size: 180%;
+    border-radius: 10%;
+}
+textarea{
+    font-size: 240%;
+    border-radius: 10%;
+}
+select{
+    font-size: 240%;
+    border-radius: 10%;
+}

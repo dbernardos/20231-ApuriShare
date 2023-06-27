@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="./css/Criação_Sala.css">
+        <link rel="stylesheet" href="./css/criar_sala.css">
         <meta charset="UTF-8">
         <title>ApuriShare</title>
     </head>
@@ -14,14 +14,16 @@
         <br><br><br><br><br><br>
     <br><br><br><br><br><br>
     <div class="esquerda">
-        <form>
+        <form action="" method="post">
         <h3>Nome da Sala</h3>
         <input type="text" name="nomeSala"> <br>
         <h3>*Atividade</h3> 
         <textarea class="form-control" rows="6" name="atividade"></textarea> <br>
         <h3>Comentário</h3> 
         <textarea class="form-control" rows="6" name="comentario"></textarea> <br>
-        <h3>Adcionar Imagem</h3>
+        <h3>Adicionar Imagem</h3>
+        <input type="file" name="imagem" id="input-imagem">
+        <input type="submit" value="Enviar">
         </form>
     </div>
 

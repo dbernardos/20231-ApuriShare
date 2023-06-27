@@ -1,6 +1,6 @@
 h1{
     align-self: center;
-    color: white;
+    color: black;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 35px;
     padding: 1%;
@@ -12,17 +12,15 @@ h3{
 p{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.cabecalho input{
-    border-radius: 200%;
-    font-size: 200%;
-    float: right;
-    padding: 0.5%;
+.btnCriar{
+    font-size: 50px;
+    color: rgba(250, 158, 173, 0.993);
 }
 .cabecalho{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: black;
+    background-color: rgba(255, 192, 203, 0.651);
     position: fixed;
     top: 0;
     left: 0;
@@ -32,6 +30,7 @@ p{
 .btnCriar input{
     border-radius: 20%;
     font-size: 200%;
+    background-color: rgba(250, 158, 173, 0.993);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 .esquerda{

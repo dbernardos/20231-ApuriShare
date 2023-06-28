@@ -1,8 +1,7 @@
 h2{
-    margin: 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 200%;
-    padding: 5px;
+    margin-left: 2px;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 250%;
 }
 h1{
     background-color: rgba(255, 192, 203, 0.651);
@@ -12,7 +11,7 @@ h1{
     padding: 100px;
     margin: 0;
 }
-button{
+.btnCadastrar{
     background-color: rgba(250, 158, 173, 0.993);
     border-radius: 25px;
     text-align: center;
@@ -62,7 +61,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(163, 117, 117, 0.705);
+    background-color: rgb(163, 117, 117);
     position: fixed;
     top: 0;
     left: 0;
@@ -70,7 +69,8 @@ body {
     float: left;
   }
 .logo{
-    margin: 0%;
+    margin-left: 5px;
+    margin-right: 1px;
     float: left;
 }
 

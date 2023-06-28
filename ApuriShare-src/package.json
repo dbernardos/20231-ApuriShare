@@ -1,0 +1,16 @@
+{
+  "name": "apurishare-src",
+  "version": "1.0.0",
+  "description": "In this folder, we keep the software source code, as such:\r - graphical user interface\r - system business rule",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.4.2",
+    "sequelize": "^6.32.1"
+  }
+}

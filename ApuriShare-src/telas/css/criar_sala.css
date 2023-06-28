@@ -52,6 +52,7 @@ border: 1px solid black;
 width: 40%; 
 margin-left: 1%;
 margin-right: auto;
+margin-bottom: 5%;
 float:left;
 background-color:rgb(233, 219, 201, 0.877);
 border-radius: 25px;
@@ -81,4 +82,7 @@ input{
 select{
     font-size: 240%;
     border-radius: 10%;
+}
+.direita p{
+    color: rgba(206, 101, 118, 0.993);
 }

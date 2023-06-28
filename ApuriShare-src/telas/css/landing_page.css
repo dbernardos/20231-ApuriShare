@@ -21,10 +21,15 @@ button{
     padding: 10px;
 }
 .btnEntrar{
-    border-radius: 20px;
     margin: 10px;
     font-size:20px;
     padding: 5px;
+}
+
+.btnApuri{
+    font-size: 30px;
+    background-color:rgba(250, 158, 173, 0.993);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 h3{
@@ -72,6 +77,8 @@ body {
 .logo{
     margin: 0%;
     float: left;
+    width: 35%;
+    height: 30%;
 }
 
 .esquerda{

@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
+const { validate } = require('./connection-db');
 const database = require('./connection-db');
 
-const Usuario = database.define('Usuario', {
+const Usuario = database.define('Usuarios', {
     nickname: {
         type: Sequelize.STRING,
         primaryKey: true,
@@ -21,7 +22,15 @@ const Usuario = database.define('Usuario', {
     }
 });
 
-const Sala = database.define('Sala', {
+sequelize.sync({ force: true }) // Se force: true, a tabela será recriada toda vez que o código for executado
+.then(() => {
+console.log('Tabela criada com sucesso!');
+})
+.catch((err) => {
+console.error('Erro ao criar tabela:', err);
+});
+
+const Sala = database.define('Salas', {
     idsala: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -50,18 +59,26 @@ const Sala = database.define('Sala', {
     }
 });
 
-const Atividade = database.define('Atividade', {
+sequelize.sync({ force: true }) // Se force: true, a tabela será recriada toda vez que o código for executado
+.then(() => {
+console.log('Tabela criada com sucesso!');
+})
+.catch((err) => {
+console.error('Erro ao criar tabela:', err);
+});
+
+const Atividade = database.define('Atividades', {
     codigo: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         allowNull: false,
         autoIncrement: true
     },
-    RespostaThink: {
+    respostaThink: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    RespostaPair: {
+    respostaPair: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -86,6 +103,14 @@ const Atividade = database.define('Atividade', {
         allowNull: false,
         references: { model: 'Usuario', key: 'nickname' }
     }
+});
+
+sequelize.sync({ force: true }) // Se force: true, a tabela será recriada toda vez que o código for executado
+.then(() => {
+console.log('Tabela criada com sucesso!');
+})
+.catch((err) => {
+console.error('Erro ao criar tabela:', err);
 });
 
 module.exports = {

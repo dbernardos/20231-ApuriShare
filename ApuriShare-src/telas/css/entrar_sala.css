@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(115, 169, 230);
+    background-color: black;
     width: 100%;
 }
 h1{
@@ -16,14 +16,20 @@ h1{
     font-size: 35px;
     padding: 1%;
 }
+h2{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 5%;
+    font-size: 300%;
+}
 .centro{
     text-align: center;
+    align-items: center;
     background-color:rgba(233, 219, 201, 0.877);
     border-radius: 25px;
     border: 1px solid black;
-    margin-top: 2%;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-top: 8%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 body{
     background-color: rgba(176, 196, 219, 0.466);
@@ -32,4 +38,6 @@ input{
     background-color: rgba(240, 248, 255, 0);
     border-color: rgba(240, 248, 255, 0);
     text-align: center;
+    font-size: 300%;
+    margin: 5%;
 }

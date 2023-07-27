@@ -2,7 +2,9 @@
     background-color:rgba(233, 219, 201, 0.877);
     border-radius: 25px;
     border: 1px solid black;
-    margin: 12%;
+    margin-top: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 .centro h1{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -45,6 +47,8 @@
 .sair{
     background-color:rgb(115, 169, 230);
     width: 100%;
+    margin-block-end: auto;
+    display: flex;
 }
 .sair button{
     margin: 1%;

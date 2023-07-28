@@ -2,30 +2,35 @@
     background-color:rgba(233, 219, 201, 0.877);
     border-radius: 25px;
     border: 1px solid black;
-    margin-top: 2%;
+    margin-top: 4%;
     margin-left: 20%;
     margin-right: 20%;
 }
 .centro h1{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin: 6%;
+    margin-top: 6%;
     font-size: 400%;
 }
 .centro p{
-    margin: 5%;
+    margin-top: 5%;
     font-size: 200%;
     font-style: unset;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.centro button{
-    font-size: 350%;
-    margin-left: 8%;
-    margin-right: 8%;
+.botoes{
+    margin-right: 20%;
+    display: flex;
+    align-items: center;
+}
+.botoes button{
+    font-size: 300%;
     background-color:rgb(87, 148, 218);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .centro a{
-    margin: 20%;
+    margin-top: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
     color: black;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -35,22 +40,22 @@
     justify-content: space-between;
     background-color: rgb(115, 169, 230);
     width: 100%;
+    position: fixed;
 }
-.cabecalho h2{
-    margin: 2%;
+.cabecalho h2, h3{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.cabecalho h3{
-    margin: 2%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 1%;
 }
 .sair{
-    background-color:rgb(115, 169, 230);
+    position: fixed;
+    left: 0;
+    bottom: 0;
     width: 100%;
-    margin-block-end: auto;
+    background-color:rgb(115, 169, 230);
     display: flex;
 }
 .sair button{
-    margin: 1%;
+    border-color: rgba(240, 248, 255, 0);
+    font-size: 100%;
     background-color: rgb(115, 169, 230);
 }

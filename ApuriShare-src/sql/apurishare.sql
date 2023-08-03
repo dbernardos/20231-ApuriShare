@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Jun-2023 às 20:20
+-- Tempo de geração: 03-Ago-2023 às 21:58
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.4.23
 
@@ -31,9 +31,6 @@ CREATE TABLE `atividade` (
   `codigo` int(6) NOT NULL,
   `respostaThink` varchar(1000) NOT NULL,
   `respostaPair` varchar(1000) NOT NULL,
-  `tempoThink` time NOT NULL,
-  `tempoPair` time NOT NULL,
-  `enderecoImagem` varchar(100) DEFAULT NULL,
   `sala_idsala` int(6) NOT NULL,
   `Usuario_nickname` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -51,7 +48,10 @@ CREATE TABLE `sala` (
   `assunto` varchar(45) NOT NULL,
   `comentario` varchar(1000) DEFAULT NULL,
   `nome` varchar(45) NOT NULL,
-  `criador` varchar(100) NOT NULL
+  `criador` varchar(100) NOT NULL,
+  `tempoPair` time DEFAULT NULL,
+  `tempoThink` time DEFAULT NULL,
+  `enderecoImagem` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

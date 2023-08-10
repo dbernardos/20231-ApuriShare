@@ -7,7 +7,7 @@
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
-        $sql = mysqli_query($con, "Insert into usuario(nome, nickname, email, senha)
+        $sql = mysqli_query($con, "INSERT into usuario(nome, nickname, email, senha)
         values ('$nome', '$nickname', '$email', '$senha')");
     }
 

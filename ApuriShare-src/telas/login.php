@@ -1,3 +1,7 @@
+<?php
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +17,10 @@
     <div>
 
     <div class="formulario">
-        <form action="">
+        <form action="testelogin.php" method="POST">
             <div class="InputBox">
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome" require>
+                <label for="nickname">Nome:</label>
+                <input type="text" name="nickname" id="nickname" require>
             </div>
             <br><br>
             <div class="InputBox">
@@ -25,7 +29,7 @@
             </div>
             <br><br>
             <div class="InputBotao">
-            <input type="submit" name="enviar" id="enviar" class="enviar">
+            <input type="submit" name="submit" id="submit" class="enviar">
             </div>
             <br><br>
         </form>

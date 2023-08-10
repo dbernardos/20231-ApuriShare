@@ -13,7 +13,7 @@
     <div>
 
     <div class="formulario">
-        <form>
+        <form action="">
             <div class="InputBox">
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" id="nome" require>

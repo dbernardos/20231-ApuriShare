@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03-Ago-2023 às 21:58
+-- Tempo de geração: 10-Ago-2023 às 21:36
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.4.23
 
@@ -43,7 +43,6 @@ CREATE TABLE `atividade` (
 
 CREATE TABLE `sala` (
   `idsala` int(6) NOT NULL,
-  `chaveAcesso` int(6) NOT NULL,
   `atividade` varchar(1000) NOT NULL,
   `assunto` varchar(45) NOT NULL,
   `comentario` varchar(1000) DEFAULT NULL,
@@ -51,7 +50,8 @@ CREATE TABLE `sala` (
   `criador` varchar(100) NOT NULL,
   `tempoPair` time DEFAULT NULL,
   `tempoThink` time DEFAULT NULL,
-  `enderecoImagem` varchar(100) NOT NULL
+  `enderecoImagem` varchar(100) NOT NULL,
+  `QuantidadeMaximaUsuarios` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -113,7 +113,7 @@ ALTER TABLE `atividade`
 -- AUTO_INCREMENT de tabela `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `idsala` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `idsala` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para despejos de tabelas

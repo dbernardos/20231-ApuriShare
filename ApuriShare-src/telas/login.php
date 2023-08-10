@@ -1,7 +1,3 @@
-<?php
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +15,12 @@
     <div class="formulario">
         <form action="testelogin.php" method="POST">
             <div class="InputBox">
-                <label for="nickname">Nome:</label>
+                <label for="nickname">Nome:</label><br>
                 <input type="text" name="nickname" id="nickname" require>
             </div>
             <br><br>
             <div class="InputBox">
-                <label for="senha">Senha:</label>
+                <label for="senha">Senha:</label><br>
                 <input type="password" name="senha" id="senha" require>
             </div>
             <br><br>

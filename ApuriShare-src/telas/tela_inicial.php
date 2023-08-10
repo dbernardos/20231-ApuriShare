@@ -47,7 +47,7 @@
 </center>
     <br><br>
     <div class="sair">
-        <a href="./index.html"><button type="submit" class="btn btn-outline-dark"><img src="./img/Icon_Sair.png" width="20" height="20"><strong> Sair da Conta</strong></button></a>
+        <a href="./sair.php"><button type="submit" class="btn btn-outline-dark"><img src="./img/Icon_Sair.png" width="20" height="20"><strong> Sair da Conta</strong></button></a>
     </div>
     
 

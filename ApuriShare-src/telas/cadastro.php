@@ -6,11 +6,18 @@
         $nickname = $_POST['nickname'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];
+        $confsenha = $_POST['confsenha'];
+
+        if($confsenha == $senha){
 
         $sql = mysqli_query($con, "INSERT into usuario(nome, nickname, email, senha)
         values ('$nome', '$nickname', '$email', '$senha')");
-
+        
         header('Location: login.php');
+        }
+        else{
+            print_r("erro");
+        }
     }
 
 ?>

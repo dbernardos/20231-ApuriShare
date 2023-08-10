@@ -1,5 +1,15 @@
 <?php 
-    include("conexao.php");
+
+    session_start();
+    include_once('conexao.php');
+
+    if((!isset($_SESSION['nickname']) == true) and (!isset($_SESSION['senha']) == true)){
+
+        unset($_SESSION['nickname']);
+        unset($_SESSION['senha']);
+        header('Location: login.php');
+    }
+    $dados = $_SESSION['nickname'];
 ?>
 
 <!DOCTYPE html>
@@ -14,14 +24,11 @@
     <title>ApuriShare</title>
 </head>
 <body>
-    <?php 
-
-    $sql_code = "SELECT nickname FROM usuario";
-    
-    ?>
     <div class="cabecalho">
         <h2>ApuriShare</h2>
-        <h3><?php  echo $dados['nickname']; ?></h3>
+        <?php 
+            echo "<h3> $dados</h3>";
+        ?>
     </div>
 
     <br><br>

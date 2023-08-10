@@ -9,6 +9,8 @@
 
         $sql = mysqli_query($con, "INSERT into usuario(nome, nickname, email, senha)
         values ('$nome', '$nickname', '$email', '$senha')");
+
+        header('Location: login.php');
     }
 
 ?>

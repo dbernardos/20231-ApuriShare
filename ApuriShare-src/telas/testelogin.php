@@ -1,6 +1,7 @@
 <?php
 
-    print_r($_REQUEST);
+    session_start();
+
     if(isset($_POST['submit']) && !empty($_POST['nickname']) && !empty($_POST['senha']))
     {
         include_once('conexao.php');
@@ -12,13 +13,14 @@
 
         $result = $con->query($sql);
 
-        print_r($sql);
-        print_r($result);
-
         if(mysqli_num_rows($result) < 1){
+            unset($_SESSION['nickname']);
+            unset($_SESSION['senha']);
             header('Location: login.php');
         }
         else{
+            $_SESSION['nickname'] = $nickname;
+            $_SESSION['senha'] = $senha;
             header('Location: tela_inicial.php');
         }
     }

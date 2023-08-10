@@ -1,9 +1,150 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="./css/landing_page.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ApuriShare</title>
+    <style>
+        /* Reset de margens e preenchimentos */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .cabecalho, .rodape {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .cabecalho {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-imagem {
+            width: 50px;
+            height: auto;
+            margin: 0 10px;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        .menu-botao {
+            background-color: black;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .menu-botao:hover {
+            background-color: white;
+            color: blue;
+        }
+
+        .conteudo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 120px 0;
+        }
+
+        .imagem {
+            position: relative;
+            margin: 20px 0;
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .imagem-item {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            transition: transform 0.3s, filter 0.3s;
+        }
+
+        .imagem:hover .imagem-item {
+            transform: scale(1.05);
+            filter: brightness(70%);
+        }
+
+        .descricao {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-50%) scale(0);
+            transform-origin: center;
+            transition: opacity 0.3s, transform 0.3s;
+            box-sizing: border-box;
+        }
+
+        .imagem:hover .descricao {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-50%) scale(1);
+        }
+
+        .bloco-preto {
+            background-color: black;
+            padding: 100px 40px;
+            position: relative;
+            width: 100%;
+            z-index: 0;
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .bloco-preto h1,
+        .bloco-preto p {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .botao-estilizado {
+            background-color: white;
+            color: blue;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -13,32 +154,47 @@
                 <img src="./img/logo_branca.png" alt="Logo do Site" class="logo-imagem">
             </a>
         </div>
+        <nav class="menu">
+            <a href="#login" class="menu-botao">Login</a>
+            <a href="#registro" class="menu-botao">Registro</a>
+        </nav>
     </header>
 
     <div class="bloco-preto">
-        <h1>Texto Grande</h1>
-        <p>Texto Pequeno</p>
-        <a href="./tela_inicial.php"><button type="button">Meu Botão</button></a>
+        <h1>Bem-vindo ao ApuriShare</h1>
+        <p>Compartilhe experiências, crie conexões!</p>
+        <a href="#imagens-com-descricao" class="botao-estilizado">Saiba mais</a>
     </div>
 
     <main class="conteudo">
-
-        <div class="imagem">
+        <div class="imagem" id="imagens-com-descricao">
             <img src="./img/imagem1.jpg" alt="Imagem 1" class="imagem-item">
-            <div class="descricao">Crie ou entre em salas!</div>
+            <div class="descricao">Descubra salas temáticas para compartilhar conhecimento.</div>
         </div>
-
-
         <div class="imagem">
             <img src="./img/imagem2.jpg" alt="Imagem 2" class="imagem-item">
-            <div class="descricao">Ao entrar em uma sala, você respondera a pergunta feita pelo criador da sala, sozinho
-                e com o tempo no topo da tela</div>
+            <div class="descricao">Participe de discussões inspiradoras e construtivas.</div>
         </div>
-
+        <div class="imagem">
+            <img src="./img/imagem3.jpg" alt="Imagem 3" class="imagem-item">
+            <div class="descricao">Conecte-se com pessoas apaixonadas por aprendizado.</div>
+        </div>
+        <div class="imagem">
+            <img src="./img/imagem4.jpg" alt="Imagem 4" class="imagem-item">
+            <div class="descricao">Compartilhe suas histórias e experiências únicas.</div>
+        </div>
+        <div class="imagem">
+            <img src="./img/imagem5.jpg" alt="Imagem 5" class="imagem-item">
+            <div class="descricao">Explore conteúdos diversos e enriquecedores.</div>
+        </div>
+        <div class="imagem">
+            <img src="./img/imagem6.jpg" alt="Imagem 6" class="imagem-item">
+            <div class="descricao">Aprenda, cresça e divirta-se com a comunidade ApuriShare!</div>
+        </div>
     </main>
 
     <footer class="rodape">
-        <p>asdf</p>
+        <p>&copy; ApuriShare 2023 - Todos os direitos reservados</p>
     </footer>
 </body>
 

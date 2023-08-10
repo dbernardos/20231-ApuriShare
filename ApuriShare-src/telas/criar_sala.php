@@ -1,3 +1,6 @@
+<?php 
+    include("conexao.php")
+?>
 <!DOCTYPE html>
 <html>
 
@@ -22,14 +25,14 @@
             <form action="" method="post">
                 <br>
                 <h3>Nome da Sala</h3>
-                <input type="text" name="nomeSala"> <br>
+                <input type="text" name="txtNome"> <br>
                 <div class="textareas">
                     <br>
-                    <h3>*Atividade</h3>
-                    <textarea class="form-control textoarea" placeholder="Se João comprar um..." id="atividade"></textarea>
+                    <h3>Atividade</h3>
+                    <textarea class="form-control textoarea" placeholder="Se João comprar um..." name="txtAtividade"></textarea>
                     <br>
                     <h3>Comentário</h3>
-                    <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." id="comentario"></textarea>
+                    <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtComentario"></textarea>
                 </div>
                 <br><br>
                 <h3>Adicionar Imagem</h3>
@@ -39,7 +42,7 @@
                 </div>
                 <br>
                 <br>
-                <button class="btn btn-outline-dark btnApuri">Enviar</button>
+                <button class="btn btn-outline-dark btnApuri" name="btnEnviar" >Enviar</button>
             </form>
             <br>
         </div>
@@ -47,16 +50,16 @@
         <div class="direita">
             </form>
             <br>
-            <h3>*Assunto/Materia</h3>
-            <input type="text" name="assunto_materia"> <br>
+            <h3>Assunto/Materia</h3>
+            <input type="text" name="txtAssunto"> <br>
             <br>
-            <h3>*Primeiro Tempo</h3>
-            <input type="text" name="TempoUm"> <br>
+            <h3>Primeiro Tempo</h3>
+            <input type="text" name="txtPair"> <br>
             <br>
-            <h3>*Segundo Tempo</h3>
-            <input type="text" name="TempoDois"> <br>
+            <h3>Segundo Tempo</h3>
+            <input type="text" name="txtThink"> <br>
             <br>
-            <h3>*Número Máximo de Pessoas</h3>
+            <h3>Número Máximo de Pessoas</h3>
 
             <div class="selecao">
                 <select class="form-select numPessoas" aria-label="Default select example">
@@ -70,12 +73,23 @@
             </div>
 
             <br><br><br><br>
-            <button class="btn btn-outline-dark btnApuri">Criar</button>
+            <button class="btn btn-outline-dark btnApuri" name="btnCriar" >Criar</button>
             <form>
                 <br><br><br>
-                <p><strong>Ps: Todos os campos com asterisco devem ser preenchidos!</strong></p>
+                <p><strong>Ps: Todos os campos devem ser preenchidos!</strong></p>
                 <br><br><br>
         </div>
+
+        <?php
+        $sql_code = "SELECT atividade, assunto, comentario, nome, tempoPair, tempoThink, enderecoImagem FROM sala";
+        
+        if(isset($_POST['btnCriar'])){
+            $sql_code = "INSERT INTO sala VALUES (".$_POST['txtAtividade'].",'" .$_POST['txtAssunto']."','" .$_POST['txtComentario']."','" .$_POST['txtNome']."','" .$_POST['txtPair']."','" .$_POST['txtThink']."','" .$_POST['imagem']."')";
+            $sql_query = $con->query($sql_code);
+            
+            echo "<span>Sala Adcionado!</span>";
+        }
+    ?>
     </center>
 </body>
 </html>

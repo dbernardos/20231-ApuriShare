@@ -7,9 +7,9 @@
     $con = new mysqli($server, $user, $pwp, $db);
 
     if($con->connect_errno){
-        echo "<span style='color: white;'> Falha ao conectar!</span>";
+        echo "<span> Falha ao conectar!</span>";
     }else{
-        echo "<span style='color: white;'>Conectado com sucesso!</span>";
+        echo "<span>Conectado com sucesso!</span>";
     }
 
     ?>

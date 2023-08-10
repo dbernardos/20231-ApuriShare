@@ -1,6 +1,7 @@
 <?php 
     include("conexao.php")
-    ?>
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -13,10 +14,16 @@
     <title>ApuriShare</title>
 </head>
 <body>
+    <?php 
+
+    $sql_code = "SELECT nickname FROM usuario";
+    
+    ?>
     <div class="cabecalho">
         <h2>ApuriShare</h2>
-        <h3>Usuario</h3> 
+        <h3><?php  echo $dados['nickname']; ?></h3>
     </div>
+
     <br><br>
 <center>
     <div class="centro">

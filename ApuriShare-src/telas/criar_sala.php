@@ -63,7 +63,7 @@
 
             <div class="selecao">
                 <select class="form-select numPessoas" aria-label="Default select example">
-                    <option selected>Escolha a Quantidade</option>
+                    <option selected name="QntUsers">Escolha a Quantidade</option>
                     <option value="2">2</option>
                     <option value="8">8</option>
                     <option value="12">12</option>
@@ -71,7 +71,18 @@
                     <option value="22">22</option>
                 </select>
             </div>
-
+<?php
+        
+        $sql_code = "SELECT atividade, assunto, comentario, nome, criador, tempoPair, tempoThink, enderecoImagem, QuantidadeMaximaUsuarios FROM sala";
+        
+        if(isset($_POST['btnCriar'])){
+            $sql_code = "INSERT INTO sala VALUES (".$_POST['txtAtividade'].",'" .$_POST['txtAssunto']."','" .$_POST['txtComentario']."','" .$_POST['txtNome']."',
+            '" .$_POST['criador']."','" .$_POST['txtPair']."','" .$_POST['txtThink']."','" .$_POST['imagem']."','" .$_POST['QntUsers']."')"; //Em criador colocar o usuario logado (Aprendendo como faz...)
+            $sql_query = $con->query($sql_code);
+            
+            echo "<span>Sala Adcionado!</span>";
+        }
+    ?>
             <br><br><br><br>
             <button class="btn btn-outline-dark btnApuri" name="btnCriar" >Criar</button>
             <form>
@@ -80,16 +91,7 @@
                 <br><br><br>
         </div>
 
-        <?php
-        $sql_code = "SELECT atividade, assunto, comentario, nome, tempoPair, tempoThink, enderecoImagem FROM sala";
         
-        if(isset($_POST['btnCriar'])){
-            $sql_code = "INSERT INTO sala VALUES (".$_POST['txtAtividade'].",'" .$_POST['txtAssunto']."','" .$_POST['txtComentario']."','" .$_POST['txtNome']."','" .$_POST['txtPair']."','" .$_POST['txtThink']."','" .$_POST['imagem']."')";
-            $sql_query = $con->query($sql_code);
-            
-            echo "<span>Sala Adcionado!</span>";
-        }
-    ?>
     </center>
 </body>
 </html>

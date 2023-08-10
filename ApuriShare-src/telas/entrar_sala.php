@@ -1,3 +1,6 @@
+<?php
+    include("conexao.php")
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,11 +21,20 @@
     <div class="centro">
         <h2>Insira o Código</h2> <br><br>
         <div class="cod">
-        <input type="text" name="codigo" maxlength="7" placeholder="000-000">
+        <input type="text" name="txtCodigo" maxlength="7" placeholder="000-000">
         </div>
         <br>
-        <button class="btn btn-outline-dark">Entrar</button><br><br>
+        <button class="btn btn-outline-dark" name="btnEntrar">Entrar</button><br><br>
     </div>
+
+<?php
+    $sql_code = "SELECT idsala FROM sala";
+        
+        if(isset($_POST['btnEntrar'])){
+            $pesquisa = $_POST['txtCodigo'];
+            $sql_code = "SELECT * FROM sala WHERE idsala like '%$pesquisa%'";
+        }
+?>
 
 </body>
 </html>

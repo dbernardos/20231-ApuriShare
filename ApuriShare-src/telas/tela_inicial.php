@@ -29,8 +29,8 @@
     <div class="centro">
         <h1>Entre ou Crie Salas</h1><br><br>
         <div class="botoes">
-            <a href="./entrar_sala.html"><button type="button" class="btn btn-outline-dark"> Entrar </button></a>
-            <a href="./criar_sala.html"><button type="button" class="btn btn-outline-dark"> Criar </button></a>    
+            <a href="./entrar_sala.php"><button type="button" class="btn btn-outline-dark"> Entrar </button></a>
+            <a href="./criar_sala.php"><button type="button" class="btn btn-outline-dark"> Criar </button></a>    
         </div>
         <br>
         <p>Entre em salas para realizar atividades e desafios feitos pelos usúario!</p>

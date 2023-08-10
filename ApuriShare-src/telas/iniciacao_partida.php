@@ -1,3 +1,7 @@
+<?php
+include("conexao")
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +13,16 @@
     <title>ApuriShare</title>
 </head>
 <body>
+    <?php
+    $sql_code = "SELECT s.nome as snome, s.idsala as sidsala, u.nickname, s.QuantidadeMaximaUsuarios as qnt FROM sala as s inner join usuario as u";
+    ?>
     <a href="./Tela_Inicial.html"><button class="btnX btn btn-outline-dark"> X </button></a>
     <div class="esquerda">
-        <h1>2/4</h1>
+        <h1><?php  echo $dados['qnt']; ?></h1>
     </div>
-<div class="centro">
-    <h1>Sala X</h1>
+
+    <div class="centro">
+    <h1><?php  echo $dados['snome']; ?></h1>
     <br><br>
     <h3>Clique no botão para a iniciar a atividade!</h3>
     <br><br>

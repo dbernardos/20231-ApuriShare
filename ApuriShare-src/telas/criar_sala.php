@@ -1,5 +1,25 @@
 <?php 
-    include("conexao.php")
+    if(isset($_POST['submit'])){
+
+        include_once('conexao.php');
+        $nome = $_POST['txtNome'];
+        $atividade = $_POST['txtAtividade'];
+        $comentario = $_POST['txtComentario'];
+        $imagem = $_POST['imagem'];
+        $assunto = $_POST['txtThink'];
+        $tempoThink = $_POST['txtPair'];
+        $tempoPair = $_POST['txtassunto'];
+        $usuarios = $_POST['QntUsers'];
+
+        $sql = mysqli_query($con, "INSERT into sala
+        (nome, atividade, comentario, enderecoImagem, assunto, tempoThink, TempoPair, QuantidadeMaximaUsuarios)
+        values ('$nome', '$atividade', '$comentario', '$imagem','$assunto','$tempoThink','$TempoPair','$usuarios')");
+        
+        header('Location: iniciacao_partida.php');
+    }
+    else{
+        print_r("erro");
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,23 +42,23 @@
         <br><br><br><br><br><br>
         <br><br><br><br><br><br>
         <div class="esquerda">
-            <form action="" method="post">
+            <form action="criar_sala.php" method="POST">
                 <br>
                 <h3>Nome da Sala</h3>
-                <input type="text" name="txtNome"> <br>
+                <input type="text" name="txtNome" id="nome" require> <br>
                 <div class="textareas">
                     <br>
                     <h3>Atividade</h3>
-                    <textarea class="form-control textoarea" placeholder="Se João comprar um..." name="txtAtividade"></textarea>
+                    <textarea class="form-control textoarea" placeholder="Se João comprar um..." name="txtAtividade" id="atividade" require></textarea>
                     <br>
                     <h3>Comentário</h3>
-                    <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtComentario"></textarea>
+                    <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtComentario" id="comentario" require></textarea>
                 </div>
                 <br><br>
                 <h3>Adicionar Imagem</h3>
                 <br>
                 <div class="addImagem">
-                    <input type="file" name="imagem">
+                    <input type="file" name="imagem" id="imagem" require>
                 </div>
                 <br>
                 <br>
@@ -51,13 +71,13 @@
             </form>
             <br>
             <h3>Assunto/Materia</h3>
-            <input type="text" name="txtAssunto"> <br>
+            <input type="text" name="txtAssunto" id="assunto" require> <br>
             <br>
             <h3>Primeiro Tempo</h3>
-            <input type="text" name="txtPair"> <br>
+            <input type="text" name="txtThink" require> <br>
             <br>
             <h3>Segundo Tempo</h3>
-            <input type="text" name="txtThink"> <br>
+            <input type="text" name="txtPair" require> <br>
             <br>
             <h3>Número Máximo de Pessoas</h3>
 
@@ -71,20 +91,8 @@
                     <option value="22">22</option>
                 </select>
             </div>
-<?php
-        
-        $sql_code = "SELECT atividade, assunto, comentario, nome, criador, tempoPair, tempoThink, enderecoImagem, QuantidadeMaximaUsuarios FROM sala";
-        
-        if(isset($_POST['btnCriar'])){
-            $sql_code = "INSERT INTO sala VALUES (".$_POST['txtAtividade'].",'" .$_POST['txtAssunto']."','" .$_POST['txtComentario']."','" .$_POST['txtNome']."',
-            '" .$_POST['criador']."','" .$_POST['txtPair']."','" .$_POST['txtThink']."','" .$_POST['imagem']."','" .$_POST['QntUsers']."')"; //Em criador colocar o usuario logado (Aprendendo como faz...)
-            $sql_query = $con->query($sql_code);
-            
-            echo "<span>Sala Adcionado!</span>";
-        }
-    ?>
             <br><br><br><br>
-            <button class="btn btn-outline-dark btnApuri" name="btnCriar" >Criar</button>
+            <input type="submit" name="submit" id="submit" class="btn btn-outline-dark btnApuri">
             <form>
                 <br><br><br>
                 <p><strong>Ps: Todos os campos devem ser preenchidos!</strong></p>

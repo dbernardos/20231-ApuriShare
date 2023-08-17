@@ -39,31 +39,31 @@
             <form action="cadastro.php" method="POST">
                 <div class="InputBox">
                     <label for="nome">Nome:</label> <br>
-                    <input type="text" name="nome" id="nome" require>
+                    <input type="text" name="nome" id="nome" required>
                 </div>
                 <br><br>
                 <div class="InputBox">
                     <label for="nickname">Nickname:</label><br>
-                    <input type="text" name="nickname" id="nickname" require>
+                    <input type="text" name="nickname" id="nickname" required>
                 </div>
                 <br><br>
                 <div class="InputBox">
                     <label for="email">Email:</label><br>
-                    <input type="email" name="email" id="email" require>
+                    <input type="email" name="email" id="email" required>
                 </div>
                 <br><br>
                 <div class="InputBox">
                     <label for="Senha">Senha:</label><br>
-                    <input type="password" name="senha" id="senha" require>
+                    <input type="password" name="senha" id="senha" required>
                 </div>
                 <br><br>
                 <div class="InputBox">
                     <label for="confsenha">Confirmar Senha:</label><br>
-                    <input type="password" name="confsenha" id="confsenha" require>
+                    <input type="password" name="confsenha" id="confsenha" required>
                 </div>
                 <br><br>
                 <div class="InputBox">
-                    <input type="radio" name="aceitar" id="aceitar" require><br>
+                    <input type="radio" name="aceitar" id="aceitar" required><br>
                     <label for="confsenha">Concordar com os termos de uso e privacidade do ApuriShare</label>
                 </div>
                 <br><br>

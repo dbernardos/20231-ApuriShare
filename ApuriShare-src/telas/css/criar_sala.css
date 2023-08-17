@@ -73,6 +73,7 @@ border: 1px solid black;
 input{
     font-size: 180%;
     border-radius: 20px;
+    text-align: center;
 }
 .textoarea{
     margin-left: 2px;

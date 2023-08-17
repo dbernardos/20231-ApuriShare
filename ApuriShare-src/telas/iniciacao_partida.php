@@ -17,7 +17,7 @@
     <?php
     $sql_code = "SELECT s.nome as snome, s.idsala as sidsala, u.nickname, s.QuantidadeMaximaUsuarios as qnt FROM sala as s inner join usuario as u";
     ?>
-    <a href="./Tela_Inicial.html"><button class="btnX btn btn-outline-dark"> X </button></a>
+    <a href="./tela_inicial.php"><button class="btnX btn btn-outline-dark"> X </button></a>
     <div class="esquerda">
         <h1><?php  echo $dados['qnt']; ?></h1>
     </div>

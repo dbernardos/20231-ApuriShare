@@ -39,8 +39,8 @@
         <a href="tela_inicial.php"><button class="btn btn-outline-dark"> X </button></a>
     </div>
     <center>
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
+        <br><br><br><br>
+        
         <div class="esquerda">
             <form action="criar_sala.php" method="POST">
                 <br>
@@ -62,7 +62,6 @@
                 </div>
                 <br>
                 <br>
-                <button class="btn btn-outline-dark btnApuri" name="btnEnviar" >Enviar</button>
             </form>
             <br>
         </div>
@@ -74,10 +73,10 @@
             <input type="text" name="txtAssunto" id="assunto" require> <br>
             <br>
             <h3>Primeiro Tempo</h3>
-            <input type="text" name="txtThink" require> <br>
+            <input type="number" name="txtThink" require> <br>
             <br>
             <h3>Segundo Tempo</h3>
-            <input type="text" name="txtPair" require> <br>
+            <input type="number" name="txtPair" require> <br>
             <br>
             <h3>Número Máximo de Pessoas</h3>
 
@@ -92,11 +91,11 @@
                 </select>
             </div>
             <br><br><br><br>
-            <input type="submit" name="submit" id="submit" class="btn btn-outline-dark btnApuri">
+            <input type="submit" id="submit" value="Criar Sala" class="btn btn-outline-dark btnApuri">
             <form>
-                <br><br><br>
+                <br><br>
                 <p><strong>Ps: Todos os campos devem ser preenchidos!</strong></p>
-                <br><br><br>
+                <br><br>
         </div>
 
         

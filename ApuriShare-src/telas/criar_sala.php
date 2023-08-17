@@ -9,7 +9,7 @@
         $tempoPair = $_POST['txtPair'];
         $usuarios = $_POST['QntUsers'];
 
-        $sql = mysqli_query($con, "INSERT into sala(nome, atividade, observacao, tempoThink, TempoPair, qntUsers)
+        $sql = mysqli_query($con, "INSERT into sala(nome, atividade, observacao, tempoThink, tempoPair, qntUsers)
         values ('$nome', '$atividade', '$observacao', '$tempoThink','$tempoPair','$usuarios')");
         header('Location: iniciacao_partida.php');
     }
@@ -63,13 +63,13 @@
         </div>
 
         <div class="direita">
-            </form>
+            <form action="criar_sala.php" method="POST">
             <br>
             <h3>Primeiro Tempo</h3>
-            <input type="number" name="txtThink" required> <br>
+            <input type="time" name="txtThink" required> <br>
             <br>
             <h3>Segundo Tempo</h3>
-            <input type="number" name="txtPair" required> <br>
+            <input type="time" name="txtPair" required> <br>
             <br>
             <h3>Número Máximo de Pessoas</h3>
 
@@ -78,7 +78,7 @@
             </div>
             <br><br><br><br>
             <input type="submit" name="submit" id="submit" value="Criar Sala" class="btn btn-outline-dark btnApuri">
-            <form>
+            </form>
                 <br><br>
                 <p><strong>Ps: Todos os campos devem ser preenchidos!</strong></p>
                 <br><br>

@@ -21,6 +21,13 @@ SET time_zone = "+00:00";
 -- Banco de dados: `apurishare`
 --
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `atividade`
+--
+
+CREATE TABLE `atividade` (
   `codigo` int(6) NOT NULL,
   `respostaThink` varchar(1000) NOT NULL,
   `respostaPair` varchar(1000) NOT NULL

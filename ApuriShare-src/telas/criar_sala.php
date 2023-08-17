@@ -9,10 +9,8 @@
         $tempoPair = $_POST['txtPair'];
         $usuarios = $_POST['QntUsers'];
 
-        $sql = mysqli_query($con, "INSERT into sala
-        (nome, atividade, observacao, tempoThink, TempoPair, qntUsers)
-        values ('$nome', '$atividade', '$observacao', '$tempoThink','$TempoPair','$usuarios')");
-        
+        $sql = mysqli_query($con, "INSERT into sala(nome, atividade, observacao, tempoThink, TempoPair, qntUsers)
+        values ('$nome', '$atividade', '$observacao', '$tempoThink','$tempoPair','$usuarios')");
         header('Location: iniciacao_partida.php');
     }
     else{
@@ -43,20 +41,20 @@
             <form action="criar_sala.php" method="POST">
                 <br>
                 <h3>Nome da Sala</h3>
-                <input type="text" name="txtNome" id="nome" require> <br>
+                <input type="text" name="txtNome" id="nome" required> <br>
                 <div class="textareas">
                     <br>
                     <h3>Atividade</h3>
-                    <textarea class="form-control textoarea" placeholder="Se João comprar um..." name="txtAtividade" id="atividade" require></textarea>
+                    <textarea class="form-control textoarea" placeholder="Se João comprar um..." name="txtAtividade" id="atividade" required></textarea>
                     <br>
                     <h3>Comentário</h3>
-                    <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtObservacao" id="comentario" require></textarea>
+                    <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtObservacao" id="comentario" required></textarea>
                 </div>
                 <br><br>
                 <h3>Adicionar Imagem</h3>
                 <br>
                 <div class="addImagem">
-                    <input type="file" name="imagem" id="imagem" require>
+                    <input type="file" name="imagem" id="imagem" required>
                 </div>
                 <br>
                 <br>
@@ -68,25 +66,18 @@
             </form>
             <br>
             <h3>Primeiro Tempo</h3>
-            <input type="number" name="txtThink" require> <br>
+            <input type="number" name="txtThink" required> <br>
             <br>
             <h3>Segundo Tempo</h3>
-            <input type="number" name="txtPair" require> <br>
+            <input type="number" name="txtPair" required> <br>
             <br>
             <h3>Número Máximo de Pessoas</h3>
 
             <div class="selecao">
-                <select class="form-select numPessoas" aria-label="Default select example">
-                    <option selected name="QntUsers">Escolha a Quantidade</option>
-                    <option value="2">2</option>
-                    <option value="8">8</option>
-                    <option value="12">12</option>
-                    <option value="18">18</option>
-                    <option value="22">22</option>
-                </select>
+                <input type="number" name="QntUsers" required>
             </div>
             <br><br><br><br>
-            <input type="submit" id="submit" value="Criar Sala" class="btn btn-outline-dark btnApuri">
+            <input type="submit" name="submit" id="submit" value="Criar Sala" class="btn btn-outline-dark btnApuri">
             <form>
                 <br><br>
                 <p><strong>Ps: Todos os campos devem ser preenchidos!</strong></p>

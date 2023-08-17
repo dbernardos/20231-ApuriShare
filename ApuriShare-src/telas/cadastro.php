@@ -4,14 +4,13 @@
         include_once('conexao.php');
         $nome = $_POST['nome'];
         $nickname = $_POST['nickname'];
-        $email = $_POST['email'];
         $senha = $_POST['senha'];
         $confsenha = $_POST['confsenha'];
 
         if($confsenha == $senha){
 
-        $sql = mysqli_query($con, "INSERT into usuario(nome, nickname, email, senha)
-        values ('$nome', '$nickname', '$email', '$senha')");
+        $sql = mysqli_query($con, "INSERT into usuario(nome, nickname, senha)
+        values ('$nome', '$nickname', '$senha')");
         
         header('Location: login.php');
         }
@@ -45,11 +44,6 @@
                 <div class="InputBox">
                     <label for="nickname">Nickname:</label><br>
                     <input type="text" name="nickname" id="nickname" required>
-                </div>
-                <br><br>
-                <div class="InputBox">
-                    <label for="email">Email:</label><br>
-                    <input type="email" name="email" id="email" required>
                 </div>
                 <br><br>
                 <div class="InputBox">

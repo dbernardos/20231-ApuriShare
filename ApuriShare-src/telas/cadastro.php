@@ -11,7 +11,6 @@
 
         $sql = mysqli_query($con, "INSERT into usuario(nome, nickname, senha)
         values ('$nome', '$nickname', '$senha')");
-        
         header('Location: login.php');
         }
         else{

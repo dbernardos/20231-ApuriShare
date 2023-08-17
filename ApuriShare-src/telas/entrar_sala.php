@@ -21,7 +21,7 @@
     <div class="centro">
         <h2>Insira o Código</h2> <br><br>
         <div class="cod">
-        <input type="text" name="txtCodigo" maxlength="7" placeholder="000-000">
+        <input type="text" name="txtCodigo" maxlength="6" placeholder="000-000">
         </div>
         <br>
         <button class="btn btn-outline-dark" name="btnEntrar">Entrar</button><br><br>

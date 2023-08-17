@@ -1,5 +1,18 @@
-<?php
-    include("conexao.php")
+<?php 
+    
+
+
+    if(isset($_POST['submit'])){
+      
+        include_once('conexao.php');
+        $chaveAcesso = $_POST['txtCodigo'];
+
+        $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
+        header('Location: salaEspera.php');
+    }
+    else{
+        print_r("erro");
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,17 +37,8 @@
         <input type="text" name="txtCodigo" maxlength="6" placeholder="000-000">
         </div>
         <br>
-        <button class="btn btn-outline-dark" name="btnEntrar">Entrar</button><br><br>
+        <input type="submit" value="Entrar" class="btn btn-outline-dark btnEntrar" name="btnEntrar" id="btnEntrar"><br><br>
     </div>
-
-<?php
-    $sql_code = "SELECT idsala FROM sala";
-        
-        if(isset($_POST['btnEntrar'])){
-            $pesquisa = $_POST['txtCodigo'];
-            $sql_code = "SELECT * FROM sala WHERE idsala like '%$pesquisa%'";
-        }
-?>
 
 </body>
 </html>

@@ -36,9 +36,8 @@
     </div>
     <center>
         <br><br><br><br>
-        
+        <form action="criar_sala.php" method="POST">
         <div class="esquerda">
-            <form action="criar_sala.php" method="POST">
                 <br>
                 <h3>Nome da Sala</h3>
                 <input type="text" name="txtNome" id="nome" required> <br>
@@ -58,12 +57,10 @@
                 </div>
                 <br>
                 <br>
-            </form>
             <br>
         </div>
 
         <div class="direita">
-            <form action="criar_sala.php" method="POST">
             <br>
             <h3>Primeiro Tempo</h3>
             <input type="time" name="txtThink" required> <br>
@@ -78,12 +75,11 @@
             </div>
             <br><br><br><br>
             <input type="submit" name="submit" id="submit" value="Criar Sala" class="btn btn-outline-dark btnApuri">
-            </form>
                 <br><br>
                 <p><strong>Ps: Todos os campos devem ser preenchidos!</strong></p>
                 <br><br>
         </div>
-
+        </form>
         
     </center>
 </body>

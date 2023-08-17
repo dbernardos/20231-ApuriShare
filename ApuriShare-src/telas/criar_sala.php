@@ -4,16 +4,14 @@
         include_once('conexao.php');
         $nome = $_POST['txtNome'];
         $atividade = $_POST['txtAtividade'];
-        $comentario = $_POST['txtComentario'];
-        $imagem = $_POST['imagem'];
-        $assunto = $_POST['txtThink'];
-        $tempoThink = $_POST['txtPair'];
-        $tempoPair = $_POST['txtassunto'];
+        $observacao = $_POST['txtObservacao'];
+        $tempoThink = $_POST['txtThink'];
+        $tempoPair = $_POST['txtPair'];
         $usuarios = $_POST['QntUsers'];
 
         $sql = mysqli_query($con, "INSERT into sala
-        (nome, atividade, comentario, enderecoImagem, assunto, tempoThink, TempoPair, QuantidadeMaximaUsuarios)
-        values ('$nome', '$atividade', '$comentario', '$imagem','$assunto','$tempoThink','$TempoPair','$usuarios')");
+        (nome, atividade, observacao, tempoThink, TempoPair, qntUsers)
+        values ('$nome', '$atividade', '$observacao', '$tempoThink','$TempoPair','$usuarios')");
         
         header('Location: iniciacao_partida.php');
     }
@@ -52,7 +50,7 @@
                     <textarea class="form-control textoarea" placeholder="Se João comprar um..." name="txtAtividade" id="atividade" require></textarea>
                     <br>
                     <h3>Comentário</h3>
-                    <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtComentario" id="comentario" require></textarea>
+                    <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtObservacao" id="comentario" require></textarea>
                 </div>
                 <br><br>
                 <h3>Adicionar Imagem</h3>
@@ -68,9 +66,6 @@
 
         <div class="direita">
             </form>
-            <br>
-            <h3>Assunto/Materia</h3>
-            <input type="text" name="txtAssunto" id="assunto" require> <br>
             <br>
             <h3>Primeiro Tempo</h3>
             <input type="number" name="txtThink" require> <br>

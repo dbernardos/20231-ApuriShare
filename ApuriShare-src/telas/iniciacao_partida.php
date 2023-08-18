@@ -1,5 +1,5 @@
 <?php
-    include_once("conexao.php")
+    include_once("conexao.php");
 
     $sql_code = "SELECT * FROM sala";
     

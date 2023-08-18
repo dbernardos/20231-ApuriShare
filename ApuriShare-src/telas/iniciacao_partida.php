@@ -1,8 +1,11 @@
 <?php
     include_once("conexao.php");
 
-    $sql_code = "SELECT * FROM sala";
-    
+    session_start();
+    $nome_user = $_SESSION['nickname'];
+
+    $sql_code = "SELECT * FROM sala as s INNER JOIN sala_usuario as su ON s.chaveAcesso = su.fk_sala WHERE su.fk_usuario = '$nome_user'";
+
     $sql_query = $con->query($sql_code);
     if($con->affected_rows > 0){
         while($dados = $sql_query->fetch_assoc()){

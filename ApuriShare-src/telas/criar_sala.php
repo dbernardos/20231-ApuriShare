@@ -1,7 +1,7 @@
 <?php 
-    if(isset($_POST['submit'])){
-
-        include_once('conexao.php');
+    include_once('conexao.php');
+    
+    if(isset($_POST['btnCriarSala'])){   
         $nome = $_POST['txtNome'];
         $atividade = $_POST['txtAtividade'];
         $observacao = $_POST['txtObservacao'];
@@ -14,7 +14,7 @@
         header('Location: iniciacao_partida.php');
     }
     else{
-        print_r("erro");
+        print_r("Não foi possível cadastrar uma nova sala. Reveja os seus dados e tente novamente.");
     }
 ?>
 <!DOCTYPE html>
@@ -74,7 +74,7 @@
                 <input type="number" name="QntUsers" required>
             </div>
             <br><br><br><br>
-            <input type="submit" name="submit" id="submit" value="Criar Sala" class="btn btn-outline-dark btnApuri">
+            <input type="submit" name="btnCriarSala" id="btnCriarSala" value="Criar Sala" class="btn btn-outline-dark btnApuri">
                 <br><br>
                 <p><strong>Ps: Todos os campos devem ser preenchidos!</strong></p>
                 <br><br>

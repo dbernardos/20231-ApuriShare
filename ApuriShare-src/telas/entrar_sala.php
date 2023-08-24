@@ -8,7 +8,7 @@
         header('Location: salaEspera.php');
     }
     else{
-        print_r("erro");
+        print_r("Erro");
     }
 ?>
 <!DOCTYPE html>

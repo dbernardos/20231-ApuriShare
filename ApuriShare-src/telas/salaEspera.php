@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
     include_once('conexao.php');
 
     session_start();
@@ -11,6 +12,12 @@
     $sql_query = $con->query($sql_code);
         while($dados = mysqli_fetch_assoc($sql_query)){ 
 
+=======
+    include('conexao.php')
+    
+    $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
+    
+>>>>>>> 106533f165882736c65d4a3f70a943ad97c02ad5
 ?>
 
 <!DOCTYPE html>

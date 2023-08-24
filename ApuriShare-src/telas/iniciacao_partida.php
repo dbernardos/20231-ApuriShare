@@ -1,5 +1,5 @@
 <?php
-    include_once("conexao.php");
+    include_once('conexao.php');
 
     session_start();
     $nome_user = $_SESSION['nickname'];

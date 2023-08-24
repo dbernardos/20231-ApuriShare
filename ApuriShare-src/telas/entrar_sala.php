@@ -1,7 +1,7 @@
 <?php 
+    include_once('conexao.php');
+
     if(isset($_POST['btnEntrar'])){
-      
-        include_once('conexao.php');
         $chaveAcesso = $_POST['txtCodigo'];
 
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");

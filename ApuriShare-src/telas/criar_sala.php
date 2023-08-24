@@ -53,7 +53,7 @@
                 <h3>Adicionar Imagem</h3>
                 <br>
                 <div class="addImagem">
-                    <input type="file" name="imagem" id="imagem" required>
+                    <input type="file" name="imagem" id="imagem">
                 </div>
                 <br>
                 <br>

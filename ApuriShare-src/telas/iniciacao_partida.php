@@ -4,11 +4,12 @@
     session_start();
     $nome_user = $_SESSION['nickname'];
 
-    $sql_code = "SELECT * FROM sala as s INNER JOIN sala_usuario as su ON s.chaveAcesso = su.fk_sala WHERE su.fk_usuario = '$nome_user'";
+    $sql_code = "SELECT * FROM sala";
+    //SELECT * FROM sala as s INNER JOIN sala_usuario as su ON s.chaveAcesso = su.fk_sala 
+    //WHERE su.fk_usuario = '$nome_user'
 
     $sql_query = $con->query($sql_code);
-    if($con->affected_rows > 0){
-        while($dados = $sql_query->fetch_assoc()){
+        while($dados = mysqli_fetch_assoc($sql_query)){
 ?>
 
 <!DOCTYPE html>
@@ -32,11 +33,11 @@
     <br><br>
     <h3>Clique no botão para a iniciar a atividade!</h3>
     <br><br>
-    <button class="btn btn-outline-dark">Iniciar</button>
+    <input type="submit" value="btnIniciarSala"  class="btn btn-outline-dark">
     <br><br>
 </div>
 
-<?php } }?>
+<?php }?>
 
 </body>
 </html>

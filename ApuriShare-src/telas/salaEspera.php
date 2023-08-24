@@ -1,8 +1,16 @@
 <?php
-    include("conexao.php")
-    
-    $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
-    
+    include_once('conexao.php');
+
+    session_start();
+    $nome_user = $_SESSION['nickname'];
+
+    $sql_code = "SELECT * FROM sala";
+    //SELECT * FROM sala as s INNER JOIN sala_usuario as su ON s.chaveAcesso = su.fk_sala 
+    //WHERE su.fk_usuario = '$nome_user'
+
+    $sql_query = $con->query($sql_code);
+        while($dados = mysqli_fetch_assoc($sql_query)){ 
+
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +35,6 @@
     <h3>Aguarde até a atividade<br>ser iniciada!</h3>
     <br><br>
     </div>
-
+<?php } ?>
 </body>
 </html>

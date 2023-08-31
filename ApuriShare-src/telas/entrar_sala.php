@@ -4,11 +4,16 @@
     if(isset($_POST['btnEntrar'])){
         $chaveAcesso = $_POST['txtCodigo'];
 
-        $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
+        $sql = "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'";
+        $sql_query = $con->query($sql);
+
+        // Iniciar a sessão ou retomá-la, se já existir
+        session_start();
+
+        // Armazenar a variável $chaveAcesso na sessão
+        $_SESSION['chaveAcesso'] = $chaveAcesso;
+
         header('Location: salaEspera.php');
-    }
-    else{
-        print_r("Erro");
     }
 ?>
 <!DOCTYPE html>
@@ -29,12 +34,14 @@
     </div>
     <br>
     <div class="centro">
+        <form method="POST">
         <h2>Insira o Código</h2> <br><br>
         <div class="cod">
         <input type="text" name="txtCodigo" maxlength="6" placeholder="ID Sala">
         </div>
         <br>
         <input type="submit" value="Entrar" class="btn btn-outline-dark btnEntrar" name="btnEntrar" id="btnEntrar"><br><br>
+        </form>
     </div>
 
 </body>

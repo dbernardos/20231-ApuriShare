@@ -1,19 +1,24 @@
 <?php
-    include('conexao.php');
+    include_once('conexao.php');
 
-    $sql = mysqli_query($con, "SELECT s.atividade as aatividade, s.tempoThink as stempoThink, su.fk_usuario as sufk_usuario, a.respostaThink as arespostaThink 
-    FROM sala as s INNER JOIN sala_usuario as su INNER JOIN atividade as a ");
+    session_start();
+    $nome_user = $_SESSION['nickname'];
+    if(isset($_POST['submit'])){
 
+        $respostaThink = $_POST['txtRespostaThink'];
 
-    if(isset($_POST['btnEnviar'])){
-        $resposta = $_POST['txtResposta'];
-        
-        $sql = mysqli_query($con, "INSERT INTO atividade(respostaThink) values('$resposta')");
-        header('Location: iniciacao_partida.php');
-    }else{
-        print_r("Não foi possível enviar sua resposta.");
-    }
-    ?>
+        $sql = mysqli_query($con, "INSERT into atividade(respostaThink)
+        values ('$respostaThink')");
+        }
+        else{
+            print_r("erro");
+        }
+
+    $sql_code = "SELECT * FROM sala";
+
+    $sql_query = $con->query($sql_code);
+        while($dados = mysqli_fetch_assoc($sql_query)){
+?>
 
     <!DOCTYPE html>
 <html>
@@ -28,17 +33,18 @@
 <body>
     <center>
         <div class="cabecalho">
-        <h2>00:00</h2>
+        <h2> <?php echo $dados['tempoThink']?> </h2>
     </div>
     <div class="atividade">
-        <h3>Professor</h3>
-        <p>2+2+4</p>
+        <h3> <?php echo $dados['nome']?> </h3>
+        <p> <?php echo $dados['atividade']?> </p>
     </div>
     <div class="resposta">
         <h3>usuario</h3>
-        <textarea class="form-control textoarea" placeholder="Escreva sua resposta" name="txtResposta" id="resposta" required></textarea>
+        <textarea class="form-control textoarea" placeholder="Escreva sua resposta" name="txtRespostaThink" id="resposta" required></textarea>
         <input type="submit" value="Enviar" id="btnEnviar" class="btn btn-outline-dark btnEnviar">
     </div>
     </center>
+    <?php } ?>
 </body>
 </html>

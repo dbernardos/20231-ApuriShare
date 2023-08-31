@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     include_once('conexao.php');
     
     if(isset($_POST['btnCriarSala'])){   
@@ -11,10 +12,15 @@
 
         $sql = mysqli_query($con, "INSERT into sala(nome, atividade, observacao, tempoThink, tempoPair, qntUsers)
         values ('$nome', '$atividade', '$observacao', '$tempoThink','$tempoPair','$usuarios')");
+
+        $usuario = $_SESSION['nickname'];
+        //if (mysqli_query($con, $sql)) {
+            // Obter o ID do último registro inserido
+            $ultimo_id = mysqli_insert_id($con);
+        
+        $sql = mysqli_query($con, "INSERT INTO sala_usuario(fk_sala, fk_usuario) values ('$ultimo_id', '$usuario')");
+
         header('Location: iniciacao_partida.php');
-    }
-    else{
-        print_r("Não foi possível cadastrar uma nova sala. Reveja os seus dados e tente novamente.");
     }
 ?>
 <!DOCTYPE html>

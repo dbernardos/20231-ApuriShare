@@ -136,3 +136,7 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2023-08-18  0:56:34
+
+INSERT INTO `sala_usuario` (`id_sala_usuario`, `fk_sala`, `fk_usuario`) VALUES (NULL, '18', 'raque.lis');
+INSERT INTO `sala_usuario` (`id_sala_usuario`, `fk_sala`, `fk_usuario`) VALUES (NULL, '1', 'raque.lis');
+INSERT INTO `sala_usuario` (`id_sala_usuario`, `fk_sala`, `fk_usuario`) VALUES (NULL, '10', 'italo.ramos');

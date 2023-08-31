@@ -10,8 +10,6 @@
         
         $sql = mysqli_query($con, "INSERT INTO atividade(respostaThink) values('$resposta')");
         header('Location: iniciacao_partida.php');
-    }else{
-        print_r("Não foi possível enviar sua resposta.");
     }
     ?>
 

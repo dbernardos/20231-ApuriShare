@@ -7,9 +7,6 @@
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
         header('Location: salaEspera.php');
     }
-    else{
-        print_r("Erro");
-    }
 ?>
 <!DOCTYPE html>
 <html>

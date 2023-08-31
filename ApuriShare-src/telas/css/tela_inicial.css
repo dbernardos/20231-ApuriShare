@@ -1,14 +1,13 @@
 .centro{
     background-color:rgba(233, 219, 201, 0.877);
     border-radius: 25px;
-    border: 1px solid black;
     margin-top: 10%;
     margin-left: 20%;
     margin-right: 20%;
 }
 .centro h1{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin-top: 6%;
+    margin-top: 10%;
     font-size: 400%;
 }
 .centro p{
@@ -25,6 +24,7 @@
 .botoes button{
     font-size: 300%;
     background-color:rgb(87, 148, 218);
+    border: rgba(0, 0, 0, 0);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .centro a{

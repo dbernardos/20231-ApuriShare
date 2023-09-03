@@ -17,21 +17,6 @@ p{
     background-color:rgb(82, 147, 221);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.cabecalho button{
-    margin-right: 50px;
-    background-color: rgb(82, 147, 221);
-}
-.cabecalho{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    float: left;
-}
 .selecao{
     margin-left: 20%;
     margin-right: 20%;

@@ -1,17 +1,3 @@
-<?php 
-
-    session_start();
-    include_once('conexao.php');
-
-    if((!isset($_SESSION['nickname']) == true) and (!isset($_SESSION['senha']) == true)){
-
-        unset($_SESSION['nickname']);
-        unset($_SESSION['senha']);
-        header('Location: login.php');
-    }
-    $dados = $_SESSION['nickname'];
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -19,19 +5,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="./css/geral.css">
     <link rel="stylesheet" href="./css/tela_inicial.css">
     <meta charset="UTF-8">
     <title>ApuriShare</title>
 </head>
 <body>
-    <div class="cabecalho">
-        <h2>ApuriShare</h2>
-        <?php 
-            echo "<h3> $dados</h3>";
-        ?>
-    </div>
-
-    <br><br>
+<?php include('menu.php');?>
 <center>
     <div class="centro">
         <h1>Entre ou Crie Salas</h1><br><br>

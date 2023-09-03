@@ -1,14 +1,3 @@
-.cabecalho button{
-    margin-right: 50px;
-    background-color: rgb(82, 147, 221);
-}
-.cabecalho{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: black;
-    width: 100%;
-}
 h1{
     align-self: center;
     color: white;

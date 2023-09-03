@@ -21,6 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./css/iniciacao_partida.css">
+    <meta http-equiv="refresh" content="10"> <!-- Atualiza a página a cada 10 segundos -->
     <meta charset="UTF-8">
     <title>ApuriShare</title>
 </head>
@@ -33,7 +34,17 @@
     <div class="centro">
     <h1><?php echo $dados['nome']; ?></h1>
     <br><br>
-    <h3>Aguarde até a atividade<br>ser iniciada!</h3>
+
+    <?php 
+        if($dados['statusSala'] === 'criada'){
+            echo "<h3>Aguarde até a atividade ser iniciada!</h3>";
+        }else if($dados['statusSala'] === 'iniciada'){
+            header('Location: think.php');
+        }else{
+            echo "<h3>A sala solicitada foi finalizada!</h3>";
+        }
+    ?>
+    
     <br><br>
     </div>
 </body>

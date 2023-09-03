@@ -43,8 +43,10 @@ CREATE TABLE `sala` (
   `chaveAcesso` int(6) NOT NULL,
   `atividade` varchar(1000) NOT NULL,
   `observacao` varchar(100) DEFAULT NULL,
+  `arquivo` varchar(100) DEFAULT NULL,
   `nome` varchar(45) NOT NULL,
   `qntUsers` int(3) NOT NULL,
+  `statusSala` enum('criada', 'iniciada', 'finalizada') NOT NULL DEFAULT ('criada'),
   `tempoThink` time DEFAULT NULL,
   `tempoPair` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -54,17 +56,19 @@ CREATE TABLE `sala` (
 --
 
 INSERT INTO `sala` (`chaveAcesso`, `atividade`, `observacao`, `nome`, `qntUsers`, `tempoThink`, `tempoPair`) VALUES
-(1, 'java e javascript sao iguais?', 'nao', 'java', 12, '00:00:02', '00:00:02'),
-(7, 'dsgdfgb', 'sdvv', 'rgdv', 3, '00:02:00', '00:02:00'),
-(8, 'hdxh', 'hdxhdxhrt', 'frbhrsd', 6, '00:02:00', '00:02:00'),
-(9, 'dddd', 'dddd', 'rgdv', 2, '04:04:00', '04:04:00'),
-(10, 'atividade teste', 'comentario teste', 'SalaTeste', 2, '03:08:00', '01:08:00'),
-(11, 'atividade teste', 'comentario teste', 'SalaTeste', 2, '03:08:00', '01:08:00'),
-(18, '4*2', '8', 'matematica', 4, '00:02:00', '00:02:00'),
-(19, 'plantas', 'musgos', 'biologia', 3, '00:02:00', '00:02:00'),
-(28, 'plnatas', 'pinheiro', 'biologia', 4, '00:02:00', '00:02:00'),
-(29, 'plnatas', 'pinheiro', 'biologia', 4, '00:02:00', '00:02:00'),
-(30, 'primeira guerra', 'importante', 'historia', 4, '00:02:00', '00:02:00');
+(7, 'Fale o que você sabe sobre SQL', 'sdvv', 'banco de dados', 4, '00:05:00', '00:05:00'),
+(8, 'hdxh', 'hdxhdxhrt', 'programação', 6, '00:05:00', '00:05:00'),
+(9, 'dddd', 'dddd', 'filosofia', 2, '04:04:00', '04:04:00'),
+(10, 'atividade teste', 'comentario teste', 'programação', 2, '00:05:00', '00:05:00'),
+(11, 'atividade teste', 'comentario teste', 'programação', 2, '00:05:00', '00:05:00'),
+(18, 'Resolver a equação do sengundo grau: 4x2+3x+1', 'equação', 'matematica', 4, '00:05:00', '00:05:00'),
+(19, 'plantas', 'musgos', 'biologia', 4, '00:05:00', '00:05:00'),
+(28, 'plnatas', 'pinheiro', 'biologia', 4, '00:05:00', '00:05:00'),
+(29, 'plnatas', 'fotossíntese', 'biologia', 4, '00:05:00', '00:05:00'),
+(30, 'primeira guerra', 'importante', 'historia', 4, '00:05:00', '00:05:00');
+
+INSERT INTO `sala` (`chaveAcesso`, `atividade`, `observacao`, `nome`, `qntUsers`, `tempoThink`, `tempoPair`, `statusSala`) VALUES
+(1, 'java e javascript sao iguais?', 'nao', 'java', 12, '00:05:00', '00:05:00', 'iniciada');
 
 -- --------------------------------------------------------
 
@@ -83,12 +87,18 @@ CREATE TABLE `sala_usuario` (
 --
 
 INSERT INTO `sala_usuario` (`id_sala_usuario`, `fk_sala`, `fk_usuario`) VALUES
-(1, 18, 'raque.lis'),
-(2, 1, 'raque.lis'),
+(1, 1, 'raque.lis'),
+(2, 11, 'raque.lis'),
 (3, 10, 'italo.ramos'),
+(4, 7, 'raque.lis'),
+(5, 8, 'raque.lis'),
+(6, 9, 'raque.lis'),
+(7, 18, 'raque.lis'),
+(8, 19, 'raque.lis'),
 (11, 28, 'italo.ramos'),
 (12, 29, 'italo.ramos'),
 (13, 30, 'italo.ramos');
+
 
 -- --------------------------------------------------------
 

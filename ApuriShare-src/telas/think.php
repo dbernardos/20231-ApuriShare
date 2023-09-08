@@ -3,7 +3,8 @@
 
     session_start();
     $nome_user = $_SESSION['nickname'];
-    if(isset($_POST['submit'])){
+
+    if(isset($_POST['btnEnviar'])){
 
         $respostaThink = $_POST['txtRespostaThink'];
 
@@ -11,13 +12,15 @@
         values ('$respostaThink')");
         }
         else{
-            print_r("erro");
+           echo "erro!";
         }
 
-    $sql_code = "SELECT * FROM sala";
+        //$id_respostaThink = mysqli_insert_id($con);
+        //$_SESSION['codigo'] = $id_resposta;
 
-    $sql_query = $con->query($sql_code);
-        while($dados = mysqli_fetch_assoc($sql_query)){
+        $chaveAcesso = $_SESSION['chaveAcesso'];
+        $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
+        while($dados = mysqli_fetch_assoc($sql)){
 ?>
 
     <!DOCTYPE html>
@@ -32,6 +35,7 @@
 </head>
 <body>
     <center>
+    <form action="think.php" method="POST">
         <div class="cabecalho">
         <h2> <?php echo $dados['tempoThink']?> </h2>
     </div>
@@ -42,8 +46,9 @@
     <div class="resposta">
         <h3>usuario</h3>
         <textarea class="form-control textoarea" placeholder="Escreva sua resposta" name="txtRespostaThink" id="resposta" required></textarea>
-        <input type="submit" value="Enviar" id="btnEnviar" class="btn btn-outline-dark btnEnviar">
+        <input type="submit" value="Enviar" name="btnEnviar" class="btn btn-outline-dark btnEnviar">
     </div>
+    </form>
     </center>
     <?php } ?>
 </body>

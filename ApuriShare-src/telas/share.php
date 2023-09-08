@@ -1,9 +1,13 @@
 <?php 
     include_once('conexao.php');
 
+    session_start();
+    $nome_user = $_SESSION['nickname'];
 
+        $chaveAcesso = $_SESSION['chaveAcesso'];
 
-
+        $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
+        while($dados = mysqli_fetch_assoc($sql)){
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,9 +30,9 @@
 <br><br>
 <div class="border border-bottom-0 atividade">
     <br>
-    <h1>Atividade<!--<?php  echo $dados['nome']; ?>--></h1>
+    <h1> <?php  echo $dados['nome']; ?> </h1>
     <br>
-    <p>blablab lablabla blablabl ablab labl ablabl ablab lablabl a) b) c)<!--<?php  echo $dados['atividade']; ?>--></p>
+    <p> <?php  echo $dados['atividade']; ?> </p>
 </div>
 <br>
 <div class="respShare">
@@ -40,11 +44,12 @@
 <br>
 <div class="resposta">
     <h4>Resposta Correta:</h4><br>
-    <p>a)<!--<?php  echo $dados['abservacao']; ?>--></p>
+    <p> <?php  echo $dados['observacao']; ?></p>
     <br>
 </div>
 
         </center>
+        <?php } ?>
     </form>
     
 

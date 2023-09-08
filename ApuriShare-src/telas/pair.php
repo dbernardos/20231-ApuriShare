@@ -1,14 +1,28 @@
 <?php
     include('conexao.php');
 
+    session_start();
+    $nome_user = $_SESSION['nickname'];
 
     if(isset($_POST['btnEnviar'])){
-        $resposta = $_POST['txtResposta'];
-        
-        $sql = mysqli_query($con, "");
-    }else{
-        print_r("Não foi possível enviar sua resposta.");
-    }
+
+        $respostaPair = $_POST['txtRespostaPair'];
+
+        $sql = mysqli_query($con, "INSERT into atividade(respostaPair)
+        values ('$respostaPair')");
+
+        }
+        else{
+           echo "erro!";
+        }
+
+        $chaveAcesso = $_SESSION['chaveAcesso'];
+        //$id_respostaThink = $_SESSION['codigo'];
+
+        $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
+        //$sql = mysqli_query($con, "SELECT * from atividade WHERE codigo = '$id_respostaThink'");
+
+        while($dados = mysqli_fetch_assoc($sql)){
     ?>
 
     <!DOCTYPE html>
@@ -23,26 +37,27 @@
 </head>
 <body>
     <center>
+        <form action="pair.php" method="POST">
         <div class="cabecalho">
-        <h2>00:00</h2>
+        <h2> <?php echo $dados['tempoPair']?></h2>
     </div>
     <div class="atividade">
         <br>
-        <h3>Atividade Teste</h3>
-        <p>2+2+4</p><!-- Depois substituir<p><?php echo $dados['atividade']; ?></p>-->
+        <h3> <?php echo $dados['nome']?></h3>
+        <p> <?php echo $dados['atividade']?> </p>
         
     </div>
     <div class="respShare">
         <br>
         <h3>Resposta em conjunto</h3>
-        <textarea class="form-control textoarea" placeholder="Escreva sua resposta" name="txtResposta" id="resposta" required></textarea>
-        <input type="submit" value="Enviar" id="btnEnviar" class="btn btn-outline-dark btnEnviar">
+        <textarea class="form-control textoarea" placeholder="Escreva sua resposta" name="txtRespostaPair" id="resposta" required></textarea>
+        <input type="submit" value="Enviar" name="btnEnviar" class="btn btn-outline-dark btnEnviar">
     </div>
     <div class="respostas">
         <div class="resp1">
             <br>
-            <h3>usuario1</h3>
-            <p>testetestetestetestetesteteste</p><!--<p><?php echo $dados['']; ?></p>-->
+            <h3> <?php echo $nome_user ?> </h3>
+            <p> <?php echo $dados['respostaThink'] ?></p>
         </div>
         <br><br>
         <div class="resp2">
@@ -50,7 +65,8 @@
             <p>testetestetestetestetesteteste</p><!--<p><?php echo $dados['']; ?></p>-->
         </div>
     </div>
-    
+        </form>
     </center>
+    <?php } ?>
 </body>
 </html>

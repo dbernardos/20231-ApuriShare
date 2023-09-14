@@ -3,10 +3,13 @@
 
     session_start();
     $nome_user = $_SESSION['nickname'];
+    $id_respostaThink = $_SESSION['codigo'];
 
         $chaveAcesso = $_SESSION['chaveAcesso'];
 
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
+        $sql_id = mysqli_query($con, "SELECT * from atividade WHERE codigo = '$id_respostaThink'");
+
         while($dados = mysqli_fetch_assoc($sql)){
 ?>
 <!DOCTYPE html>
@@ -25,7 +28,7 @@
 <br>
 <div class="cabecalho">
         <h2>Finalização da Atividade</h2>
-        <a href="./tela_inicial.php"><button class="btnX btn btn-outline-dark"> X </button></a>
+        <a href="./tela_inicial.php" class="btnX btn btn-outline-dark"> X </a>
 </div>
 <br><br>
 <div class="border border-2 atividade">
@@ -38,7 +41,9 @@
 <div class="border border-2 respShare">
     <H3>Resposta dos Participantes</H3>
     <h4>Jorge e Mathues<!--<?php  echo $dados['fk.usuarios']; ?>--></h4>
-    <p>b)<!--<?php  echo $dados['respostaPair']; ?>--></p>
+    <p><?php while($resposta = mysqli_fetch_assoc($sql_id)){
+                echo $resposta['respostaPair']; 
+            }?></p>
     <br>
 </div>
 <br>

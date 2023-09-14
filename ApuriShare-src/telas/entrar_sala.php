@@ -1,6 +1,6 @@
 <?php 
     include_once('conexao.php');
-
+    
     if(isset($_POST['btnEntrar'])){
         $chaveAcesso = $_POST['txtCodigo'];
 

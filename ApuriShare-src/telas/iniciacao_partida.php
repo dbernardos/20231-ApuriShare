@@ -2,6 +2,7 @@
     include_once('conexao.php');
 
     session_start();
+    
     $nome_user = $_SESSION['nickname'];
 
     $sql_code = "SELECT * FROM sala as s 

@@ -12,9 +12,9 @@
 ?>
 
 <div class="cabecalho">
-        <h2>ApuriShare</h2>
+        <h2><a href='tela_inicial.php'>ApuriShare</a></h2>
         <?php
-            echo "<h3><a href='tela_inicial.php'> $dados</a></h3>";
+            echo "<h3> $dados</h3>";
         ?>
 </div>
 <br><br>

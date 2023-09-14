@@ -16,27 +16,11 @@ form{
     margin-right: 50px;
 }
 .atividade{
-    width: 40%; 
-    margin-left: 10%;
-    margin-right: auto;
-    float:left;
-    background-color:rgba(153, 204, 224, 0.493);
-    border-radius: 10px;
     
 }
 .resposta{
-    width: 40%; 
-    margin-left: 10%;
-    margin-right: auto;
-    float:left;
-    background-color:rgba(0, 123, 172, 0.493);
-    border-radius: 10px;
+    
 }
 .respShare{
-    width: 40%; 
-    margin-left: 10%;
-    margin-right: auto;
-    float:left;
-    background-color:rgba(0, 123, 172, 0.493);
-    border-radius: 10px;
+    
 }

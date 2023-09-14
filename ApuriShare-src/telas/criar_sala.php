@@ -18,6 +18,7 @@
         //if (mysqli_query($con, $sql)) {
             // Obter o ID do último registro inserido
             $ultimo_id = mysqli_insert_id($con);
+            $_SESSION['idsala'] = $ultimo_id;
         
         $sql = mysqli_query($con, "INSERT INTO sala_usuario(fk_sala, fk_usuario) values ('$ultimo_id', '$usuario')");
 

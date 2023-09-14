@@ -10,6 +10,8 @@
 
         $sql = mysqli_query($con, "INSERT into atividade(respostaThink)
         values ('$respostaThink')");
+
+        header('Location: pair.php');
         }
         else{
            echo "erro!";
@@ -44,7 +46,7 @@
         <p> <?php echo $dados['atividade']?> </p>
     </div>
     <div class="resposta">
-        <h3>usuario</h3>
+        <h3><?php echo $nome_user ?></h3>
         <textarea class="form-control textoarea" placeholder="Escreva sua resposta" name="txtRespostaThink" id="resposta" required></textarea>
         <input type="submit" value="Enviar" name="btnEnviar" class="btn btn-outline-dark btnEnviar">
     </div>

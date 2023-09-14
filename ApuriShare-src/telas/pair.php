@@ -12,6 +12,7 @@
         $sql = mysqli_query($con, "UPDATE atividade SET respostaPair = '$respostaPair' 
         where codigo = '$id_respostaThink'");
 
+        header('Location: share.php');
         }
         else{
            echo "erro!";

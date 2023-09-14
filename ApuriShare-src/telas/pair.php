@@ -3,13 +3,14 @@
 
     session_start();
     $nome_user = $_SESSION['nickname'];
+    $id_respostaThink = $_SESSION['codigo'];
 
     if(isset($_POST['btnEnviar'])){
 
         $respostaPair = $_POST['txtRespostaPair'];
 
-        $sql = mysqli_query($con, "INSERT into atividade(respostaPair)
-        values ('$respostaPair')");
+        $sql = mysqli_query($con, "UPDATE atividade SET respostaPair = '$respostaPair' 
+        where codigo = '$id_respostaThink'");
 
         }
         else{
@@ -17,10 +18,10 @@
         }
 
         $chaveAcesso = $_SESSION['chaveAcesso'];
-        //$id_respostaThink = $_SESSION['codigo'];
 
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
-        //$sql = mysqli_query($con, "SELECT * from atividade WHERE codigo = '$id_respostaThink'");
+        $sql_id = mysqli_query($con, "SELECT * from atividade WHERE codigo = '$id_respostaThink'");
+
 
         while($dados = mysqli_fetch_assoc($sql)){
     ?>
@@ -57,7 +58,11 @@
         <div class="resp1">
             <br>
             <h3> <?php echo $nome_user ?> </h3>
-            <p> <?php echo $dados['respostaThink'] ?></p>
+            <p> <?php
+            while($resposta = mysqli_fetch_assoc($sql_id)){
+                echo $resposta['respostaThink']; 
+            }
+             ?></p>
         </div>
         <br><br>
         <div class="resp2">

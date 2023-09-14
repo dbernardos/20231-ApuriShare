@@ -15,8 +15,8 @@
            echo "erro!";
         }
 
-        //$id_respostaThink = mysqli_insert_id($con);
-        //$_SESSION['codigo'] = $id_resposta;
+        $id_respostaThink = mysqli_insert_id($con);
+        $_SESSION['codigo'] = $id_respostaThink;
 
         $chaveAcesso = $_SESSION['chaveAcesso'];
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");

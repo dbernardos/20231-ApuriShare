@@ -28,21 +28,21 @@
         <a href="./tela_inicial.php"><button class="btnX btn btn-outline-dark"> X </button></a>
 </div>
 <br><br>
-<div class="border border-bottom-0 atividade">
+<div class="border border-2 atividade">
     <br>
     <h1> <?php  echo $dados['nome']; ?> </h1>
     <br>
     <p> <?php  echo $dados['atividade']; ?> </p>
 </div>
 <br>
-<div class="respShare">
+<div class="border border-2 respShare">
     <H3>Resposta dos Participantes</H3>
     <h4>Jorge e Mathues<!--<?php  echo $dados['fk.usuarios']; ?>--></h4>
     <p>b)<!--<?php  echo $dados['respostaPair']; ?>--></p>
     <br>
 </div>
 <br>
-<div class="resposta">
+<div class="border border-2 resposta">
     <h4>Resposta Correta:</h4><br>
     <p> <?php  echo $dados['observacao']; ?></p>
     <br>

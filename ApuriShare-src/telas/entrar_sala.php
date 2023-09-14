@@ -35,7 +35,7 @@
         <form method="POST">
         <h2>Insira o Código</h2> <br><br>
         <div class="cod">
-        <input type="text" name="txtCodigo" maxlength="6" placeholder="ID Sala">
+        <input type="text" name="txtCodigo" maxlength="6" placeholder="Insira o Código">
         </div>
         <br>
         <input type="submit" value="Entrar" class="btn btn-outline-dark btnEntrar" name="btnEntrar" id="btnEntrar"><br><br>

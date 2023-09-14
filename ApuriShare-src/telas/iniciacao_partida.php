@@ -12,6 +12,13 @@
     //SELECT * FROM sala as s INNER JOIN sala_usuario as su ON s.chaveAcesso = su.fk_sala 
     //WHERE su.fk_usuario = '$nome_user'
 
+    
+    if(isset($_POST['btnIniciar'])){
+        $dados['statusSala'] === 'iniciada'
+        
+        header('Location: esperaCriador.php'); //ERRO AQUI
+    }
+
     $sql_query = $con->query($sql_code);
         while($dados = mysqli_fetch_assoc($sql_query)){
 ?>
@@ -27,6 +34,8 @@
     <title>ApuriShare</title>
 </head>
 <body>
+
+    <form action="iniciacao_partida.php" method="POST">
     <a href="./tela_inicial.php"><button class="btnX btn btn-outline-dark"> X </button></a>
     <div class="esquerda">
         <h1><?php  echo $dados['qntUsers']; ?></h1>
@@ -37,11 +46,11 @@
     <br><br>
     <h3>Clique no botão para a iniciar a atividade!</h3>
     <br><br>
-    <input type="submit" value="Iniciar sala"  class="btn btn-outline-dark">
+    <input type="submit" value="Iniciar sala" name="btnIniciar" class="btn btn-outline-dark">
     <br><br>
 </div>
 
 <?php }?>
-
+</form>
 </body>
 </html>

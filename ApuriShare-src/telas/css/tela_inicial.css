@@ -1,5 +1,8 @@
+body{
+    background-color: rgb(226, 225, 225);
+}
 .centro{
-    background-color:rgba(233, 219, 201, 0.877);
+    background-color: white;
     border-radius: 25px;
     margin-top: 10%;
     margin-left: 20%;

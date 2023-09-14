@@ -2,15 +2,15 @@
     include_once('conexao.php');
 
     session_start();
-    
-    $nome_user = $_SESSION['nickname'];
 
-    $sql_code = "SELECT * FROM sala as s 
-    INNER JOIN sala_usuario as su 
-    ON s.chaveAcesso = su.fk_sala 
-    WHERE su.fk_usuario = '$nome_user'";
-    //SELECT * FROM sala as s INNER JOIN sala_usuario as su ON s.chaveAcesso = su.fk_sala 
-    //WHERE su.fk_usuario = '$nome_user'
+    $nome_user = $_SESSION['nickname'];
+    $id_sala = $_SESSION['idsala'];
+
+    $sql_code = "SELECT * FROM sala WHERE chaveAcesso = $id_sala";
+
+    //$sql_code = "SELECT * FROM sala as s INNER JOIN sala_usuario as su 
+    //ON s.chaveAcesso = su.fk_sala WHERE su.fk_usuario = '$nome_user'";
+
 
     $sql_query = $con->query($sql_code);
         while($dados = mysqli_fetch_assoc($sql_query)){
@@ -34,6 +34,7 @@
 
     <div class="centro">
     <h1><?php  echo $dados['nome']; ?></h1>
+    <h1>Codigo: <?php echo $id_sala ?></h1>
     <br><br>
     <h3>Clique no botão para a iniciar a atividade!</h3>
     <br><br>

@@ -7,20 +7,23 @@
     $id_sala = $_SESSION['idsala'];
 
     $sql_code = "SELECT * FROM sala WHERE chaveAcesso = $id_sala";
+    $sql_resultado = buscar_dados($con, $sql_code);
 
     //$sql_code = "SELECT * FROM sala as s INNER JOIN sala_usuario as su 
     //ON s.chaveAcesso = su.fk_sala WHERE su.fk_usuario = '$nome_user'";
 
-
-    
     if(isset($_POST['btnIniciar'])){
-        $dados['statusSala'] === 'iniciada'
-        
-        header('Location: esperaCriador.php'); //ERRO AQUI
+        foreach($sql_resultado as $dados){
+
+            //if($dados['statusSala'] === 'criada'){
+                $sql_code = "UPDATE sala SET statusSala = 'iniciada' WHERE chaveAcesso = $id_sala";
+                executar_sql($con, $sql_code);
+                header('Location: esperaCriador.php');
+           // }
+        }
     }
 
-    $sql_query = $con->query($sql_code);
-        while($dados = mysqli_fetch_assoc($sql_query)){
+    foreach($sql_resultado as $dados){
 ?>
 
 <!DOCTYPE html>

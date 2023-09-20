@@ -1,5 +1,5 @@
 <?php 
-    include_once('conexao.php');
+    require('conexao.php');
     
     session_start();
 
@@ -11,8 +11,9 @@
         $tempoPair = $_POST['txtPair'];
         $usuarios = $_POST['QntUsers'];
 
-        $sql = mysqli_query($con, "INSERT into sala(nome, atividade, observacao, tempoThink, tempoPair, qntUsers)
-        values ('$nome', '$atividade', '$observacao', '$tempoThink','$tempoPair','$usuarios')");
+        $sql = "INSERT into sala(nome, atividade, observacao, tempoThink, tempoPair, qntUsers)
+        values ('$nome', '$atividade', '$observacao', '$tempoThink','$tempoPair','$usuarios')";
+        executar_sql($con, $sql); // SERIA LEGAL FAZER UMA CONDIÇÃO PARA VER SE FOI INSERIDO MESMO
 
         $usuario = $_SESSION['nickname'];
         //if (mysqli_query($con, $sql)) {
@@ -20,7 +21,8 @@
             $ultimo_id = mysqli_insert_id($con);
             $_SESSION['idsala'] = $ultimo_id;
         
-        $sql = mysqli_query($con, "INSERT INTO sala_usuario(fk_sala, fk_usuario) values ('$ultimo_id', '$usuario')");
+        $sql = "INSERT INTO sala_usuario(fk_sala, fk_usuario) values ('$ultimo_id', '$usuario')";
+        executar_sql($con, $sql); // SERIA LEGAL FAZER UMA CONDIÇÃO PARA VER SE FOI INSERIDO MESMO
 
         header('Location: iniciacao_partida.php');
     }

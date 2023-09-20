@@ -12,4 +12,20 @@
         echo "<span>Conectado com sucesso!</span>";
     }
 
+    function executar_sql($conexao, $comando){
+        $resultado = mysqli_query($conexao, $comando);
+        return $resultado;
+    }
+
+    function buscar_dados($conexao, $comando){
+        $resultado = mysqli_query($conexao, $comando);
+        $dados = [];
+
+        while($dado = mysqli_fetch_assoc($resultado)){
+            $dados[] = $dado;
+        }
+
+        return $dados;
+    }
+
     ?>

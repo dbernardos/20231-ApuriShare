@@ -7,13 +7,18 @@
         $sql = "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'";
         $sql_query = $con->query($sql);
 
-        // Iniciar a sessão ou retomá-la, se já existir
+        while($dados = mysqli_fetch_assoc($sql_query)){
+
+        if($dados['statusSala'] === 'criada'){
+           // Iniciar a sessão ou retomá-la, se já existir
         session_start();
 
         // Armazenar a variável $chaveAcesso na sessão
         $_SESSION['chaveAcesso'] = $chaveAcesso;
 
         header('Location: salaEspera.php');
+        }
+    }
     }
 ?>
 <!DOCTYPE html>

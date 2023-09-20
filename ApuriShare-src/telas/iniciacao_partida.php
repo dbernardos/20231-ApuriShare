@@ -1,6 +1,5 @@
 <?php
-    include_once('conexao.php');
-
+    require('conexao.php');
     session_start();
 
     $nome_user = $_SESSION['nickname'];
@@ -8,9 +7,6 @@
 
     $sql_code = "SELECT * FROM sala WHERE chaveAcesso = $id_sala";
     $sql_resultado = buscar_dados($con, $sql_code);
-
-    //$sql_code = "SELECT * FROM sala as s INNER JOIN sala_usuario as su 
-    //ON s.chaveAcesso = su.fk_sala WHERE su.fk_usuario = '$nome_user'";
 
     if(isset($_POST['btnIniciar'])){
         foreach($sql_resultado as $dados){
@@ -23,7 +19,7 @@
         }
     }
 
-    foreach($sql_resultado as $dados){
+    foreach($sql_resultado as $dados):
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +50,7 @@
     <br><br>
 </div>
 
-<?php }?>
+<?php endforeach ?>
 </form>
 </body>
 </html>

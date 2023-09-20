@@ -18,6 +18,9 @@
     <title>ApuriShare</title>
 </head>
 <body>
+<?php include('menu.php');?>
+</br>
+</br>
     <center>
     <style>h1{font-family: Fantasy;}  </style>
     <h1>Aguardando todos <br>terminarem a atividade...</h1><br>

@@ -1,190 +1,139 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1
--- https://www.phpmyadmin.net/
+-- MariaDB dump 10.19  Distrib 10.4.24-MariaDB, for Win64 (AMD64)
 --
--- Host: 127.0.0.1
--- Tempo de geração: 31-Ago-2023 às 22:59
--- Versão do servidor: 10.4.21-MariaDB
--- versão do PHP: 7.4.23
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: apurishare
+-- ------------------------------------------------------
+-- Server version	10.4.24-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Banco de dados: `apurishare`
+-- Table structure for table `atividade`
 --
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `atividade`
---
-
+DROP TABLE IF EXISTS `atividade`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `atividade` (
-  `codigo` int(6) NOT NULL,
+  `codigo` int(6) NOT NULL AUTO_INCREMENT,
   `respostaThink` varchar(1000) NOT NULL,
-  `respostaPair` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+  `respostaPair` varchar(1000) NOT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Estrutura da tabela `sala`
+-- Dumping data for table `atividade`
 --
 
+LOCK TABLES `atividade` WRITE;
+/*!40000 ALTER TABLE `atividade` DISABLE KEYS */;
+INSERT INTO `atividade` VALUES (2,'deddddd','');
+/*!40000 ALTER TABLE `atividade` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sala`
+--
+
+DROP TABLE IF EXISTS `sala`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sala` (
-  `chaveAcesso` int(6) NOT NULL,
+  `chaveAcesso` int(6) NOT NULL AUTO_INCREMENT,
   `atividade` varchar(1000) NOT NULL,
   `observacao` varchar(100) DEFAULT NULL,
   `arquivo` varchar(100) DEFAULT NULL,
   `nome` varchar(45) NOT NULL,
   `qntUsers` int(3) NOT NULL,
-  `statusSala` enum('criada', 'iniciada', 'finalizada') NOT NULL DEFAULT ('criada'),
+  `statusSala` enum('criada','think','pair','share') NOT NULL DEFAULT 'criada',
   `tempoThink` time DEFAULT NULL,
-  `tempoPair` time DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `tempoPair` time DEFAULT NULL,
+  `horaInicioThink` datetime DEFAULT NULL,
+  `horaInicioPair` datetime DEFAULT NULL,
+  PRIMARY KEY (`chaveAcesso`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Extraindo dados da tabela `sala`
+-- Dumping data for table `sala`
 --
 
-INSERT INTO `sala` (`chaveAcesso`, `atividade`, `observacao`, `nome`, `qntUsers`, `tempoThink`, `tempoPair`) VALUES
-(7, 'Fale o que você sabe sobre SQL', 'sdvv', 'banco de dados', 4, '00:05:00', '00:05:00'),
-(8, 'hdxh', 'hdxhdxhrt', 'programação', 6, '00:05:00', '00:05:00'),
-(9, 'dddd', 'dddd', 'filosofia', 2, '04:04:00', '04:04:00'),
-(10, 'atividade teste', 'comentario teste', 'programação', 2, '00:05:00', '00:05:00'),
-(11, 'atividade teste', 'comentario teste', 'programação', 2, '00:05:00', '00:05:00'),
-(18, 'Resolver a equação do sengundo grau: 4x2+3x+1', 'equação', 'matematica', 4, '00:05:00', '00:05:00'),
-(19, 'plantas', 'musgos', 'biologia', 4, '00:05:00', '00:05:00'),
-(28, 'plnatas', 'pinheiro', 'biologia', 4, '00:05:00', '00:05:00'),
-(29, 'plnatas', 'fotossíntese', 'biologia', 4, '00:05:00', '00:05:00'),
-(30, 'primeira guerra', 'importante', 'historia', 4, '00:05:00', '00:05:00');
-
-INSERT INTO `sala` (`chaveAcesso`, `atividade`, `observacao`, `nome`, `qntUsers`, `tempoThink`, `tempoPair`, `statusSala`) VALUES
-(1, 'java e javascript sao iguais?', 'nao', 'java', 12, '00:05:00', '00:05:00', 'iniciada');
-
--- --------------------------------------------------------
+LOCK TABLES `sala` WRITE;
+/*!40000 ALTER TABLE `sala` DISABLE KEYS */;
+INSERT INTO `sala` VALUES (1,'java e javascript sao iguais?','nao',NULL,'java',12,'','00:05:00','00:05:00',NULL,NULL),(7,'Fale o que você sabe sobre SQL','sdvv',NULL,'banco de dados',4,'criada','00:05:00','00:05:00',NULL,NULL),(8,'hdxh','hdxhdxhrt',NULL,'programação',6,'criada','00:05:00','00:05:00',NULL,NULL),(9,'dddd','dddd',NULL,'filosofia',2,'criada','04:04:00','04:04:00',NULL,NULL),(10,'atividade teste','comentario teste',NULL,'programação',2,'','00:05:00','00:05:00',NULL,NULL),(11,'atividade teste','comentario teste',NULL,'programação',2,'criada','00:05:00','00:05:00',NULL,NULL),(18,'Resolver a equação do sengundo grau: 4x2+3x+1','equação',NULL,'matematica',4,'criada','00:05:00','00:05:00',NULL,NULL),(19,'plantas','musgos',NULL,'biologia',4,'criada','00:05:00','00:05:00',NULL,NULL),(28,'plnatas','pinheiro',NULL,'biologia',4,'criada','00:05:00','00:05:00',NULL,NULL),(29,'plnatas','fotossíntese',NULL,'biologia',4,'criada','00:05:00','00:05:00',NULL,NULL),(30,'primeira guerra','importante',NULL,'historia',4,'criada','00:05:00','00:05:00',NULL,NULL),(31,'sss','sss',NULL,'dsdsdd',4,'criada','12:22:00','12:22:00',NULL,NULL),(32,'ddd','dd',NULL,'dddd',4,'criada','12:12:00','12:21:00',NULL,NULL),(33,'ddd','dd',NULL,'dddd',4,'criada','12:12:00','12:21:00',NULL,NULL),(34,'ddd','dd',NULL,'dddd',4,'criada','12:12:00','12:21:00',NULL,NULL),(35,'ddd','dd',NULL,'dddd',4,'criada','12:12:00','12:21:00',NULL,NULL),(36,'eee','eee',NULL,'eeee',6,'criada','02:02:00','02:02:00',NULL,NULL),(37,'eee','eee',NULL,'aaaa',6,'','02:02:00','02:02:00',NULL,NULL);
+/*!40000 ALTER TABLE `sala` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estrutura da tabela `sala_usuario`
+-- Table structure for table `sala_usuario`
 --
 
+DROP TABLE IF EXISTS `sala_usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sala_usuario` (
-  `id_sala_usuario` int(6) NOT NULL,
+  `id_sala_usuario` int(6) NOT NULL AUTO_INCREMENT,
   `fk_sala` int(6) NOT NULL,
-  `fk_usuario` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `fk_usuario` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_sala_usuario`),
+  KEY `fk_sala` (`fk_sala`),
+  KEY `fk_usuario` (`fk_usuario`),
+  CONSTRAINT `sala_usuario_ibfk_1` FOREIGN KEY (`fk_sala`) REFERENCES `sala` (`chaveAcesso`),
+  CONSTRAINT `sala_usuario_ibfk_2` FOREIGN KEY (`fk_usuario`) REFERENCES `usuario` (`nickname`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Extraindo dados da tabela `sala_usuario`
+-- Dumping data for table `sala_usuario`
 --
 
-INSERT INTO `sala_usuario` (`id_sala_usuario`, `fk_sala`, `fk_usuario`) VALUES
-(1, 1, 'raque.lis'),
-(2, 11, 'raque.lis'),
-(3, 10, 'italo.ramos'),
-(4, 7, 'raque.lis'),
-(5, 8, 'raque.lis'),
-(6, 9, 'raque.lis'),
-(7, 18, 'raque.lis'),
-(8, 19, 'raque.lis'),
-(11, 28, 'italo.ramos'),
-(12, 29, 'italo.ramos'),
-(13, 30, 'italo.ramos');
-
-
--- --------------------------------------------------------
+LOCK TABLES `sala_usuario` WRITE;
+/*!40000 ALTER TABLE `sala_usuario` DISABLE KEYS */;
+INSERT INTO `sala_usuario` VALUES (1,1,'raque.lis'),(2,11,'raque.lis'),(3,10,'italo.ramos'),(4,7,'raque.lis'),(5,8,'raque.lis'),(6,9,'raque.lis'),(7,18,'raque.lis'),(8,19,'raque.lis'),(11,28,'italo.ramos'),(12,29,'italo.ramos'),(13,30,'italo.ramos'),(15,32,'italo.ramos'),(16,33,'italo.ramos'),(17,34,'italo.ramos'),(18,35,'italo.ramos'),(19,36,'italo.ramos'),(20,37,'italo.ramos');
+/*!40000 ALTER TABLE `sala_usuario` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estrutura da tabela `usuario`
+-- Table structure for table `usuario`
 --
 
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuario` (
   `nickname` varchar(100) NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `senha` varchar(250) NOT NULL
+  `senha` varchar(250) NOT NULL,
+  PRIMARY KEY (`nickname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Extraindo dados da tabela `usuario`
+-- Dumping data for table `usuario`
 --
 
-INSERT INTO `usuario` (`nickname`, `nome`, `senha`) VALUES
-('italo.ramos', 'Italo Ramos', '6598'),
-('portuga.2004', 'Rafael Portugal', '2004'),
-('raque.lis', 'Raquel da Silva', '1020');
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES ('italo.ramos','Italo Ramos','6598'),('portuga.2004','Rafael Portugal','2004'),('raque.lis','Raquel da Silva','1020');
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Índices para tabelas despejadas
---
-
---
--- Índices para tabela `atividade`
---
-ALTER TABLE `atividade`
-  ADD PRIMARY KEY (`codigo`);
-
---
--- Índices para tabela `sala`
---
-ALTER TABLE `sala`
-  ADD PRIMARY KEY (`chaveAcesso`);
-
---
--- Índices para tabela `sala_usuario`
---
-ALTER TABLE `sala_usuario`
-  ADD PRIMARY KEY (`id_sala_usuario`),
-  ADD KEY `fk_sala` (`fk_sala`),
-  ADD KEY `fk_usuario` (`fk_usuario`);
-
---
--- Índices para tabela `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`nickname`);
-
---
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `atividade`
---
-ALTER TABLE `atividade`
-  MODIFY `codigo` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de tabela `sala`
---
-ALTER TABLE `sala`
-  MODIFY `chaveAcesso` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- AUTO_INCREMENT de tabela `sala_usuario`
---
-ALTER TABLE `sala_usuario`
-  MODIFY `id_sala_usuario` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `sala_usuario`
---
-ALTER TABLE `sala_usuario`
-  ADD CONSTRAINT `sala_usuario_ibfk_1` FOREIGN KEY (`fk_sala`) REFERENCES `sala` (`chaveAcesso`),
-  ADD CONSTRAINT `sala_usuario_ibfk_2` FOREIGN KEY (`fk_usuario`) REFERENCES `usuario` (`nickname`);
-COMMIT;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-09-20 18:09:40

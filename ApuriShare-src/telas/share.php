@@ -8,7 +8,7 @@
         $chaveAcesso = $_SESSION['chaveAcesso'];
 
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
-        $sql_id = mysqli_query($con, "SELECT * from atividade WHERE codigo = '$id_respostaThink'");
+        $sql_id = mysqli_query($con, "SELECT * from atividade WHERE fk_sala = '$chaveAcesso'");
 
         while($dados = mysqli_fetch_assoc($sql)){
 ?>

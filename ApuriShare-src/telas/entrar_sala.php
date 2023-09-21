@@ -10,7 +10,7 @@
 
         while($dados = mysqli_fetch_assoc($sql_query)){
 
-        if($dados['statusSala'] === 'criada'){
+        //if($dados['statusSala'] === 'criada'){
            // Iniciar a sessão ou retomá-la, se já existir
 
         // Armazenar a variável $chaveAcesso na sessão
@@ -18,7 +18,7 @@
 
         header('Location: salaEspera.php');
         }
-    }
+    //}
     }
 ?>
 <!DOCTYPE html>

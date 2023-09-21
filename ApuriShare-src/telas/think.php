@@ -3,13 +3,14 @@
 
     session_start();
     $nome_user = $_SESSION['nickname'];
+    $chaveAcesso = $_SESSION['chaveAcesso'];
 
     if(isset($_POST['btnEnviar'])){
 
         $respostaThink = $_POST['txtRespostaThink'];
 
-        $sql = mysqli_query($con, "INSERT into atividade(respostaThink)
-        values ('$respostaThink')");
+        $sql = mysqli_query($con, "INSERT into atividade(respostaThink, fk_sala)
+        values ('$respostaThink', '$chaveAcesso')");
 
         header('Location: pair.php');
     }
@@ -18,7 +19,6 @@
         $id_respostaThink = mysqli_insert_id($con);
         $_SESSION['codigo'] = $id_respostaThink;
 
-        $chaveAcesso = $_SESSION['chaveAcesso'];
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
         while($dados = mysqli_fetch_assoc($sql)){
 ?>
@@ -48,6 +48,13 @@
         <textarea class="form-control textoarea" placeholder="Escreva sua resposta" name="txtRespostaThink" id="resposta" required></textarea>
         <input type="submit" value="Enviar" name="btnEnviar" class="btn btn-outline-dark btnEnviar">
     </div>
+    <?php 
+        if($dados['fk_situacao'] === '3'){
+            header('Location: pair.php');
+        }else{
+            echo "<h3>A sala solicitada foi finalizada!</h3>";
+        }
+    ?>
     </form>
     </center>
     <?php } ?>

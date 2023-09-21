@@ -36,9 +36,9 @@
     <br><br>
 
     <?php 
-        if($dados['statusSala'] === 'criada'){
+        if($dados['fk_situacao'] === '1'){
             echo "<h3>Aguarde até a atividade ser iniciada!</h3>";
-        }else if($dados['statusSala'] === 'iniciada'){
+        }else if($dados['fk_situacao'] === '2'){
             header('Location: think.php');
         }else{
             echo "<h3>A sala solicitada foi finalizada!</h3>";

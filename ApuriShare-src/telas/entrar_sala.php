@@ -1,5 +1,6 @@
 <?php 
-    include_once('conexao.php');
+    require('conexao.php');
+    require('inicia_sessao.php');
     
     if(isset($_POST['btnEntrar'])){
         $chaveAcesso = $_POST['txtCodigo'];
@@ -11,7 +12,6 @@
 
         if($dados['statusSala'] === 'criada'){
            // Iniciar a sessão ou retomá-la, se já existir
-        session_start();
 
         // Armazenar a variável $chaveAcesso na sessão
         $_SESSION['chaveAcesso'] = $chaveAcesso;
@@ -38,9 +38,9 @@
 
     <div class="centro">
         <form method="POST">
-        <h2>Insira o Código</h2> <br><br>
+        <h1>Chave de Acesso</h1> <br><br>
         <div class="cod">
-        <input type="text" name="txtCodigo" maxlength="6" placeholder="Insira o Código">
+        <input type="text" name="txtCodigo" maxlength="6" placeholder="Insira o código">
         </div>
         <br>
         <input type="submit" value="Entrar" class="btn btn-outline-dark btnEntrar" name="btnEntrar" id="btnEntrar"><br><br>

@@ -1,25 +1,49 @@
 <?php
     require('conexao.php');
-    session_start();
+    require('inicia_sessao.php');
 
-    $nome_user = $_SESSION['nickname'];
-    $id_sala = $_SESSION['idsala'];
+    //$id_sala = $_SESSION['idsala'];
 
-    $sql_code = "SELECT * FROM sala WHERE chaveAcesso = $id_sala";
-    $sql_resultado = buscar_dados($con, $sql_code);
+    $sql_select = "SELECT * FROM sala AS s 
+        INNER JOIN sala_usuario AS su 
+        INNER JOIN situacao si
+        ON s.chaveAcesso = su.fk_sala 
+        AND s.fk_situacao = si.idSituacao
+        WHERE su.fk_usuario = '{$_SESSION['nickname']}' 
+        ORDER BY s.chaveAcesso DESC";
+    
+    $sql_resultado = buscar_dados($con, $sql_select);
 
-    if(isset($_POST['btnIniciar'])){
-        foreach($sql_resultado as $dados){
+    if(isset($_POST['btnIniciar'])):
+        $horaAtual = date('H:i:s');
 
-            //if($dados['statusSala'] === 'criada'){
-                $sql_code = "UPDATE sala SET statusSala = 'iniciada' WHERE chaveAcesso = $id_sala";
-                executar_sql($con, $sql_code);
-                header('Location: esperaCriador.php');
-           // }
-        }
+        if ($_POST['id_situacao'] == 1):
+            $sql_update = "UPDATE sala SET fk_situacao =  2, horaInicioThink = '$horaAtual' WHERE chaveAcesso = {$_POST['chave_acesso']}";
+            executar_sql($con, $sql_update);
+
+        elseif ($_POST['id_situacao'] == 2):
+            $sql_update = "UPDATE sala SET fk_situacao =  3, horaInicioPair = '$horaAtual' WHERE chaveAcesso = {$_POST['chave_acesso']}";
+            executar_sql($con, $sql_update);
+            
+        elseif($_POST['id_situacao'] == 3):
+            echo "A tarefa foi finalizada (compartilhar), precisamos pensar se manda para outra página ou o que faz";
+        endif;
+
+        header('Location: iniciacao_partida.php');
+    endif;
+
+    function retornaHoraInicio($id, $hrThink, $hrPair, $tpThink, $tpPair){
+        $horaAtual = date('H:i:s');
+
+        if ($id === 1):
+            return $tpThink;
+        elseif ($id === 2):
+            return $tpThink - ($horaAtual - $hrThink);
+        elseif ($id === 2):
+            return $tpPair - ($horaAtual - $hrPair);
+        endif;
     }
 
-    foreach($sql_resultado as $dados):
 ?>
 
 <!DOCTYPE html>
@@ -28,29 +52,37 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="./css/geral.css">
     <link rel="stylesheet" href="./css/iniciacao_partida.css">
     <meta charset="UTF-8">
     <title>ApuriShare</title>
 </head>
 <body>
+<?php include('menu.php');?>
+</br>
+</br>
+        <div class="grid">
+            <?php foreach($sql_resultado as $dados): ?>
+                <div class="table-cell">
+                    <form action="iniciacao_partida.php" method="POST">
+                        <div class="centro">
+                            <h2><?php  echo $dados['nome']; ?></h2>
+                            <h2>Código: <?php echo $dados['chaveAcesso'] ?></h2>
+                            <br>
+                            <h3>Capacidade: <?php  echo $dados['qntUsers']; ?></h3>
+                            <h3>Registrados: <?php  echo "??" ?></h3>
+                            
+                            <br>
+                            <h4><?php  echo $dados['statusSituacao'] ?></h4>
 
-    <form action="iniciacao_partida.php" method="POST">
-    <a href="./tela_inicial.php"><button class="btnX btn btn-outline-dark"> X </button></a>
-    <div class="esquerda">
-        <h1><?php  echo $dados['qntUsers']; ?></h1>
-    </div>
-
-    <div class="centro">
-    <h1><?php  echo $dados['nome']; ?></h1>
-    <h1>Codigo: <?php echo $id_sala ?></h1>
-    <br><br>
-    <h3>Clique no botão para a iniciar a atividade!</h3>
-    <br><br>
-    <input type="submit" value="Iniciar sala" name="btnIniciar" class="btn btn-outline-dark">
-    <br><br>
-</div>
-
-<?php endforeach ?>
-</form>
+                            <input type="hidden" name="chave_acesso" value="<?php echo $dados['chaveAcesso']; ?>">
+                            <input type="hidden" name="id_situacao" value="<?php echo $dados['idSituacao']; ?>">
+                            <input type="submit" value="<?php  echo $dados['descricaoSituacao'] ?>" name="btnIniciar" class="btn btn-outline-dark">
+                            <br><br>
+                        </div>
+                    </form>
+                </div>
+            <?php endforeach ?>
+        </div>
 </body>
 </html>

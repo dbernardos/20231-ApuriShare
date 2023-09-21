@@ -1,7 +1,6 @@
 <?php 
     require('conexao.php');
-    
-    session_start();
+    require('inicia_sessao.php');
 
     if(isset($_POST['btnCriarSala'])){   
         $nome = $_POST['txtNome'];

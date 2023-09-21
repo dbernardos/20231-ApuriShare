@@ -1,3 +1,5 @@
+<?php require('inicia_sessao.php'); ?>
+
 <!DOCTYPE html>
 <html>
 

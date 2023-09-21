@@ -6,7 +6,19 @@
     width: 100%;
     position: fixed;
 }
-.cabecalho h2, h3{
+.cabecalho h2, h3, h4{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 1%;
+    color: rgb(0,0,0);
+}
+
+a{
+    text-decoration: none;
+    color: rgb(0,0,0);
+}
+
+.btnGeral{
+    margin: 5%;
+    background-color: rgb(82, 147, 221);
+    font-size: 200%;
 }

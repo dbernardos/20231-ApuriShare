@@ -54,11 +54,11 @@ CREATE TABLE `sala` (
   `arquivo` varchar(100) DEFAULT NULL,
   `nome` varchar(45) NOT NULL,
   `qntUsers` int(3) NOT NULL,
-  `statusSala` enum('criada','think','pair','share') NOT NULL DEFAULT 'criada',
+  `fk_situacao` int(4) NOT NULL DEFAULT 1,
   `tempoThink` time DEFAULT NULL,
   `tempoPair` time DEFAULT NULL,
-  `horaInicioThink` datetime DEFAULT NULL,
-  `horaInicioPair` datetime DEFAULT NULL,
+  `horaInicioThink` time DEFAULT NULL,
+  `horaInicioPair` time DEFAULT NULL,
   PRIMARY KEY (`chaveAcesso`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -69,7 +69,7 @@ CREATE TABLE `sala` (
 
 LOCK TABLES `sala` WRITE;
 /*!40000 ALTER TABLE `sala` DISABLE KEYS */;
-INSERT INTO `sala` VALUES (1,'java e javascript sao iguais?','nao',NULL,'java',12,'','00:05:00','00:05:00',NULL,NULL),(7,'Fale o que você sabe sobre SQL','sdvv',NULL,'banco de dados',4,'criada','00:05:00','00:05:00',NULL,NULL),(8,'hdxh','hdxhdxhrt',NULL,'programação',6,'criada','00:05:00','00:05:00',NULL,NULL),(9,'dddd','dddd',NULL,'filosofia',2,'criada','04:04:00','04:04:00',NULL,NULL),(10,'atividade teste','comentario teste',NULL,'programação',2,'','00:05:00','00:05:00',NULL,NULL),(11,'atividade teste','comentario teste',NULL,'programação',2,'criada','00:05:00','00:05:00',NULL,NULL),(18,'Resolver a equação do sengundo grau: 4x2+3x+1','equação',NULL,'matematica',4,'criada','00:05:00','00:05:00',NULL,NULL),(19,'plantas','musgos',NULL,'biologia',4,'criada','00:05:00','00:05:00',NULL,NULL),(28,'plnatas','pinheiro',NULL,'biologia',4,'criada','00:05:00','00:05:00',NULL,NULL),(29,'plnatas','fotossíntese',NULL,'biologia',4,'criada','00:05:00','00:05:00',NULL,NULL),(30,'primeira guerra','importante',NULL,'historia',4,'criada','00:05:00','00:05:00',NULL,NULL),(31,'sss','sss',NULL,'dsdsdd',4,'criada','12:22:00','12:22:00',NULL,NULL),(32,'ddd','dd',NULL,'dddd',4,'criada','12:12:00','12:21:00',NULL,NULL),(33,'ddd','dd',NULL,'dddd',4,'criada','12:12:00','12:21:00',NULL,NULL),(34,'ddd','dd',NULL,'dddd',4,'criada','12:12:00','12:21:00',NULL,NULL),(35,'ddd','dd',NULL,'dddd',4,'criada','12:12:00','12:21:00',NULL,NULL),(36,'eee','eee',NULL,'eeee',6,'criada','02:02:00','02:02:00',NULL,NULL),(37,'eee','eee',NULL,'aaaa',6,'','02:02:00','02:02:00',NULL,NULL);
+INSERT INTO `sala` VALUES (1,'java e javascript sao iguais?','nao',NULL,'Programação Java',12,1,'00:05:00','00:05:00',NULL,NULL),(7,'Fale o que você sabe sobre SQL','sdvv',NULL,'Banco de Dados',4,1,'00:05:00','00:05:00',NULL,NULL),(8,'hdxh','hdxhdxhrt',NULL,'Programação C',6,1,'00:05:00','00:05:00',NULL,NULL),(9,'dddd','dddd',NULL,'Filosofia',2,1,'04:04:00','04:04:00',NULL,NULL),(10,'atividade teste','comentario teste',NULL,'Programação C',2,1,'00:05:00','00:05:00',NULL,NULL),(11,'atividade teste','comentario teste',NULL,'Programação C',2,1,'00:05:00','00:05:00',NULL,NULL),(18,'Resolver a equação do sengundo grau: 4x2+3x+1','equação',NULL,'Matematica',4,1,'00:05:00','00:05:00',NULL,NULL),(19,'plantas','musgos',NULL,'Biologia',4,1,'00:05:00','00:05:00',NULL,NULL),(28,'plnatas','pinheiro',NULL,'Biologia',4,1,'00:05:00','00:05:00',NULL,NULL),(29,'plnatas','fotossíntese',NULL,'Biologia',4,1,'00:05:00','00:05:00',NULL,NULL),(30,'primeira guerra','importante',NULL,'Historia',4,1,'00:05:00','00:05:00',NULL,NULL),(31,'sss','sss',NULL,'Empreendedorismo',4,1,'12:22:00','12:22:00',NULL,NULL),(32,'ddd','dd',NULL,'Meio Ambiente',4,1,'12:12:00','12:21:00',NULL,NULL),(33,'ddd','dd',NULL,'Comunicação Oral',4,1,'12:12:00','12:21:00',NULL,NULL),(34,'ddd','dd',NULL,'Programação Mobile',4,3,'12:12:00','12:21:00',NULL,NULL),(35,'ddd','dd',NULL,'Web 1',4,3,'12:12:00','12:21:00',NULL,NULL),(36,'eee','eee',NULL,'Web 2',6,3,'02:02:00','02:02:00','07:11:48','07:11:50'),(37,'eee','eee',NULL,'Estrutura de Dados',6,2,'02:02:00','02:02:00','00:00:00',NULL);
 /*!40000 ALTER TABLE `sala` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,6 +100,30 @@ LOCK TABLES `sala_usuario` WRITE;
 /*!40000 ALTER TABLE `sala_usuario` DISABLE KEYS */;
 INSERT INTO `sala_usuario` VALUES (1,1,'raque.lis'),(2,11,'raque.lis'),(3,10,'italo.ramos'),(4,7,'raque.lis'),(5,8,'raque.lis'),(6,9,'raque.lis'),(7,18,'raque.lis'),(8,19,'raque.lis'),(11,28,'italo.ramos'),(12,29,'italo.ramos'),(13,30,'italo.ramos'),(15,32,'italo.ramos'),(16,33,'italo.ramos'),(17,34,'italo.ramos'),(18,35,'italo.ramos'),(19,36,'italo.ramos'),(20,37,'italo.ramos');
 /*!40000 ALTER TABLE `sala_usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `situacao`
+--
+
+DROP TABLE IF EXISTS `situacao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `situacao` (
+  `idSituacao` int(4) NOT NULL,
+  `statusSituacao` varchar(100) NOT NULL,
+  `descricaoSituacao` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `situacao`
+--
+
+LOCK TABLES `situacao` WRITE;
+/*!40000 ALTER TABLE `situacao` DISABLE KEYS */;
+INSERT INTO `situacao` VALUES (1,'Sala Criada','Iniciar Atividade Individual'),(2,'Atividade Individual','Iniciar Atividade em Pares'),(3,'Atividade em Pares','Compartilhar Atividades');
+/*!40000 ALTER TABLE `situacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -136,4 +160,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-20 18:09:40
+-- Dump completed on 2023-09-21  2:12:03

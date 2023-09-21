@@ -8,17 +8,14 @@
         $sql = "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'";
         $sql_query = $con->query($sql);
 
-        while($dados = mysqli_fetch_assoc($sql_query)){
+         $usuario = $_SESSION['nickname'];
+        
+        $sql = "INSERT INTO sala_usuario(fk_sala, fk_usuario, tipoUsuario) values ('$chaveAcesso', '$usuario', 'usuario')";
+        executar_sql($con, $sql); // SERIA LEGAL FAZER UMA CONDIÇÃO PARA VER SE FOI INSERIDO MESMO
 
-        //if($dados['statusSala'] === 'criada'){
-           // Iniciar a sessão ou retomá-la, se já existir
-
-        // Armazenar a variável $chaveAcesso na sessão
-        $_SESSION['chaveAcesso'] = $chaveAcesso;
 
         header('Location: salaEspera.php');
-        }
-    //}
+
     }
 ?>
 <!DOCTYPE html>

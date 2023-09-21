@@ -26,6 +26,14 @@
             executar_sql($con, $sql_update);
             
         elseif($_POST['id_situacao'] == 3):
+            $sql_update = "UPDATE sala SET fk_situacao =  4, horaInicioPair = '$horaAtual' WHERE chaveAcesso = {$_POST['chave_acesso']}";
+            executar_sql($con, $sql_update);
+        
+        elseif($_POST['id_situacao'] == 4):
+            $sql_update = "UPDATE sala SET fk_situacao =  5, horaInicioPair = '$horaAtual' WHERE chaveAcesso = {$_POST['chave_acesso']}";
+            executar_sql($con, $sql_update);
+
+        elseif($_POST['id_situacao'] == 5):
             echo "A tarefa foi finalizada (compartilhar), precisamos pensar se manda para outra página ou o que faz";
         endif;
 
@@ -78,6 +86,7 @@
                             <input type="hidden" name="chave_acesso" value="<?php echo $dados['chaveAcesso']; ?>">
                             <input type="hidden" name="id_situacao" value="<?php echo $dados['idSituacao']; ?>">
                             <input type="submit" value="<?php  echo $dados['descricaoSituacao'] ?>" name="btnIniciar" class="btn btn-outline-dark">
+                            
                             <br><br>
                         </div>
                     </form>

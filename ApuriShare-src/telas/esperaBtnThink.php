@@ -1,5 +1,10 @@
 <?php
     include_once('conexao.php');
+
+    session_start();
+
+    $nickname = $_SESSION['nickname'];
+    $chaveAcesso = $_SESSION['chaveAcesso'];
     
     $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
         while($dados = mysqli_fetch_assoc($sql)){

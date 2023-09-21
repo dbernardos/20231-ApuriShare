@@ -40,10 +40,11 @@
 <br>
 <div class="border border-2 respShare">
     <H3>Resposta dos Participantes</H3>
-    <h4>Jorge e Mathues<!--<?php  echo $dados['fk.usuarios']; ?>--></h4>
+    <h4><!--<?php  echo $dados['fk.usuarios']; ?>--></h4>
     <p><?php while($resposta = mysqli_fetch_assoc($sql_id)){
-                echo $resposta['respostaPair']; 
-            }?></p>
+        
+                echo "<td>".$resposta['respostaPair']."</td>";
+            }?> </p>
     <br>
 </div>
 <br>

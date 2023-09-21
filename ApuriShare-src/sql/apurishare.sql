@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Set-2023 às 19:59
+-- Tempo de geração: 21-Set-2023 às 22:23
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.4.23
 
@@ -39,11 +39,7 @@ CREATE TABLE `atividade` (
 --
 
 INSERT INTO `atividade` (`codigo`, `respostaThink`, `respostaPair`, `fk_sala`) VALUES
-(2, 'deddddd', '', NULL),
-(3, 'apurishare', 'apurishare', NULL),
-(4, '16 anos', '16 anos', 41),
-(5, '18 anos', '18 anos', 42),
-(6, '16 anos', '16 anos', 42);
+(2, 'deddddd', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -65,36 +61,6 @@ CREATE TABLE `sala` (
   `horaInicioPair` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `sala`
---
-
-INSERT INTO `sala` (`chaveAcesso`, `atividade`, `observacao`, `arquivo`, `nome`, `qntUsers`, `fk_situacao`, `tempoThink`, `tempoPair`, `horaInicioThink`, `horaInicioPair`) VALUES
-(1, 'java e javascript sao iguais?', 'nao', NULL, 'Programação Java', 12, 1, '00:05:00', '00:05:00', NULL, NULL),
-(7, 'Fale o que você sabe sobre SQL', 'sdvv', NULL, 'Banco de Dados', 4, 1, '00:05:00', '00:05:00', NULL, NULL),
-(8, 'hdxh', 'hdxhdxhrt', NULL, 'Programação C', 6, 1, '00:05:00', '00:05:00', NULL, NULL),
-(9, 'dddd', 'dddd', NULL, 'Filosofia', 2, 1, '04:04:00', '04:04:00', NULL, NULL),
-(10, 'atividade teste', 'comentario teste', NULL, 'Programação C', 2, 1, '00:05:00', '00:05:00', NULL, NULL),
-(11, 'atividade teste', 'comentario teste', NULL, 'Programação C', 2, 1, '00:05:00', '00:05:00', NULL, NULL),
-(18, 'Resolver a equação do sengundo grau: 4x2+3x+1', 'equação', NULL, 'Matematica', 4, 1, '00:05:00', '00:05:00', NULL, NULL),
-(19, 'plantas', 'musgos', NULL, 'Biologia', 4, 1, '00:05:00', '00:05:00', NULL, NULL),
-(28, 'plnatas', 'pinheiro', NULL, 'Biologia', 4, 1, '00:05:00', '00:05:00', NULL, NULL),
-(29, 'plnatas', 'fotossíntese', NULL, 'Biologia', 4, 1, '00:05:00', '00:05:00', NULL, NULL),
-(30, 'primeira guerra', 'importante', NULL, 'Historia', 4, 1, '00:05:00', '00:05:00', NULL, NULL),
-(31, 'sss', 'sss', NULL, 'Empreendedorismo', 4, 1, '12:22:00', '12:22:00', NULL, NULL),
-(32, 'ddd', 'dd', NULL, 'Meio Ambiente', 4, 1, '12:12:00', '12:21:00', NULL, NULL),
-(33, 'ddd', 'dd', NULL, 'Comunicação Oral', 4, 1, '12:12:00', '12:21:00', NULL, NULL),
-(34, 'ddd', 'dd', NULL, 'Programação Mobile', 4, 3, '12:12:00', '12:21:00', NULL, NULL),
-(35, 'ddd', 'dd', NULL, 'Web 1', 4, 3, '12:12:00', '12:21:00', NULL, NULL),
-(36, 'eee', 'eee', NULL, 'Web 2', 6, 3, '02:02:00', '02:02:00', '07:11:48', '07:11:50'),
-(37, 'eee', 'eee', NULL, 'Estrutura de Dados', 6, 3, '02:02:00', '02:02:00', '00:00:00', '07:14:19'),
-(38, 'Você está desenvolvendo um programa de controle de acesso a um sistema. O programa solicita ao usuário que insira seu nome de usuário e senha. Você deve implementar a lógica para verificar se o usuário tem permissão de acesso.\r\n\r\nExistem três níveis de acesso:\r\n\r\nNível 1: Acesso total.\r\nNível 2: Acesso parcial.\r\nNível 3: Sem acesso.\r\nVocê deve seguir as seguintes regras para determinar o nível de acesso:\r\n\r\nSe o nome de usuário for \"admin\" e a senha for \"admin123\", o usuário tem acesso total (Nível 1).\r\nSe o nome de usuário for \"gerente\" e a senha for \"gerente123\", o usuário tem acesso parcial (Nível 2).\r\nPara qualquer outro nome de usuário e senha, o acesso é negado (Nível 3).\r\nImplemente o código em C que solicita o nome de usuário e a senha ao usuário e, em seguida, utiliza estruturas if-else para determinar o nível de acesso com base nas regras acima. Em seguida, exiba uma mensagem adequada ao nível de acesso obtido.\r\n\r\nLembre-se de validar tanto o nome de usuário quanto a senha an', 'Não vai ser fácil!!!', NULL, 'Programação C', 10, 1, '00:20:00', '00:20:00', NULL, NULL),
-(39, 'nome do seu sistema', 'nome', NULL, 'Projeto integrador', 5, 3, '00:02:00', '00:02:00', '18:41:08', '18:41:14'),
-(40, 'dsgbg', 'gshrhd', NULL, 'Projeto integrador', 2, 2, '00:02:00', '00:03:00', '18:43:25', NULL),
-(41, 'apurishare', 'blabla', NULL, 'Projeto integrador', 7, 3, '00:02:00', '00:02:00', '18:49:27', '18:50:52'),
-(42, 'quantos anos vc tem', 'sua idade', NULL, 'idade', 4, 2, '00:02:00', '00:02:00', '19:38:04', NULL),
-(43, '1 ou 2', '2', NULL, 'Teste', 4, 3, '00:05:00', '00:02:00', '19:47:31', '19:49:14');
-
 -- --------------------------------------------------------
 
 --
@@ -107,35 +73,6 @@ CREATE TABLE `sala_usuario` (
   `fk_usuario` varchar(100) NOT NULL,
   `tipoUsuario` enum('criador','participante') NOT NULL DEFAULT 'participante'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `sala_usuario`
---
-
-INSERT INTO `sala_usuario` (`id_sala_usuario`, `fk_sala`, `fk_usuario`, `tipoUsuario`) VALUES
-(1, 1, 'raque.lis', 'criador'),
-(2, 11, 'raque.lis', 'criador'),
-(3, 10, 'italo.ramos', 'criador'),
-(4, 7, 'raque.lis', 'criador'),
-(5, 8, 'raque.lis', 'criador'),
-(6, 9, 'raque.lis', 'criador'),
-(7, 18, 'raque.lis', 'criador'),
-(8, 19, 'raque.lis', 'criador'),
-(11, 28, 'italo.ramos', 'criador'),
-(12, 29, 'italo.ramos', 'criador'),
-(13, 30, 'italo.ramos', 'criador'),
-(15, 32, 'italo.ramos', 'criador'),
-(16, 33, 'italo.ramos', 'criador'),
-(17, 34, 'italo.ramos', 'criador'),
-(18, 35, 'italo.ramos', 'criador'),
-(19, 36, 'italo.ramos', 'criador'),
-(20, 37, 'italo.ramos', 'criador'),
-(21, 38, 'italo.ramos', 'criador'),
-(22, 39, 'belly.90', 'criador'),
-(23, 40, 'italo.ramos', 'criador'),
-(24, 41, 'belly.90', 'criador'),
-(25, 42, 'belly.90', 'criador'),
-(26, 43, 'larap02', 'criador');
 
 -- --------------------------------------------------------
 
@@ -157,7 +94,8 @@ INSERT INTO `situacao` (`idSituacao`, `statusSituacao`, `descricaoSituacao`) VAL
 (1, 'Sala Criada', 'Iniciar Atividade Individual'),
 (2, 'Atividade Individual', 'Iniciar Atividade em Pares'),
 (3, 'Atividade em Pares', 'Compartilhar Atividades'),
-(4, 'Compartilhar Atividades', 'Finalizar Atividade');
+(4, 'Compartilhar Atividades', 'Finalizar Atividade'),
+(5, 'Finalizada', '');
 
 -- --------------------------------------------------------
 
@@ -228,19 +166,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `atividade`
 --
 ALTER TABLE `atividade`
-  MODIFY `codigo` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `codigo` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `chaveAcesso` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `chaveAcesso` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de tabela `sala_usuario`
 --
 ALTER TABLE `sala_usuario`
-  MODIFY `id_sala_usuario` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_sala_usuario` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Restrições para despejos de tabelas

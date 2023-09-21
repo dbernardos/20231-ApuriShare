@@ -71,7 +71,7 @@
                             <br>
                             <h3>Capacidade: <?php  echo $dados['qntUsers']; ?></h3>
                             <h3>Registrados: <?php  echo "??" ?></h3>
-                            
+                            <h3>Tempo restante: <?php echo retornaHoraInicio($dados['idSituacao'], $dados['horaInicioThink'], $dados['horaInicioThink'], $dados['tempoThink'], $dados['tempoPair']); ?></h3>
                             <br>
                             <h4><?php  echo $dados['statusSituacao'] ?></h4>
 

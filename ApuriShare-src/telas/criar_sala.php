@@ -20,7 +20,7 @@
             $ultimo_id = mysqli_insert_id($con);
             $_SESSION['idsala'] = $ultimo_id;
         
-        $sql = "INSERT INTO sala_usuario(fk_sala, fk_usuario) values ('$ultimo_id', '$usuario')";
+        $sql = "INSERT INTO sala_usuario(fk_sala, fk_usuario, tipoUsuario) values ('$ultimo_id', '$usuario', 'criador')";
         executar_sql($con, $sql); // SERIA LEGAL FAZER UMA CONDIÇÃO PARA VER SE FOI INSERIDO MESMO
 
         header('Location: iniciacao_partida.php');

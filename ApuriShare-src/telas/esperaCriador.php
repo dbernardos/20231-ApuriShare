@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/geral.css">
     <link rel="stylesheet" href="">
 
-    <meta http-equiv="refresh" content="10">
+    <meta http-equiv="refresh" content="5">
     <meta charset="UTF-8">
     <title>ApuriShare</title>
 </head>

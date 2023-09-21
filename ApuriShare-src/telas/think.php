@@ -12,7 +12,7 @@
         $sql = mysqli_query($con, "INSERT into atividade(respostaThink, fk_sala)
         values ('$respostaThink', '$chaveAcesso')");
 
-        header('Location: pair.php');
+        header('Location: esperaBtnThink.php');
     }
         
 
@@ -48,13 +48,7 @@
         <textarea class="form-control textoarea" placeholder="Escreva sua resposta" name="txtRespostaThink" id="resposta" required></textarea>
         <input type="submit" value="Enviar" name="btnEnviar" class="btn btn-outline-dark btnEnviar">
     </div>
-    <?php 
-        if($dados['fk_situacao'] === '3'){
-            header('Location: pair.php');
-        }else{
-            echo "<h3>A sala solicitada foi finalizada!</h3>";
-        }
-    ?>
+    
     </form>
     </center>
     <?php } ?>

@@ -15,7 +15,7 @@
     <div class="formulario">
         <form action="testelogin.php" method="POST">
             <div class="InputBox">
-                <label for="nickname">Nome:</label><br>
+                <label for="nickname">Nickname:</label><br>
                 <input type="text" name="nickname" id="nickname" require>
             </div>
             <br><br>

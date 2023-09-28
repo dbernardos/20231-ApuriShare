@@ -9,8 +9,8 @@
 
         $respostaThink = $_POST['txtRespostaThink'];
 
-        $sql = mysqli_query($con, "INSERT into atividade(respostaThink, fk_sala)
-        values ('$respostaThink', '$chaveAcesso')");
+        $sql = mysqli_query($con, "INSERT into atividade(respostaThink, fk_sala, fk_usuario)
+        values ('$respostaThink', '$chaveAcesso', '$nome_user')");
 
         header('Location: esperaBtnThink.php');
     }

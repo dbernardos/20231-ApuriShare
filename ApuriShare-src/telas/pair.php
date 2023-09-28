@@ -5,6 +5,7 @@
     $nome_user = $_SESSION['nickname'];
     $id_respostaThink = $_SESSION['codigo'];
 
+
     if(isset($_POST['btnEnviar'])){
 
         $respostaPair = $_POST['txtRespostaPair'];
@@ -23,7 +24,15 @@
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
         $sql_id = mysqli_query($con, "SELECT * from atividade WHERE codigo = '$id_respostaThink'");
 
+//juntanto pessoas aleatorias
+    $sql = mysqli_query($con, "SELECT a.fk_usuario, b.fk_usuario 
+                            FROM atividade a 
+                            JOIN atividade b ON a.fk_sala = b.fk_sala 
+                            WHERE a.fk_sala = '$chaveAcesso' AND a.fk_usuario != b.fk_usuario 
+                            ORDER BY RAND() 
+                            LIMIT $qntUsers;");
 
+        
         while($dados = mysqli_fetch_assoc($sql)){
     ?>
 
@@ -67,12 +76,16 @@
         </div>
         <br><br>
         <div class="resp2">
-            <h3>usuario2</h3>
+            <h3><?php echo $dados['b.fk_usuario'] ?></h3>
             <p>testetestetestetestetesteteste</p><!--<p><?php echo $dados['']; ?></p>-->
         </div>
     </div>
         </form>
     </center>
-    <?php } ?>
+    <?php
+    if($dados['fk_situacao'] === '4'){
+            header('Location: share.php');
+        }
+    }?>
 </body>
 </html>

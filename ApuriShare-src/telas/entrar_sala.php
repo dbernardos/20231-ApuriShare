@@ -8,9 +8,10 @@
         $sql = "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'";
         $sql_query = $con->query($sql);
 
-         $usuario = $_SESSION['nickname'];
-        
-        $sql = "INSERT INTO sala_usuario(fk_sala, fk_usuario, tipoUsuario) values ('$chaveAcesso', '$usuario', 'usuario')";
+        $_SESSION['chaveAcesso'] = $chaveAcesso;
+        $usuario = $_SESSION['nickname'];
+
+        $sql = "INSERT INTO sala_usuario(fk_sala, fk_usuario, tipoUsuario) values ('$chaveAcesso', '$usuario', 'participante')";
         executar_sql($con, $sql); // SERIA LEGAL FAZER UMA CONDIÇÃO PARA VER SE FOI INSERIDO MESMO
 
 

@@ -18,7 +18,7 @@
 
         $id_respostaThink = mysqli_insert_id($con);
         $_SESSION['codigo'] = $id_respostaThink;
-
+    
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
         while($dados = mysqli_fetch_assoc($sql)){
 ?>
@@ -51,6 +51,10 @@
     
     </form>
     </center>
-    <?php } ?>
+    <?php
+    if($dados['fk_situacao'] === '3'){
+            header('Location: pair.php');
+        }
+    }?>
 </body>
 </html>

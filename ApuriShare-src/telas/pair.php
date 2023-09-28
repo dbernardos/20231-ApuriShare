@@ -73,6 +73,10 @@
     </div>
         </form>
     </center>
-    <?php } ?>
+    <?php
+    if($dados['fk_situacao'] === '4'){
+            header('Location: share.php');
+        }
+    }?>
 </body>
 </html>

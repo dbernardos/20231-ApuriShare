@@ -54,7 +54,7 @@
                     <textarea class="form-control textoarea" placeholder="Se João comprar um..." name="txtAtividade" id="atividade" required></textarea>
                     <br>
                     <h3>Comentário</h3>
-                    <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtObservacao" id="comentario" required></textarea>
+                    <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtObservacao" id="comentario"></textarea>
                 </div>
                 <br><br>
                 <h3>Adicionar Imagem</h3>

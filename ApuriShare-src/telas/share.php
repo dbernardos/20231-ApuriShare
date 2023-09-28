@@ -49,7 +49,7 @@
     <h4><!--<?php  echo $dados['fk.usuarios']; ?>--></h4>
     <p><?php while($resposta = mysqli_fetch_assoc($sql_id)){
         
-                echo "<td>".$resposta['respostaPair']."</td>";
+                echo "<td>".$resposta['respostaPair']."</td><br>";
             }?> </p>
     <br>
 </div>

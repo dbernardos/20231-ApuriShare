@@ -23,17 +23,19 @@
 
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
         $sql_id = mysqli_query($con, "SELECT * from atividade WHERE codigo = '$id_respostaThink'");
+    
+        while($dados = mysqli_fetch_assoc($sql)){
 
-//juntanto pessoas aleatorias
-    $sql = mysqli_query($con, "SELECT a.fk_usuario, b.fk_usuario 
+
+    $sql_user = mysqli_query($con, "SELECT a.fk_usuario, b.fk_usuario 
                             FROM atividade a 
                             JOIN atividade b ON a.fk_sala = b.fk_sala 
                             WHERE a.fk_sala = '$chaveAcesso' AND a.fk_usuario != b.fk_usuario 
                             ORDER BY RAND() 
-                            LIMIT $qntUsers;");
+                            ");
 
         
-        while($dados = mysqli_fetch_assoc($sql)){
+       
     ?>
 
     <!DOCTYPE html>
@@ -76,8 +78,10 @@
         </div>
         <br><br>
         <div class="resp2">
-            <h3><?php echo $dados['b.fk_usuario'] ?></h3>
-            <p>testetestetestetestetesteteste</p><!--<p><?php echo $dados['']; ?></p>-->
+            <?php while($usuarios = mysqli_fetch_assoc($sql_user)){ ?>
+            <h3><?php echo $usuarios['b.fk_usuario'] ?></h3>
+            <p>testetestetestetestetesteteste</p>
+           <?php } ?>
         </div>
     </div>
         </form>

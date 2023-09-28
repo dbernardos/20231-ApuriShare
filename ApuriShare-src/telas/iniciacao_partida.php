@@ -2,7 +2,7 @@
     require('conexao.php');
     require('inicia_sessao.php');
 
-    //$id_sala = $_SESSION['idsala'];
+    $id_sala = $_SESSION['idsala'];
 
     $sql_select = "SELECT * FROM sala AS s 
         INNER JOIN sala_usuario AS su 
@@ -13,6 +13,9 @@
         AND su.tipoUsuario	= 'criador'
         ORDER BY s.chaveAcesso DESC";
     
+    $sql_id = mysqli_query($con, "SELECT * from sala_usuario WHERE fk_sala = '$id_sala' 
+    AND tipoUsuario = 'participante'");
+
     $sql_resultado = buscar_dados($con, $sql_select);
 
     if(isset($_POST['btnIniciar'])):
@@ -64,6 +67,7 @@
     <link rel="stylesheet" href="./css/geral.css">
     <link rel="stylesheet" href="./css/iniciacao_partida.css">
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="2">
     <title>ApuriShare</title>
 </head>
 <body>
@@ -79,8 +83,10 @@
                             <h2>Código: <?php echo $dados['chaveAcesso'] ?></h2>
                             <br>
                             <h3>Capacidade: <?php  echo $dados['qntUsers']; ?></h3>
-                            <h3>Registrados: <?php  echo "??" ?></h3>
-                            <!--<h3>Tempo restante: <?php echo retornaHoraInicio($dados['idSituacao'], $dados['horaInicioThink'], $dados['horaInicioThink'], $dados['tempoThink'], $dados['tempoPair']); ?></h3> -->
+                            <h3>Registrados: <?php while($resposta = mysqli_fetch_assoc($sql_id)){
+                                            echo "<td>".$resposta['fk_usuario']."</td><br>";
+                                            }?></h3>
+                            <h3>Tempo restante: <?php echo retornaHoraInicio($dados['idSituacao'], $dados['horaInicioThink'], $dados['horaInicioThink'], $dados['tempoThink'], $dados['tempoPair']); ?></h3>
                             <br>
                             <h4><?php  echo $dados['statusSituacao'] ?></h4>
 

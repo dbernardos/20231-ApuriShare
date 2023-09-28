@@ -9,7 +9,8 @@
         INNER JOIN situacao si
         ON s.chaveAcesso = su.fk_sala 
         AND s.fk_situacao = si.idSituacao
-        WHERE su.fk_usuario = '{$_SESSION['nickname']}' 
+        WHERE su.fk_usuario = '{$_SESSION['nickname']}'
+        AND su.tipoUsuario	= 'criador'
         ORDER BY s.chaveAcesso DESC";
     
     $sql_resultado = buscar_dados($con, $sql_select);
@@ -79,7 +80,7 @@
                             <br>
                             <h3>Capacidade: <?php  echo $dados['qntUsers']; ?></h3>
                             <h3>Registrados: <?php  echo "??" ?></h3>
-                            <h3>Tempo restante: <?php echo retornaHoraInicio($dados['idSituacao'], $dados['horaInicioThink'], $dados['horaInicioThink'], $dados['tempoThink'], $dados['tempoPair']); ?></h3>
+                            <!--<h3>Tempo restante: <?php echo retornaHoraInicio($dados['idSituacao'], $dados['horaInicioThink'], $dados['horaInicioThink'], $dados['tempoThink'], $dados['tempoPair']); ?></h3> -->
                             <br>
                             <h4><?php  echo $dados['statusSituacao'] ?></h4>
 

@@ -10,6 +10,12 @@
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
         $sql_id = mysqli_query($con, "SELECT * from atividade WHERE fk_sala = '$chaveAcesso'");
 
+//TESTE QUE DERAM ERRADO
+        //if(isset($_POST['btnX'])){
+            //$sql = mysqli_query($con, "DELETE from sala_usuario where id_sala_usuario = '$chaveAcesso' and fk_usuario = '$nome_user'");            
+            
+            //header('Location: tela_inicial.php');
+        //}
         while($dados = mysqli_fetch_assoc($sql)){
 ?>
 <!DOCTYPE html>
@@ -28,7 +34,7 @@
 <br>
 <div class="cabecalho">
         <h2>Finalização da Atividade</h2>
-        <a href="./tela_inicial.php" class="btnX btn btn-outline-dark"> X </a>
+        <a href="./tela_inicial.php" name="btnX" class="btnX btn btn-outline-dark"> X </a>
 </div>
 <br><br>
 <div class="border border-2 atividade">

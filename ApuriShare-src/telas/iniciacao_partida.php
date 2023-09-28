@@ -9,7 +9,8 @@
         INNER JOIN situacao si
         ON s.chaveAcesso = su.fk_sala 
         AND s.fk_situacao = si.idSituacao
-        WHERE su.fk_usuario = '{$_SESSION['nickname']}' 
+        WHERE su.fk_usuario = '{$_SESSION['nickname']}'
+        AND su.tipoUsuario	= 'criador'
         ORDER BY s.chaveAcesso DESC";
     
     $sql_id = mysqli_query($con, "SELECT * from sala_usuario WHERE fk_sala = '$id_sala' 

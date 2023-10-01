@@ -57,24 +57,22 @@
 <span style="color: red;">Liste todas as linguagens, dependencias e libs que o usuário deve ter instalado na máquina antes de rodar a aplicação</span>
 
 ## Como rodar a aplicação :arrow_forward:
-Coloque um passo a passo para rodar a sua aplicação.
+Ainda não pronto
 
 No terminal, clone o projeto: 
 
 ```
-git clone https://github.com/React-Bootcamp-WoMarkersCode/certificate-generator
+Ainda não pronto
 ```
 
 ### Configuração do banco de dados
 
-Se for necessário configurar algo antes de iniciar o banco de dados insira os comandos a serem executados 
+Ainda não pronto
 
 
 ### Como usar a aplicação
 
-Explique com mais detalhes como a sua aplicação poderia ser utilizada. O uso de **gifs** aqui seria bem interessante. 
-
-Caso a sua aplicação tenha alguma funcionalidade de login apresente neste tópico os dados necessários para acessá-la.
+Ainda não pronto
 
 |name|email|password|token|
 | -------- |-------- |-------- |-------- |
@@ -85,12 +83,12 @@ Caso a sua aplicação tenha alguma funcionalidade de login apresente neste tóp
 Coloque um passo a passo para executar os testes
 
 ```
-$ npm test, rspec, etc 
+ainda não pronto
 ```
 
 ## Tarefas em aberto
 
-Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementadas na sua aplicação
+Ainda não pronto
 
 :memo: Tarefa 1 
 

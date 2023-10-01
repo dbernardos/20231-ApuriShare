@@ -6,19 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ApuriShare</title>
 
-    <!-- Link para o CSS do Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
 
-<style>
-    #github-icon {
-        color: white;
-    }
-</style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <style>
+       #github-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+        }
+
+        #github-icon {
+            margin-left: 10px; 
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #343a40;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 80px;
+        }
+    </style>
 </head>
 
 <body>
+
     <!--CABEÇALHO-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">
@@ -39,20 +59,28 @@
             </ul>
         </div>
     </nav>
-    <!-- RODAPÉ -->
-<footer class="bg-dark text-white text-center py-3">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <a href="https://github.com/dbernardos/20231-ApuriShare" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github fa-2x" id="github-icon"></i>
-                </a>
-                <p class="mb-0">Repositório do site</p>
-            </div>
-        </div>
-    </div>
-</footer>
+
+
+        <!--RODAPÉ-->
+        <footer>
+            <a id="github-link" href="https://github.com/dbernardos/20231-ApuriShare" target="_blank"
+                rel="noopener noreferrer">
+                Repositório do site <i class="fab fa-github fa-2x" id="github-icon"></i>
+            </a>
+        </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"
+        integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kAx2jc5Pv5B1f5F6F5F5F5F5F5"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 
 </body>
 
 </html>
+
+
+

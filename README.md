@@ -52,11 +52,6 @@
 
 :heavy_check_mark: O sistema deve permitir ao usuário/criador iniciar a atividade 
 
-## Pré-requisitos :books:
-
-- :warning: [Node](https://nodejs.org/en/download/)
-- :warning: [React](https://pt-br.reactjs.org/docs/create-a-new-react-app.html)
-- :warning: [React PDF](https://react-pdf.org/)
 
 
 <span style="color: red;">Liste todas as linguagens, dependencias e libs que o usuário deve ter instalado na máquina antes de rodar a aplicação</span>

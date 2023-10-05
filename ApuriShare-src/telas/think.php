@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" href="./css/salaThink.css">
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5">
     <title>ApuriShare</title>
 </head>
 <body>

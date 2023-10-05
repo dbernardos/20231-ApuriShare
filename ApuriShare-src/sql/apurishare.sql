@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Set-2023 às 21:23
+-- Tempo de geração: 05-Out-2023 às 22:01
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.4.23
 
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `apurishare`
 --
-CREATE DATABASE apurishare;
+
 -- --------------------------------------------------------
 
 --
@@ -54,17 +54,6 @@ CREATE TABLE `sala` (
   `horaInicioThink` time DEFAULT NULL,
   `horaInicioPair` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `sala`
---
-
-INSERT INTO `sala` (`chaveAcesso`, `atividade`, `observacao`, `arquivo`, `nome`, `qntUsers`, `fk_situacao`, `tempoThink`, `tempoPair`, `horaInicioThink`, `horaInicioPair`) VALUES
-(46, 'Onde se localiza Machu Piccho?', 'Peru', NULL, 'Geografia', 4, 5, '00:01:00', '00:01:00', '18:57:48', '19:00:09'),
-(47, 'Que paÃ­s tem o formato de uma bota?', 'ItÃ¡lia', NULL, 'Geografia', 2, 5, '00:01:00', '00:01:00', '19:29:02', '19:29:31'),
-(48, 'Quanto tempo a Terra demora para dar uma volta completa em torno dela mesma?', 'Aproximadamente 24 horas.', NULL, 'CiÃªncias', 4, 1, '00:01:00', '00:01:00', NULL, NULL),
-(49, 'A que temperatura a Ã¡gua ferve?', '100Â°', NULL, 'FÃ­sica', 6, 5, '00:01:00', '00:01:00', '19:58:18', '19:59:16'),
-(50, 'Qual o maior planeta do sistema solar?', 'JÃºpiter', NULL, 'Astronomia', 5, 3, '00:02:00', '00:02:00', '21:09:34', '21:09:53');
 
 -- --------------------------------------------------------
 
@@ -178,13 +167,13 @@ ALTER TABLE `atividade`
 -- AUTO_INCREMENT de tabela `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `chaveAcesso` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `chaveAcesso` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de tabela `sala_usuario`
 --
 ALTER TABLE `sala_usuario`
-  MODIFY `id_sala_usuario` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_sala_usuario` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- Restrições para despejos de tabelas

@@ -15,7 +15,6 @@
     while($dados = mysqli_fetch_assoc($sql)){
     
     $numeroMax = $dados['qntUsers'];
-    echo $numeroMax;
 
     $participantes = "SELECT count(*) from sala_usuario where tipoUsuario = 'participante' 
     and fk_sala = '$chaveAcesso'";
@@ -24,7 +23,9 @@
     
     if ($row) {
     $users = $row[0];
-    echo $users;
+    
+    $_SESSION['usuarios'] = $users;
+
     } else {
     // Não há resultados a serem retornados
     echo "Nenhum resultado encontrado.";
@@ -33,9 +34,9 @@
     if($users < $numeroMax){
        header('Location: salaEspera.php');
     }
-    else($users = $numeroMax){
-       // header('Location: entrar_sala.php');
+    else{
+       header('Location: entrar_sala.php');
     }
     
-    };
+    }
 ?>

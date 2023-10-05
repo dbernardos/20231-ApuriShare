@@ -1,8 +1,14 @@
 <?php
-    include_once('numeroMax.php');
+    include_once('conexao.php');
+
+    session_start();
+    $nome_user = $_SESSION['nickname'];
+    $users = $_SESSION['usuarios'];
+    $chaveAcesso = $_SESSION['chaveAcesso'];
+
+    $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
 
     while($dados = mysqli_fetch_assoc($sql)){
-    
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +25,7 @@
 <body>
     <a href="./tela_inicial.php"><button class="btnX btn btn-outline-dark"> X </button></a>
     <div class="esquerda">
-        <h1><?php ?></h1>
+        <h1><?php echo $users?></h1>
     </div>
 
     <div class="centro">

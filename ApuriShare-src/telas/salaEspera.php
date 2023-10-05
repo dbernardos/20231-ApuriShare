@@ -25,7 +25,6 @@
 <body>
     <a href="./tela_inicial.php"><button class="btnX btn btn-outline-dark"> X </button></a>
     <div class="esquerda">
-        <h1><?php echo $users?></h1>
     </div>
 
     <div class="centro">

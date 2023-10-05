@@ -3,6 +3,7 @@
     require('inicia_sessao.php');
 
     $id_sala = $_SESSION['idsala'];
+    $users = $_SESSION['usuarios'];
 
     $sql_select = "SELECT * FROM sala AS s 
         INNER JOIN sala_usuario AS su 
@@ -21,7 +22,7 @@
     if(isset($_POST['btnIniciar'])):
         $horaAtual = date('H:i:s');
 
-        if ($_POST['id_situacao'] == 1):
+        if ($_POST['id_situacao'] == 1 && $users % 2 == 0):
             $sql_update = "UPDATE sala SET fk_situacao =  2, horaInicioThink = '$horaAtual' WHERE chaveAcesso = {$_POST['chave_acesso']}";
             executar_sql($con, $sql_update);
 

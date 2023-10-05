@@ -42,7 +42,19 @@
         endif;
 
         header('Location: iniciacao_partida.php');
+        
+    //
+    $vetor = array();
+    $participantes = mysqli_fetch_assoc($sql_id);
+    $max = 4;
+
+    for ($min = 1; $min <= $max; $min++) {
+        $vetor[] = array('fk_usuario' => $participantes['fk_usuario'], 'min' => $min);
+    }
+
     endif;
+
+    echo $vetor;
 
     function retornaHoraInicio($id, $hrThink, $hrPair, $tpThink, $tpPair){
         $horaAtual = date('H:i:s');

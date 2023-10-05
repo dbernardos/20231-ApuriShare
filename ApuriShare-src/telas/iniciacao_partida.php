@@ -41,21 +41,17 @@
         elseif($_POST['id_situacao'] == 5):
             echo "A tarefa foi finalizada (compartilhar), precisamos pensar se manda para outra página ou o que faz";
         endif;
-
-        header('Location: iniciacao_partida.php');
         
-    //
-    $vetor = array();
-    $participantes = mysqli_fetch_assoc($sql_id);
-    $max = 4;
+        //
+        $comando = "SELECT * from sala_usuario WHERE fk_sala = '$id_sala' 
+        AND tipoUsuario = 'participante'";
 
-    for ($min = 1; $min <= $max; $min++) {
-        $vetor[] = array('fk_usuario' => $participantes['fk_usuario'], 'min' => $min);
-    }
+        $participantes = buscar_dados($con, $comando);
 
+        foreach($participantes as $dados){
+            echo $dados['fk_usuario'];
+        }
     endif;
-
-    echo $vetor;
 
     function retornaHoraInicio($id, $hrThink, $hrPair, $tpThink, $tpPair){
         $horaAtual = date('H:i:s');
@@ -80,7 +76,7 @@
     <link rel="stylesheet" href="./css/geral.css">
     <link rel="stylesheet" href="./css/iniciacao_partida.css">
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="2">
+    <meta http-equiv="refresh" content="10">
     <title>ApuriShare</title>
 </head>
 <body>

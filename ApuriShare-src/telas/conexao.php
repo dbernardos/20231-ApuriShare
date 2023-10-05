@@ -9,9 +9,6 @@
     if($con->connect_errno){
         echo "<span> Falha ao conectar!</span>";
     }
-    //else{
-    //    echo "<span>Conectado com sucesso!</span>";
-    //}
 
     function executar_sql($conexao, $comando){
         $resultado = mysqli_query($conexao, $comando);

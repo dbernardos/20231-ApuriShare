@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Out-2023 às 22:01
+-- Tempo de geração: 28-Set-2023 às 21:23
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.4.23
 
@@ -54,6 +54,17 @@ CREATE TABLE `sala` (
   `horaInicioThink` time DEFAULT NULL,
   `horaInicioPair` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `sala`
+--
+
+INSERT INTO `sala` (`chaveAcesso`, `atividade`, `observacao`, `arquivo`, `nome`, `qntUsers`, `fk_situacao`, `tempoThink`, `tempoPair`, `horaInicioThink`, `horaInicioPair`) VALUES
+(46, 'Onde se localiza Machu Piccho?', 'Peru', NULL, 'Geografia', 4, 5, '00:01:00', '00:01:00', '18:57:48', '19:00:09'),
+(47, 'Que paÃ­s tem o formato de uma bota?', 'ItÃ¡lia', NULL, 'Geografia', 2, 5, '00:01:00', '00:01:00', '19:29:02', '19:29:31'),
+(48, 'Quanto tempo a Terra demora para dar uma volta completa em torno dela mesma?', 'Aproximadamente 24 horas.', NULL, 'CiÃªncias', 4, 1, '00:01:00', '00:01:00', NULL, NULL),
+(49, 'A que temperatura a Ã¡gua ferve?', '100Â°', NULL, 'FÃ­sica', 6, 5, '00:01:00', '00:01:00', '19:58:18', '19:59:16'),
+(50, 'Qual o maior planeta do sistema solar?', 'JÃºpiter', NULL, 'Astronomia', 5, 3, '00:02:00', '00:02:00', '21:09:34', '21:09:53');
 
 -- --------------------------------------------------------
 
@@ -114,6 +125,40 @@ INSERT INTO `usuario` (`nickname`, `nome`, `senha`) VALUES
 ('portuga.2004', 'Rafael Portugal', '2004'),
 ('raque.lis', 'Raquel da Silva', '1020');
 
+INSERT INTO `usuario` (`nickname`, `nome`, `senha`) VALUES
+('jao', 'Joao de Souza', '123'),
+('maria', 'Maria de Souza', '123'),
+('joana', 'Joana de Souza', '123'),
+('bertila', 'Bertila de Souza', '123'),
+('betania', 'Betania de Souza', '123'),
+('mauricio', 'Mauricio de Souza', '123'),
+('bianca', 'Bianca de Souza', '123'),
+('ana', 'Ana de Souza', '123');
+
+INSERT INTO `sala_usuario`(`fk_sala`, `fk_usuario`, `tipoUsuario`) VALUES 
+('39','maria','participante'),
+('39','joana','participante'),
+('39','bertila','participante'),
+('39','betania','participante'),
+('39','mauricio','participante'),
+('39','bianca','participante');
+
+INSERT INTO `sala_usuario`(`fk_sala`, `fk_usuario`, `tipoUsuario`) VALUES 
+('38','maria','participante'),
+('38','joana','participante'),
+('38','bertila','participante'),
+('38','betania','participante'),
+('38','mauricio','participante'),
+('38','bianca','participante');
+
+INSERT INTO `sala_usuario`(`fk_sala`, `fk_usuario`, `tipoUsuario`) VALUES 
+('37','maria','participante'),
+('37','joana','participante'),
+('37','bertila','participante'),
+('37','betania','participante'),
+('37','mauricio','participante'),
+('37','bianca','participante');
+
 --
 -- Índices para tabelas despejadas
 --
@@ -167,13 +212,13 @@ ALTER TABLE `atividade`
 -- AUTO_INCREMENT de tabela `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `chaveAcesso` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `chaveAcesso` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de tabela `sala_usuario`
 --
 ALTER TABLE `sala_usuario`
-  MODIFY `id_sala_usuario` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id_sala_usuario` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- Restrições para despejos de tabelas

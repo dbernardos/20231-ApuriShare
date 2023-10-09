@@ -14,14 +14,13 @@
         AND su.tipoUsuario	= 'criador'
         ORDER BY s.chaveAcesso DESC";
     
-    $sql_id = mysqli_query($con, "SELECT * from sala_usuario WHERE fk_sala = '$id_sala' 
-    AND tipoUsuario = 'participante'");
+    $sql_id = mysqli_query($con, "SELECT * from sala_usuario WHERE fk_sala = '$id_sala' AND tipoUsuario = 'participante'");
 
     $sql_resultado = buscar_dados($con, $sql_select);
 
     if(isset($_POST['btnIniciar'])):
         $horaAtual = date('H:i:s');
-
+        
         if ($_POST['id_situacao'] == 1 && $users % 2 == 0):
             $sql_update = "UPDATE sala SET fk_situacao =  2, horaInicioThink = '$horaAtual' WHERE chaveAcesso = {$_POST['chave_acesso']}";
             executar_sql($con, $sql_update);
@@ -42,17 +41,45 @@
             echo "A tarefa foi finalizada (compartilhar), precisamos pensar se manda para outra página ou o que faz";
         endif;
         
-        //
-        $comando = "SELECT * from sala_usuario WHERE fk_sala = '$id_sala' 
-        AND tipoUsuario = 'participante'";
+        //LOGICA PARA O SORTEIO DOS PARES
+        recuperaParticipantes($_POST['chave_acesso'], $con);
 
-        $participantes = buscar_dados($con, $comando);
-
-        foreach($participantes as $dados){
-            echo $dados['fk_usuario'];
-        }
     endif;
 
+    // FUNÇÃO PARA SORTEAR OS PARES
+    function recuperaParticipantes($chave, $con){
+        $comando = "SELECT * from sala_usuario WHERE fk_sala = {$chave} AND tipoUsuario = 'participante'";
+        $participantes = buscar_dados($con, $comando);
+        
+        $vetParticipantes = [];
+        $contador = 0;
+
+        foreach($participantes as $dados){
+            $contador++;
+            $vetParticipantes["{$dados['fk_usuario']}"] = $contador;
+            //error_log("dados: {$dados['fk_usuario']} ", 3, "file.log");
+        }
+
+        for ($i = 0; $i < count($vetParticipantes); $i++) {
+            $sorteado = sorteiaParticipantes($vetParticipantes);
+            error_log("\nsorteado: {$sorteado} ", 3, "file.log");
+            unset($vetParticipantes['{$sorteado}']);
+            imprimeVetor($vetParticipantes);
+        }
+    }
+    
+    function imprimeVetor($vetor){
+        foreach($vetor as $dados){
+            error_log("\nrestante: {$dados} ", 3, "file.log");
+        }
+    }
+
+    function sorteiaParticipantes($vetParticipantes){
+        return array_rand($vetParticipantes, 1);
+    }
+
+
+    // FUNÇÃO PARA CONTROLAR O TEMPORIZADOR
     function retornaHoraInicio($id, $hrThink, $hrPair, $tpThink, $tpPair){
         $horaAtual = date('H:i:s');
 

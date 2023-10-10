@@ -6,12 +6,10 @@
         $nome = $_POST['txtNome'];
         $atividade = $_POST['txtAtividade'];
         $observacao = $_POST['txtObservacao'];
-        $tempoThink = $_POST['txtThink'];
-        $tempoPair = $_POST['txtPair'];
         $usuarios = $_POST['QntUsers'];
 
-        $sql = "INSERT into sala(nome, atividade, observacao, tempoThink, tempoPair, qntUsers)
-        values ('$nome', '$atividade', '$observacao', '$tempoThink','$tempoPair','$usuarios')";
+        $sql = "INSERT into sala(nome, atividade, observacao, qntUsers)
+        values ('$nome', '$atividade', '$observacao', '$usuarios')";
         executar_sql($con, $sql); // SERIA LEGAL FAZER UMA CONDIÇÃO PARA VER SE FOI INSERIDO MESMO
 
         $usuario = $_SESSION['nickname'];
@@ -68,12 +66,6 @@
         </div>
 
         <div class="direita">
-            <br>
-            <h3>Primeiro Tempo</h3>
-            <input type="time" name="txtThink" required> <br>
-            <br>
-            <h3>Segundo Tempo</h3>
-            <input type="time" name="txtPair" required> <br>
             <br>
             <h3>Número Máximo de Pessoas</h3>
 

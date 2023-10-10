@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Set-2023 às 21:23
+-- Tempo de geração: 10-Out-2023 às 21:06
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.4.23
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `apurishare`
 --
-
-CREATE DATABASE apurishare;
 
 -- --------------------------------------------------------
 
@@ -66,7 +64,11 @@ INSERT INTO `sala` (`chaveAcesso`, `atividade`, `observacao`, `arquivo`, `nome`,
 (47, 'Que paÃ­s tem o formato de uma bota?', 'ItÃ¡lia', NULL, 'Geografia', 2, 5, '00:01:00', '00:01:00', '19:29:02', '19:29:31'),
 (48, 'Quanto tempo a Terra demora para dar uma volta completa em torno dela mesma?', 'Aproximadamente 24 horas.', NULL, 'CiÃªncias', 4, 1, '00:01:00', '00:01:00', NULL, NULL),
 (49, 'A que temperatura a Ã¡gua ferve?', '100Â°', NULL, 'FÃ­sica', 6, 5, '00:01:00', '00:01:00', '19:58:18', '19:59:16'),
-(50, 'Qual o maior planeta do sistema solar?', 'JÃºpiter', NULL, 'Astronomia', 5, 3, '00:02:00', '00:02:00', '21:09:34', '21:09:53');
+(50, 'Qual o maior planeta do sistema solar?', 'JÃºpiter', NULL, 'Astronomia', 5, 3, '00:02:00', '00:02:00', '21:09:34', '21:09:53'),
+(51, 'gtrfhtr', 'rtjtrhtrgb', NULL, 'Ciencias', 6, 5, NULL, NULL, '19:45:03', '19:45:45'),
+(52, 'Qual a importÃ¢ncia da lua para a Terra?', '', NULL, 'Ciencias', 7, 1, NULL, NULL, NULL, NULL),
+(53, 'Qual a montanha mais alta do mundo?', 'Monte Everest', NULL, 'Geografia', 8, 1, NULL, NULL, NULL, NULL),
+(54, 'dsgbbfg', 'sfsdbdf', NULL, 'Ciencias', 12, 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -78,8 +80,60 @@ CREATE TABLE `sala_usuario` (
   `id_sala_usuario` int(6) NOT NULL,
   `fk_sala` int(6) NOT NULL,
   `fk_usuario` varchar(100) NOT NULL,
-  `tipoUsuario` enum('criador','participante') NOT NULL DEFAULT 'participante'
+  `tipoUsuario` enum('criador','participante') NOT NULL DEFAULT 'participante',
+  `numeroUsers` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `sala_usuario`
+--
+
+INSERT INTO `sala_usuario` (`id_sala_usuario`, `fk_sala`, `fk_usuario`, `tipoUsuario`, `numeroUsers`) VALUES
+(1, 39, 'maria', 'participante', 0),
+(2, 39, 'joana', 'participante', 0),
+(3, 39, 'bertila', 'participante', 0),
+(4, 39, 'betania', 'participante', 0),
+(5, 39, 'mauricio', 'participante', 0),
+(6, 39, 'bianca', 'participante', 0),
+(7, 38, 'maria', 'participante', 0),
+(8, 38, 'joana', 'participante', 0),
+(9, 38, 'bertila', 'participante', 0),
+(10, 38, 'betania', 'participante', 0),
+(11, 38, 'mauricio', 'participante', 0),
+(12, 38, 'bianca', 'participante', 0),
+(13, 37, 'maria', 'participante', 0),
+(14, 37, 'joana', 'participante', 0),
+(15, 37, 'bertila', 'participante', 0),
+(16, 37, 'betania', 'participante', 0),
+(17, 37, 'mauricio', 'participante', 0),
+(18, 37, 'bianca', 'participante', 0),
+(19, 51, 'belly.90', 'criador', 0),
+(20, 51, 'belly.90', 'participante', 0),
+(21, 51, 'raque.lis', 'participante', 0),
+(22, 51, 'raque.lis', 'participante', 0),
+(23, 51, 'raque.lis', 'participante', 0),
+(24, 51, 'raque.lis', 'participante', 0),
+(25, 52, 'belly.90', 'criador', 0),
+(26, 52, 'raque.lis', 'participante', 0),
+(27, 52, 'raque.lis', 'participante', 0),
+(28, 52, 'belly.90', 'participante', 0),
+(29, 53, 'belly.90', 'criador', 0),
+(30, 53, 'raque.lis', 'participante', 0),
+(31, 53, 'raque.lis', 'participante', 0),
+(32, 0, 'belly.90', 'participante', 0),
+(33, 53, 'belly.90', 'participante', 0),
+(34, 53, 'raque.lis', 'participante', 0),
+(35, 53, 'belly.90', 'participante', 0),
+(36, 53, 'belly.90', 'participante', 0),
+(37, 54, 'belly.90', 'criador', 0),
+(38, 54, 'raque.lis', 'participante', 0),
+(39, 54, 'raque.lis', 'participante', 0),
+(40, 54, 'raque.lis', 'participante', 0),
+(41, 54, 'belly.90', 'participante', 0),
+(42, 54, 'belly.90', 'participante', 0),
+(43, 54, 'raque.lis', 'participante', 0),
+(44, 54, 'belly.90', 'participante', 0),
+(45, 54, 'belly.90', 'participante', 0);
 
 -- --------------------------------------------------------
 
@@ -125,9 +179,7 @@ INSERT INTO `usuario` (`nickname`, `nome`, `senha`) VALUES
 ('italo.ramos', 'Italo Ramos', '6598'),
 ('larap02', 'Lara Pereira', '2020'),
 ('portuga.2004', 'Rafael Portugal', '2004'),
-('raque.lis', 'Raquel da Silva', '1020');
-
-INSERT INTO `usuario` (`nickname`, `nome`, `senha`) VALUES
+('raque.lis', 'Raquel da Silva', '1020'),
 ('jao', 'Joao de Souza', '123'),
 ('maria', 'Maria de Souza', '123'),
 ('joana', 'Joana de Souza', '123'),
@@ -136,30 +188,6 @@ INSERT INTO `usuario` (`nickname`, `nome`, `senha`) VALUES
 ('mauricio', 'Mauricio de Souza', '123'),
 ('bianca', 'Bianca de Souza', '123'),
 ('ana', 'Ana de Souza', '123');
-
-INSERT INTO `sala_usuario`(`fk_sala`, `fk_usuario`, `tipoUsuario`) VALUES 
-('39','maria','participante'),
-('39','joana','participante'),
-('39','bertila','participante'),
-('39','betania','participante'),
-('39','mauricio','participante'),
-('39','bianca','participante');
-
-INSERT INTO `sala_usuario`(`fk_sala`, `fk_usuario`, `tipoUsuario`) VALUES 
-('38','maria','participante'),
-('38','joana','participante'),
-('38','bertila','participante'),
-('38','betania','participante'),
-('38','mauricio','participante'),
-('38','bianca','participante');
-
-INSERT INTO `sala_usuario`(`fk_sala`, `fk_usuario`, `tipoUsuario`) VALUES 
-('37','maria','participante'),
-('37','joana','participante'),
-('37','bertila','participante'),
-('37','betania','participante'),
-('37','mauricio','participante'),
-('37','bianca','participante');
 
 --
 -- Índices para tabelas despejadas
@@ -184,67 +212,23 @@ ALTER TABLE `sala`
 -- Índices para tabela `sala_usuario`
 --
 ALTER TABLE `sala_usuario`
-  ADD PRIMARY KEY (`id_sala_usuario`),
-  ADD KEY `fk_sala` (`fk_sala`),
-  ADD KEY `fk_usuario` (`fk_usuario`);
-
---
--- Índices para tabela `situacao`
---
-ALTER TABLE `situacao`
-  ADD PRIMARY KEY (`idSituacao`);
-
---
--- Índices para tabela `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`nickname`);
+  ADD PRIMARY KEY (`id_sala_usuario`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT de tabela `atividade`
---
-ALTER TABLE `atividade`
-  MODIFY `codigo` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
 -- AUTO_INCREMENT de tabela `sala`
 --
 ALTER TABLE `sala`
-  MODIFY `chaveAcesso` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `chaveAcesso` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT de tabela `sala_usuario`
 --
 ALTER TABLE `sala_usuario`
-  MODIFY `id_sala_usuario` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `atividade`
---
-ALTER TABLE `atividade`
-  ADD CONSTRAINT `fk_coluna_fk` FOREIGN KEY (`fk_usuario`) REFERENCES `usuario` (`nickname`),
-  ADD CONSTRAINT `fk_sala` FOREIGN KEY (`fk_sala`) REFERENCES `sala` (`chaveAcesso`);
-
---
--- Limitadores para a tabela `sala`
---
-ALTER TABLE `sala`
-  ADD CONSTRAINT `const_sala_situacao` FOREIGN KEY (`fk_situacao`) REFERENCES `situacao` (`idSituacao`);
-
---
--- Limitadores para a tabela `sala_usuario`
---
-ALTER TABLE `sala_usuario`
-  ADD CONSTRAINT `sala_usuario_ibfk_1` FOREIGN KEY (`fk_sala`) REFERENCES `sala` (`chaveAcesso`),
-  ADD CONSTRAINT `sala_usuario_ibfk_2` FOREIGN KEY (`fk_usuario`) REFERENCES `usuario` (`nickname`);
+  MODIFY `id_sala_usuario` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,7 +3,6 @@
     require('inicia_sessao.php');
 
     $id_sala = $_SESSION['idsala'];
-    $users = $_SESSION['usuarios'];
 
     $sql_select = "SELECT * FROM sala AS s 
         INNER JOIN sala_usuario AS su 
@@ -17,6 +16,10 @@
     $sql_id = mysqli_query($con, "SELECT * from sala_usuario WHERE fk_sala = '$id_sala' AND tipoUsuario = 'participante'");
 
     $sql_resultado = buscar_dados($con, $sql_select);
+
+    while($resposta = mysqli_fetch_assoc($sql_id)){
+        $users[] = $resposta['numeroUsers'];
+    }
 
     if(isset($_POST['btnIniciar'])):
         $horaAtual = date('H:i:s');
@@ -123,9 +126,7 @@
                             <h2>Código: <?php echo $dados['chaveAcesso'] ?></h2>
                             <br>
                             <h3>Capacidade: <?php  echo $dados['qntUsers']; ?></h3>
-                            <h3>Registrados: <?php while($resposta = mysqli_fetch_assoc($sql_id)){
-                                            echo "<td>".$resposta['fk_usuario']."</td><br>";
-                                            }?></h3>
+                            <h3>Registrados: <?php echo $users; ?></h3>
                             <h3>Tempo restante: <?php echo retornaHoraInicio($dados['idSituacao'], $dados['horaInicioThink'], $dados['horaInicioThink'], $dados['tempoThink'], $dados['tempoPair']); ?></h3>
                             <br>
                             <h4><?php  echo $dados['statusSituacao'] ?></h4>

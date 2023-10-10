@@ -31,7 +31,6 @@
     <div class="centro">
     <h1><?php echo $dados['nome']; ?></h1>
     <h1><?php while($resposta = mysqli_fetch_assoc($sql_usuarios)){
-            echo $resposta['numeroUsers'];
         }?></h1>
     <br><br>
 

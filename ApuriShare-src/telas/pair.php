@@ -4,6 +4,7 @@
     session_start();
     $nome_user = $_SESSION['nickname'];
     $id_respostaThink = $_SESSION['codigo'];
+    $dupla = $_SESSION['dupla'];
 
 
     if(isset($_POST['btnEnviar'])){
@@ -31,8 +32,8 @@
                             ORDER BY RAND() 
                             ");
 
-        
-       
+        //RASCUNHO SOMENTE PARA NÃO ESQUECER O QUE ESTAVA FAZENDO 
+       //$sql_dupla = mysqli_query($con, "SELECT * from atividade AND '$dupla' = nickname"); PEGAR RESPOSTA DO USUARIO
     ?>
 
     <!DOCTYPE html>

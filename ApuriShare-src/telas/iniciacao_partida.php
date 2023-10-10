@@ -79,6 +79,7 @@
             
             imprimeVetor($vetParticipantes);
         }
+        $_SESSION['sorteado'] = $vetorDuplas;
     }
 
     // FUNÇÃO APENAS PARA IMPRIMIR O ARRAY
@@ -93,6 +94,7 @@
         return array_rand($vetParticipantes, 2);
     }
 
+    
 
 
     // FUNÇÃO PARA CONTROLAR O TEMPORIZADOR (Talvez não seja mais necessario)

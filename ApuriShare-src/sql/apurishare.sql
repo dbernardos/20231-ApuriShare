@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `atividade` (
-  `codigo` int(6) NOT NULL,
-  `respostaThink` varchar(1000) NOT NULL,
-  `respostaPair` varchar(1000) NOT NULL,
+  `codigo` int(6) NOT NULL, /*o código de acesso da sala deve ter de 1-6 dígitos*/
+  `respostaThink` varchar(100000) NOT NULL, /*resposta que o usuário da sozinho*/
+  `respostaPair` varchar(100000) NOT NULL, /*resposta que o usuário da em dupla*/
   `fk_sala` int(6) DEFAULT NULL,
   `fk_usuario` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -43,16 +43,18 @@ CREATE TABLE `atividade` (
 
 CREATE TABLE `sala` (
   `chaveAcesso` int(6) NOT NULL,
-  `atividade` varchar(1000) NOT NULL,
-  `observacao` varchar(100) DEFAULT NULL,
-  `arquivo` varchar(100) DEFAULT NULL,
-  `nome` varchar(45) NOT NULL,
-  `qntUsers` int(3) NOT NULL,
-  `fk_situacao` int(6) NOT NULL DEFAULT 1,
-  `tempoThink` time DEFAULT NULL,
+  `atividade` varchar(100000) NOT NULL,
+  `observacao` varchar(100000) DEFAULT NULL,
+  `arquivo` varchar(100) DEFAULT NULL, /*???????????*/
+  `nome` varchar(50) NOT NULL,
+  `qntUsers` int(3) NOT NULL, /*e se for par????? ein?????*/
+  `fk_situacao` int(6) NOT NULL DEFAULT 1
+  
+  /*`tempoThink` time DEFAULT NULL,
   `tempoPair` time DEFAULT NULL,
   `horaInicioThink` time DEFAULT NULL,
-  `horaInicioPair` time DEFAULT NULL
+  `horaInicioPair` time DEFAULT NULL*/
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -198,21 +200,36 @@ INSERT INTO `usuario` (`nickname`, `nome`, `senha`) VALUES
 --
 ALTER TABLE `atividade`
   ADD PRIMARY KEY (`codigo`),
-  ADD KEY `fk_sala` (`fk_sala`),
-  ADD KEY `fk_coluna_fk` (`fk_usuario`);
+  /*ADD KEY `fk_sala` (`fk_sala`),
+  ADD KEY `fk_coluna_fk` (`fk_usuario`);*/
 
 --
 -- Índices para tabela `sala`
 --
 ALTER TABLE `sala`
   ADD PRIMARY KEY (`chaveAcesso`),
-  ADD KEY `const_sala_situacao` (`fk_situacao`);
+  /*ADD KEY `const_sala_situacao` (`fk_situacao`);*/
 
 --
 -- Índices para tabela `sala_usuario`
 --
 ALTER TABLE `sala_usuario`
   ADD PRIMARY KEY (`id_sala_usuario`);
+  ADD PRIMARY KEY (`id_sala_usuario`),
+  /*ADD KEY `fk_sala` (`fk_sala`),
+  ADD KEY `fk_usuario` (`fk_usuario`);*/
+
+--
+-- Índices para tabela `situacao`
+--
+ALTER TABLE `situacao`
+  ADD PRIMARY KEY (`idSituacao`);
+
+--
+-- Índices para tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`nickname`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas

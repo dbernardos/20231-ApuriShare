@@ -53,6 +53,7 @@
         
         $vetParticipantes = [];
         $contador = 0;
+        $vetorDuplas = array();
 
         foreach($participantes as $dados){
             $contador++;
@@ -62,10 +63,17 @@
         $tam = count($vetParticipantes);
 
         for ($i = 0; $i < $tam; $i++) {
+            
             $sorteado = sorteiaParticipantes($vetParticipantes);
+
+            array_push ($vetorDuplas, $sorteado);
+
             // << ATENÇÃO >> AQUI ESTÁ O NICKNAME DO SORTEADO: $vetParticipantes[$sorteado]
             error_log("\nsorteado >>> {$vetParticipantes[$sorteado]} ", 3, "file.log");
-            unset($vetParticipantes[$sorteado]);
+
+            unset($vetParticipantes[$sorteado[0]]);
+            unset($vetParticipantes[$sorteado[1]]);
+            
             imprimeVetor($vetParticipantes);
         }
     }
@@ -79,9 +87,10 @@
 
     // FUNÇÃO PARA SORTEAR OS PARES DENTRO DO ARRAY
     function sorteiaParticipantes($vetParticipantes){
-        return array_rand($vetParticipantes, 1);
+        return array_rand($vetParticipantes, 2);
     }
 
+    
 
     // FUNÇÃO PARA CONTROLAR O TEMPORIZADOR
     function retornaHoraInicio($id, $hrThink, $hrPair, $tpThink, $tpPair){

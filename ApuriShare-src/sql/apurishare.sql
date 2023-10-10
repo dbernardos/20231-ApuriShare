@@ -30,13 +30,13 @@ CREATE DATABASE apurishare;
 
 CREATE TABLE `atividade` (
   `codigo` int(6) NOT NULL AUTO_INCREMENT, /*o código de acesso da sala deve ter de 1-6 dígitos*/
-  `respostaThink` varchar(255) NOT NULL, /*resposta que o usuário da sozinho*/
-  `respostaPair` varchar(255) NOT NULL, /*resposta que o usuário da em dupla*/
+  `respostaThink` TEXT NOT NULL, /*resposta que o usuário dá sozinho*/
+  `respostaPair` TEXT NOT NULL, /*resposta que o usuário dá em dupla*/
   `fk_sala` int(6) DEFAULT NULL,
   `fk_usuario` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`codigo`),
-  KEY `fk_sala` (`fk_sala`),
-  KEY `fk_coluna_fk` (`fk_usuario`)
+  FOREIGN KEY (`fk_usuario`) REFERENCES `usuario` (`nickname`),
+  FOREIGN KEY (`fk_sala`) REFERENCES `sala` (`chaveAcesso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -47,23 +47,22 @@ CREATE TABLE `atividade` (
 
 CREATE TABLE `sala` (
   `chaveAcesso` int(6) NOT NULL AUTO_INCREMENT,
-  `atividade` varchar(255) NOT NULL,
-  `observacao` varchar(255) DEFAULT NULL,
+  `atividade` TEXT NOT NULL,
+  `observacao` TEXT DEFAULT NULL,
   `arquivo` varchar(100) DEFAULT NULL, /*???????????*/
   `nome` varchar(50) NOT NULL,
   `qntUsers` int(3) NOT NULL, /*e se for par????? ein?????*/
   `fk_situacao` int(6) NOT NULL DEFAULT 1,
   PRIMARY KEY (`chaveAcesso`),
-  KEY `const_sala_situacao` (`fk_situacao`)
+  FOREIGN KEY (`fk_situacao`) REFERENCES `situacao` (`idSituacao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `sala`
 --
 
-INSERT INTO `sala` (`chaveAcesso`, `atividade`, `observacao`, `arquivo`, `nome`, `qntUsers`, `fk_situacao`)
-VALUES
-(46, 'Onde se localiza Machu Picchu?', 'Peru', NULL, 'Geografia', 4, 5),
+INSERT INTO `sala` (`chaveAcesso`, `atividade`, `observacao`, `arquivo`, `nome`, `qntUsers`, `fk_situacao`) VALUES
+(46, 'Onde se localiza Machu Piccho?', 'Peru', NULL, 'Geografia', 4, 5),
 (47, 'Que país tem o formato de uma bota?', 'Itália', NULL, 'Geografia', 2, 5),
 (48, 'Quanto tempo a Terra demora para dar uma volta completa em torno dela mesma?', 'Aproximadamente 24 horas.', NULL, 'Ciências', 4, 1),
 (49, 'A que temperatura a água ferve?', '100°', NULL, 'Física', 6, 5),
@@ -81,8 +80,8 @@ CREATE TABLE `sala_usuario` (
   `fk_usuario` varchar(100) NOT NULL,
   `tipoUsuario` enum('criador','participante') NOT NULL DEFAULT 'participante',
   PRIMARY KEY (`id_sala_usuario`),
-  KEY `fk_sala` (`fk_sala`),
-  KEY `fk_usuario` (`fk_usuario`)
+  FOREIGN KEY (`fk_sala`) REFERENCES `sala` (`chaveAcesso`),
+  FOREIGN KEY (`fk_usuario`) REFERENCES `usuario` (`nickname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -141,40 +140,29 @@ INSERT INTO `usuario` (`nickname`, `nome`, `senha`) VALUES
 ('bianca', 'Bianca de Souza', '123'),
 ('ana', 'Ana de Souza', '123');
 
--- Inserindo dados na tabela `sala_usuario`
-INSERT INTO `sala_usuario` (`fk_sala`, `fk_usuario`, `tipoUsuario`) VALUES 
+INSERT INTO `sala_usuario`(`fk_sala`, `fk_usuario`, `tipoUsuario`) VALUES 
 ('39','maria','participante'),
 ('39','joana','participante'),
 ('39','bertila','participante'),
 ('39','betania','participante'),
 ('39','mauricio','participante'),
-('39','bianca','participante'),
+('39','bianca','participante');
+
+INSERT INTO `sala_usuario`(`fk_sala`, `fk_usuario`, `tipoUsuario`) VALUES 
 ('38','maria','participante'),
 ('38','joana','participante'),
 ('38','bertila','participante'),
 ('38','betania','participante'),
 ('38','mauricio','participante'),
-('38','bianca','participante'),
+('38','bianca','participante');
+
+INSERT INTO `sala_usuario`(`fk_sala`, `fk_usuario`, `tipoUsuario`) VALUES 
 ('37','maria','participante'),
 ('37','joana','participante'),
 ('37','bertila','participante'),
 ('37','betania','participante'),
 ('37','mauricio','participante'),
 ('37','bianca','participante');
-
--- Limitadores para a tabela `atividade`
-ALTER TABLE `atividade`
-  ADD CONSTRAINT `fk_coluna_fk` FOREIGN KEY (`fk_usuario`) REFERENCES `usuario` (`nickname`),
-  ADD CONSTRAINT `fk_sala` FOREIGN KEY (`fk_sala`) REFERENCES `sala` (`chaveAcesso`);
-
--- Limitadores para a tabela `sala`
-ALTER TABLE `sala`
-  ADD CONSTRAINT `const_sala_situacao` FOREIGN KEY (`fk_situacao`) REFERENCES `situacao` (`idSituacao`);
-
--- Limitadores para a tabela `sala_usuario`
-ALTER TABLE `sala_usuario`
-  ADD CONSTRAINT `sala_usuario_ibfk_1` FOREIGN KEY (`fk_sala`) REFERENCES `sala` (`chaveAcesso`),
-  ADD CONSTRAINT `sala_usuario_ibfk_2` FOREIGN KEY (`fk_usuario`) REFERENCES `usuario` (`nickname`);
 
 COMMIT;
 

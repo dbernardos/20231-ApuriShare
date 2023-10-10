@@ -46,7 +46,7 @@
 
     endif;
 
-    // FUNÇÃO PARA SORTEAR OS PARES
+    // FUNÇÃO PARA RECUPERAR OS PARTICIPANTES E ORGANIZAR O ARRAY
     function recuperaParticipantes($chave, $con){
         $comando = "SELECT * from sala_usuario WHERE fk_sala = {$chave} AND tipoUsuario = 'participante'";
         $participantes = buscar_dados($con, $comando);
@@ -56,24 +56,28 @@
 
         foreach($participantes as $dados){
             $contador++;
-            $vetParticipantes["{$dados['fk_usuario']}"] = $contador;
-            //error_log("dados: {$dados['fk_usuario']} ", 3, "file.log");
+            $vetParticipantes[$contador] = $dados['fk_usuario'];
         }
 
-        for ($i = 0; $i < count($vetParticipantes); $i++) {
+        $tam = count($vetParticipantes);
+
+        for ($i = 0; $i < $tam; $i++) {
             $sorteado = sorteiaParticipantes($vetParticipantes);
-            error_log("\nsorteado: {$sorteado} ", 3, "file.log");
-            unset($vetParticipantes['{$sorteado}']);
+            // << ATENÇÃO >> AQUI ESTÁ O NICKNAME DO SORTEADO: $vetParticipantes[$sorteado]
+            error_log("\nsorteado >>> {$vetParticipantes[$sorteado]} ", 3, "file.log");
+            unset($vetParticipantes[$sorteado]);
             imprimeVetor($vetParticipantes);
         }
     }
-    
+
+    // FUNÇÃO APENAS PARA IMPRIMIR O ARRAY
     function imprimeVetor($vetor){
         foreach($vetor as $dados){
             error_log("\nrestante: {$dados} ", 3, "file.log");
         }
     }
 
+    // FUNÇÃO PARA SORTEAR OS PARES DENTRO DO ARRAY
     function sorteiaParticipantes($vetParticipantes){
         return array_rand($vetParticipantes, 1);
     }

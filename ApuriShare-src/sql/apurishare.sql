@@ -172,23 +172,23 @@ INSERT INTO `sala_usuario`(`fk_sala`, `fk_usuario`, `tipoUsuario`) VALUES
 --
 ALTER TABLE `atividade`
   ADD PRIMARY KEY (`codigo`),
-  ADD KEY `fk_sala` (`fk_sala`),
-  ADD KEY `fk_coluna_fk` (`fk_usuario`);
+  /*ADD KEY `fk_sala` (`fk_sala`),
+  ADD KEY `fk_coluna_fk` (`fk_usuario`);*/
 
 --
 -- Índices para tabela `sala`
 --
 ALTER TABLE `sala`
   ADD PRIMARY KEY (`chaveAcesso`),
-  ADD KEY `const_sala_situacao` (`fk_situacao`);
+  /*ADD KEY `const_sala_situacao` (`fk_situacao`);*/
 
 --
 -- Índices para tabela `sala_usuario`
 --
 ALTER TABLE `sala_usuario`
   ADD PRIMARY KEY (`id_sala_usuario`),
-  ADD KEY `fk_sala` (`fk_sala`),
-  ADD KEY `fk_usuario` (`fk_usuario`);
+  /*ADD KEY `fk_sala` (`fk_sala`),
+  ADD KEY `fk_usuario` (`fk_usuario`);*/
 
 --
 -- Índices para tabela `situacao`

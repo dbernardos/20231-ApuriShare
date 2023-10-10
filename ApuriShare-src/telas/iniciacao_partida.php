@@ -93,20 +93,20 @@
         return array_rand($vetParticipantes, 2);
     }
 
-    
 
-    // FUNÇÃO PARA CONTROLAR O TEMPORIZADOR
-    function retornaHoraInicio($id, $hrThink, $hrPair, $tpThink, $tpPair){
-        $horaAtual = date('H:i:s');
 
-        if ($id === 1):
-            return $tpThink;
-        elseif ($id === 2):
-            return $tpThink - ($horaAtual - $hrThink);
-        elseif ($id === 2):
-            return $tpPair - ($horaAtual - $hrPair);
-        endif;
-    }
+    // FUNÇÃO PARA CONTROLAR O TEMPORIZADOR (Talvez não seja mais necessario)
+    //function retornaHoraInicio($id, $hrThink, $hrPair, $tpThink, $tpPair){
+      //  $horaAtual = date('H:i:s');
+
+        //if ($id === 1):
+          //  return $tpThink;
+        //elseif ($id === 2):
+          //  return $tpThink - ($horaAtual - $hrThink);
+        //elseif ($id === 2):
+          //  return $tpPair - ($horaAtual - $hrPair);
+       // endif;
+    //}
 
 ?>
 
@@ -135,8 +135,10 @@
                             <h2>Código: <?php echo $dados['chaveAcesso'] ?></h2>
                             <br>
                             <h3>Capacidade: <?php  echo $dados['qntUsers']; ?></h3>
-                            <h3>Registrados: <?php echo $users; ?></h3>
-                            <h3>Tempo restante: <?php echo retornaHoraInicio($dados['idSituacao'], $dados['horaInicioThink'], $dados['horaInicioThink'], $dados['tempoThink'], $dados['tempoPair']); ?></h3>
+                            <h3>Registrados: <?php while($resposta = mysqli_fetch_assoc($sql_id)){
+                                            echo "<td>".$resposta['fk_usuario']."</td><br>";
+                                            }?></h3>
+                            <!--<h3>Tempo restante: <?php //echo retornaHoraInicio($dados['idSituacao'], $dados['horaInicioThink'], $dados['horaInicioThink'], $dados['tempoThink'], $dados['tempoPair']); ?></h3>-->
                             <br>
                             <h4><?php  echo $dados['statusSituacao'] ?></h4>
 

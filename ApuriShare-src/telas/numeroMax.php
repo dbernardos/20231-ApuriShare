@@ -16,20 +16,25 @@
     
     $numeroMax = $dados['qntUsers'];
 
-    $participantes = "SELECT count(*) from sala_usuario where tipoUsuario = 'participante' 
-    and fk_sala = '$chaveAcesso'";
-    $resultado = mysqli_query($con, $participantes);
-    $row = mysqli_fetch_row($resultado);
-    
-    if ($row) {
-    $users = $row[0];
-    
-    $_SESSION['usuarios'] = $users;
+    $participantes = "SELECT COUNT(*) AS num_participantes FROM sala_usuario WHERE tipoUsuario = 'participante' AND fk_sala = '$chaveAcesso'";
+   $resultado = mysqli_query($con, $participantes);
 
-    } else {
-    // Não há resultados a serem retornados
-    echo "Nenhum resultado encontrado.";
-    }
+   if ($resultado) {
+      $row = mysqli_fetch_assoc($resultado);
+      $num_participantes = $row['num_participantes'];
+
+      $update_query = "UPDATE sala_usuario SET numeroUsers = '$num_participantes' WHERE chaveAcesso = '$chaveAcesso'";
+      $sql_max = mysqli_query($con, $update_query);
+
+   if ($sql_max) {
+        echo "Atualização bem-sucedida. Número de participantes: " . $num_participantes;
+   } else {
+        echo "Erro ao atualizar: " . mysqli_error($con);
+   }
+
+   } else {
+    echo "Erro na consulta: " . mysqli_error($con);
+   }
 
     if($users < $numeroMax){
        header('Location: salaEspera.php');

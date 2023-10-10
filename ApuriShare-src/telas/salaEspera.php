@@ -3,10 +3,11 @@
 
     session_start();
     $nome_user = $_SESSION['nickname'];
-    $users = $_SESSION['usuarios'];
     $chaveAcesso = $_SESSION['chaveAcesso'];
 
     $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
+
+    $sql_usuarios = mysqli_query($con, "SELECT * from sala_usuario WHERE chaveAcesso = '$chaveAcesso'");
 
     while($dados = mysqli_fetch_assoc($sql)){
 ?>
@@ -29,6 +30,9 @@
 
     <div class="centro">
     <h1><?php echo $dados['nome']; ?></h1>
+    <h1><?php while($resposta = mysqli_fetch_assoc($sql_usuarios)){
+            echo $resposta['numeroUsers'];
+        }?></h1>
     <br><br>
 
     <?php 

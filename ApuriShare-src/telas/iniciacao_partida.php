@@ -3,7 +3,6 @@
     require('inicia_sessao.php');
 
     $id_sala = $_SESSION['idsala'];
-    $users = $_SESSION['usuarios'];
 
     $sql_select = "SELECT * FROM sala AS s 
         INNER JOIN sala_usuario AS su 
@@ -17,6 +16,10 @@
     $sql_id = mysqli_query($con, "SELECT * from sala_usuario WHERE fk_sala = '$id_sala' AND tipoUsuario = 'participante'");
 
     $sql_resultado = buscar_dados($con, $sql_select);
+
+    while($resposta = mysqli_fetch_assoc($sql_id)){
+        $users[] = $resposta['numeroUsers'];
+    }
 
     if(isset($_POST['btnIniciar'])):
         $horaAtual = date('H:i:s');

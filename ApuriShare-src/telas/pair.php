@@ -15,9 +15,6 @@
 
         header('Location: esperaBtnPair.php');
         }
-        else{
-           echo "erro!";
-        }
 
         $chaveAcesso = $_SESSION['chaveAcesso'];
 
@@ -46,14 +43,13 @@
 
     <link rel="stylesheet" href="./css/salaShare.css">
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="5">
     <title>ApuriShare</title>
 </head>
 <body>
     <center>
         <form action="pair.php" method="POST">
         <div class="cabecalho">
-        <h2> <?php echo $dados['tempoPair']?></h2>
+        <h2>Agora responda a pergunta levando em consideração a resposta de outro participante</h2>
     </div>
     <div class="atividade">
         <br>
@@ -63,7 +59,7 @@
     </div>
     <div class="respShare">
         <br>
-        <h3>Resposta em conjunto</h3>
+        <h3>Nova Resposta</h3>
         <textarea class="form-control textoarea" placeholder="Escreva sua resposta" name="txtRespostaPair" id="resposta" required></textarea>
         <input type="submit" value="Enviar" name="btnEnviar" class="btn btn-outline-dark btnEnviar">
     </div>

@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 -- Banco de dados: `apurishare`
 --
 
+CREATE DATABASE apurishare;
+
 -- --------------------------------------------------------
 
 --
@@ -28,9 +30,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `atividade` (
-  `codigo` int(6) NOT NULL,
-  `respostaThink` varchar(1000) NOT NULL,
-  `respostaPair` varchar(1000) NOT NULL,
+  `codigo` int(6) NOT NULL, /*o código de acesso da sala deve ter de 1-6 dígitos*/
+  `respostaThink` varchar(100000) NOT NULL, /*resposta que o usuário da sozinho*/
+  `respostaPair` varchar(100000) NOT NULL, /*resposta que o usuário da em dupla*/
   `fk_sala` int(6) DEFAULT NULL,
   `fk_usuario` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -43,28 +45,30 @@ CREATE TABLE `atividade` (
 
 CREATE TABLE `sala` (
   `chaveAcesso` int(6) NOT NULL,
-  `atividade` varchar(1000) NOT NULL,
-  `observacao` varchar(100) DEFAULT NULL,
-  `arquivo` varchar(100) DEFAULT NULL,
-  `nome` varchar(45) NOT NULL,
-  `qntUsers` int(3) NOT NULL,
-  `fk_situacao` int(6) NOT NULL DEFAULT 1,
-  `tempoThink` time DEFAULT NULL,
+  `atividade` varchar(100000) NOT NULL,
+  `observacao` varchar(100000) DEFAULT NULL,
+  `arquivo` varchar(100) DEFAULT NULL, /*???????????*/
+  `nome` varchar(50) NOT NULL,
+  `qntUsers` int(3) NOT NULL, /*e se for par????? ein?????*/
+  `fk_situacao` int(6) NOT NULL DEFAULT 1
+  
+  /*`tempoThink` time DEFAULT NULL,
   `tempoPair` time DEFAULT NULL,
   `horaInicioThink` time DEFAULT NULL,
-  `horaInicioPair` time DEFAULT NULL
+  `horaInicioPair` time DEFAULT NULL*/
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `sala`
 --
 
-INSERT INTO `sala` (`chaveAcesso`, `atividade`, `observacao`, `arquivo`, `nome`, `qntUsers`, `fk_situacao`, `tempoThink`, `tempoPair`, `horaInicioThink`, `horaInicioPair`) VALUES
-(46, 'Onde se localiza Machu Piccho?', 'Peru', NULL, 'Geografia', 4, 5, '00:01:00', '00:01:00', '18:57:48', '19:00:09'),
-(47, 'Que paÃ­s tem o formato de uma bota?', 'ItÃ¡lia', NULL, 'Geografia', 2, 5, '00:01:00', '00:01:00', '19:29:02', '19:29:31'),
-(48, 'Quanto tempo a Terra demora para dar uma volta completa em torno dela mesma?', 'Aproximadamente 24 horas.', NULL, 'CiÃªncias', 4, 1, '00:01:00', '00:01:00', NULL, NULL),
-(49, 'A que temperatura a Ã¡gua ferve?', '100Â°', NULL, 'FÃ­sica', 6, 5, '00:01:00', '00:01:00', '19:58:18', '19:59:16'),
-(50, 'Qual o maior planeta do sistema solar?', 'JÃºpiter', NULL, 'Astronomia', 5, 3, '00:02:00', '00:02:00', '21:09:34', '21:09:53');
+INSERT INTO `sala` (`chaveAcesso`, `atividade`, `observacao`, `arquivo`, `nome`, `qntUsers`, `fk_situacao`/*, `tempoThink`, `tempoPair`, `horaInicioThink`, `horaInicioPair`*/) VALUES
+(46, 'Onde se localiza Machu Piccho?', 'Peru', NULL, 'Geografia', 4, 5 /*, '00:01:00', '00:01:00', '18:57:48', '19:00:09'*/),
+(47, 'Que paÃ­s tem o formato de uma bota?', 'ItÃ¡lia', NULL, 'Geografia', 2, 5 /*, '00:01:00', '00:01:00', '19:29:02', '19:29:31'*/),
+(48, 'Quanto tempo a Terra demora para dar uma volta completa em torno dela mesma?', 'Aproximadamente 24 horas.', NULL, 'CiÃªncias', 4, 1 /*, '00:01:00', '00:01:00', NULL, NULL*/),
+(49, 'A que temperatura a Ã¡gua ferve?', '100Â°', NULL, 'FÃ­sica', 6, 5, '00:01:00' /*, '00:01:00', '19:58:18', '19:59:16'*/),
+(50, 'Qual o maior planeta do sistema solar?', 'JÃºpiter', NULL, 'Astronomia', 5, 3 /*, '00:02:00', '00:02:00', '21:09:34', '21:09:53'*/);
 
 -- --------------------------------------------------------
 

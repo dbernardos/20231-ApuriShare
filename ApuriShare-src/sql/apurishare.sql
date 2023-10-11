@@ -135,24 +135,19 @@ INSERT INTO `usuario` (`nickname`, `nome`, `senha`) VALUES
 -- Índices para tabela `atividade`
 --
 ALTER TABLE `atividade`
-  ADD PRIMARY KEY (`codigo`),
-  ADD KEY `fk_sala` (`fk_sala`),
-  ADD KEY `fk_coluna_fk` (`fk_usuario`);
+  ADD PRIMARY KEY (`codigo`);
 
 --
 -- Índices para tabela `sala`
 --
 ALTER TABLE `sala`
-  ADD PRIMARY KEY (`chaveAcesso`),
-  ADD KEY `const_sala_situacao` (`fk_situacao`);
+  ADD PRIMARY KEY (`chaveAcesso`);
 
 --
 -- Índices para tabela `sala_usuario`
 --
 ALTER TABLE `sala_usuario`
-  ADD PRIMARY KEY (`id_sala_usuario`),
-  ADD KEY `fk_sala` (`fk_sala`),
-  ADD KEY `fk_usuario` (`fk_usuario`);
+  ADD PRIMARY KEY (`id_sala_usuario`);
 
 --
 -- Índices para tabela `situacao`
@@ -196,7 +191,7 @@ ALTER TABLE `sala_usuario`
 -- Limitadores para a tabela `atividade`
 --
 ALTER TABLE `atividade`
-  ADD CONSTRAINT `fk_coluna_fk` FOREIGN KEY (`fk_usuario`) REFERENCES `usuario` (`nickname`),
+  ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`fk_usuario`) REFERENCES `usuario` (`nickname`),
   ADD CONSTRAINT `fk_sala` FOREIGN KEY (`fk_sala`) REFERENCES `sala` (`chaveAcesso`);
 
 --

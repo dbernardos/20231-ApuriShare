@@ -4,10 +4,10 @@ if(isset($_POST['submit'])){
     $nome = $_POST['nome'];
     $nickname = $_POST['nickname'];
     $senha = $_POST['senha'];
-    $confsenha = $_POST['confsenha'];
+    $confirmar_senha = $_POST['confirmar_senha'];
 
-    if($confsenha == $senha){
-        $sql = mysqli_query($con, "INSERT into usuario(nome, nickname, senha)
+    if($confirmar_senha == $senha){
+        mysqli_query($con, "INSERT into usuario(nome, nickname, senha)
         values ('$nome', '$nickname', '$senha')");
         header('Location: login.php');
     }
@@ -90,7 +90,7 @@ if(isset($_POST['submit'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="confsenha">Confirmar senha:</label>
-                                    <input type="password" class="form-control" id="confsenha" name="confsenha" required>
+                                    <input type="password" class="form-control" id="confsenha" name="confirmar_senha" required>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">

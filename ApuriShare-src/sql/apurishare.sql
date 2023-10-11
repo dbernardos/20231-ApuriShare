@@ -27,7 +27,7 @@ CREATE DATABASE apurishare;
 
 -- --------------------------------------------------------
 
-USE apurishare;
+USE DATABASE apurishare;
 
 --
 -- Estrutura da tabela `atividade`

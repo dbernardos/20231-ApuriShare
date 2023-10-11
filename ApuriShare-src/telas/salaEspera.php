@@ -1,19 +1,15 @@
 <?php
-    include('conexao.php');
+    include_once('conexao.php');
 
     session_start();
     $nome_user = $_SESSION['nickname'];
-    $userSala = $_SESSION['userSala'];
-
-    $sql_code = "SELECT * FROM sala";
-    //SELECT * FROM sala as s INNER JOIN sala_usuario as su ON s.chaveAcesso = su.fk_sala 
-    //WHERE su.fk_usuario = '$nome_user'
-
     $chaveAcesso = $_SESSION['chaveAcesso'];
-    $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
-    
-    while($dados = mysqli_fetch_assoc($sql)){
 
+    $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
+
+    $sql_usuarios = mysqli_query($con, "SELECT * from sala_usuario WHERE chaveAcesso = '$chaveAcesso'");
+
+    while($dados = mysqli_fetch_assoc($sql)){
 ?>
 
 <!DOCTYPE html>
@@ -30,11 +26,12 @@
 <body>
     <a href="./tela_inicial.php"><button class="btnX btn btn-outline-dark"> X </button></a>
     <div class="esquerda">
-        <h1><?php echo $userSala ?></h1>
     </div>
 
     <div class="centro">
     <h1><?php echo $dados['nome']; ?></h1>
+    <h1><?php while($resposta = mysqli_fetch_assoc($sql_usuarios)){
+        }?></h1>
     <br><br>
 
     <?php 

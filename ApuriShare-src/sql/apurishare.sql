@@ -35,10 +35,10 @@ CREATE TABLE `sala` (
 
 INSERT INTO `sala` (`chaveAcesso`, `atividade`, `observacao`, `arquivo`, `nome`, `qntUsers`, `fk_situacao`) VALUES
 (46, 'Onde se localiza Machu Piccho?', 'Peru', NULL, 'Geografia', 4, 5),
-(47, 'Que paÃ­s tem o formato de uma bota?', 'ItÃ¡lia', NULL, 'Geografia', 2, 5),
-(48, 'Quanto tempo a Terra demora para dar uma volta completa em torno dela mesma?', 'Aproximadamente 24 horas.', NULL, 'CiÃªncias', 4, 1),
-(49, 'A que temperatura a Ã¡gua ferve?', '100Â°', NULL, 'FÃ­sica', 6, 5),
-(50, 'Qual o maior planeta do sistema solar?', 'JÃºpiter', NULL, 'Astronomia', 5, 3);
+(47, 'Que paí­s tem o formato de uma bota?', 'Itália', NULL, 'Geografia', 2, 5),
+(48, 'Quanto tempo a Terra demora para dar uma volta completa em torno dela mesma?', 'Aproximadamente 24 horas.', NULL, 'Ciências', 4, 1),
+(49, 'A que temperatura a água ferve?', '100°C', NULL, 'Fí­sica', 6, 5),
+(50, 'Qual o maior planeta do sistema solar?', 'Júpiter', NULL, 'Astronomia', 5, 3);
 
 
 CREATE TABLE `sala_usuario` (

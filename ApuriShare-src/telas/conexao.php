@@ -2,7 +2,7 @@
     $server = "127.0.0.1";
     $user = "root";
     $pwp = "";
-    $db = "apurishare";
+    $db = "apurishare2";
 
     $con = new mysqli($server, $user, $pwp, $db);
 

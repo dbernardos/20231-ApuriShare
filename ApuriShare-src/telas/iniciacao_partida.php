@@ -12,42 +12,47 @@
         WHERE su.fk_usuario = '{$_SESSION['nickname']}'
         AND su.tipoUsuario	= 'criador'
         ORDER BY s.chaveAcesso DESC";
-    
-    $sql_id = mysqli_query($con, "SELECT * from sala_usuario WHERE fk_sala = '$id_sala' AND tipoUsuario = 'participante'");
 
     $sql_resultado = buscar_dados($con, $sql_select);
-
-    while($resposta = mysqli_fetch_assoc($sql_id)){
-        $users[] = $resposta['numeroUsers'];
-    }
 
     if(isset($_POST['btnIniciar'])):
         $horaAtual = date('H:i:s');
         
-        if ($_POST['id_situacao'] == 1 && $users % 2 == 0):
-            $sql_update = "UPDATE sala SET fk_situacao =  2, horaInicioThink = '$horaAtual' WHERE chaveAcesso = {$_POST['chave_acesso']}";
+        if ($_POST['id_situacao'] == 1 && verificaNumeroDeParticipantes($_POST['chave_acesso'], $con)):
+            $sql_update = "UPDATE sala SET fk_situacao =  2 WHERE chaveAcesso = {$_POST['chave_acesso']}";
             executar_sql($con, $sql_update);
 
         elseif ($_POST['id_situacao'] == 2):
-            $sql_update = "UPDATE sala SET fk_situacao =  3, horaInicioPair = '$horaAtual' WHERE chaveAcesso = {$_POST['chave_acesso']}";
+            //LOGICA PARA O SORTEIO DOS PARES
+            recuperaParticipantes($_POST['chave_acesso'], $con);
+            
+            $sql_update = "UPDATE sala SET fk_situacao =  3 WHERE chaveAcesso = {$_POST['chave_acesso']}";
             executar_sql($con, $sql_update);
             
         elseif($_POST['id_situacao'] == 3):
-            $sql_update = "UPDATE sala SET fk_situacao =  4, horaInicioPair = '$horaAtual' WHERE chaveAcesso = {$_POST['chave_acesso']}";
+            $sql_update = "UPDATE sala SET fk_situacao =  4 WHERE chaveAcesso = {$_POST['chave_acesso']}";
             executar_sql($con, $sql_update);
         
         elseif($_POST['id_situacao'] == 4):
-            $sql_update = "UPDATE sala SET fk_situacao =  5, horaInicioPair = '$horaAtual' WHERE chaveAcesso = {$_POST['chave_acesso']}";
+            $sql_update = "UPDATE sala SET fk_situacao =  5 WHERE chaveAcesso = {$_POST['chave_acesso']}";
             executar_sql($con, $sql_update);
 
         elseif($_POST['id_situacao'] == 5):
             echo "A tarefa foi finalizada (compartilhar), precisamos pensar se manda para outra página ou o que faz";
         endif;
-        
-        //LOGICA PARA O SORTEIO DOS PARES
-        recuperaParticipantes($_POST['chave_acesso'], $con);
-
     endif;
+
+    // FUNÇÃO PARA VERIFICAR SE TEM NUMERO PAR DE PARTICIPANTES
+    function verificaNumeroDeParticipantes($chave, $con){
+        $qtde_users = mysqli_query($con, "SELECT COUNT(*) from sala_usuario WHERE fk_sala = '$chave' AND tipoUsuario = 'participante'");
+        if($qtde_users % 2 == 0){
+            error_log("\n Numero par de participantes: $qtde_users", 3, "file.log");
+            return true;
+        }else{
+            error_log("\n Numero impar de participantes: $qtde_users", 3, "file.log");
+            return false;
+        }
+    }
 
     // FUNÇÃO PARA RECUPERAR OS PARTICIPANTES E ORGANIZAR O ARRAY
     function recuperaParticipantes($chave, $con){
@@ -56,30 +61,27 @@
         
         $vetParticipantes = [];
         $contador = 0;
-        $vetorDuplas = array();
 
         foreach($participantes as $dados){
             $contador++;
             $vetParticipantes[$contador] = $dados['fk_usuario'];
         }
 
-        $tam = count($vetParticipantes);
+        $tam = count($vetParticipantes)/2;
 
         for ($i = 0; $i < $tam; $i++) {
-            
             $sorteado = sorteiaParticipantes($vetParticipantes);
-
-            array_push ($vetorDuplas, $sorteado);
+            
+            // Insere os dois participantes na tabela de respostas
+            $comando = "INSERT INTO resposta VALUES (NULL, 'pares', {$chave}, {$vetParticipantes[$sorteado[1]]}, {$vetParticipantes[$sorteado[2]]}})"; 
+            executar_sql($con, $comando);
 
             // << ATENÇÃO >> AQUI ESTÁ O NICKNAME DO SORTEADO: $vetParticipantes[$sorteado]
-            error_log("\nsorteado >>> {$vetParticipantes[$sorteado]} ", 3, "file.log");
-
-            unset($vetParticipantes[$sorteado[0]]);
+            error_log("\nsorteado >>> {$vetParticipantes[$sorteado[1]]} e {$vetParticipantes[$sorteado[2]]} ", 3, "file.log");
             unset($vetParticipantes[$sorteado[1]]);
-            
+            unset($vetParticipantes[$sorteado[2]]);
             imprimeVetor($vetParticipantes);
         }
-        $_SESSION['sorteado'] = $vetorDuplas;
     }
 
     // FUNÇÃO APENAS PARA IMPRIMIR O ARRAY
@@ -94,8 +96,6 @@
         return array_rand($vetParticipantes, 2);
     }
 
-
-
     // FUNÇÃO PARA CONTROLAR O TEMPORIZADOR (Talvez não seja mais necessario)
     //function retornaHoraInicio($id, $hrThink, $hrPair, $tpThink, $tpPair){
       //  $horaAtual = date('H:i:s');
@@ -108,7 +108,6 @@
           //  return $tpPair - ($horaAtual - $hrPair);
        // endif;
     //}
-
 ?>
 
 <!DOCTYPE html>

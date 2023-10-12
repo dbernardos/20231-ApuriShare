@@ -3,12 +3,13 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-CREATE TABLE `atividade` (
+CREATE TABLE `resposta` (
   `codigo` int NOT NULL,
-  `respostaThink` TEXT NOT NULL,
-  `respostaPair` TEXT NOT NULL,
+  `resposta` TEXT NOT NULL,
+  `situacao` enum('individual','pares') NOT NULL DEFAULT 'individual',
   `fk_sala` int DEFAULT NULL,
-  `fk_usuario` varchar(100) DEFAULT NULL
+  `fk_usuario` varchar(100) DEFAULT NULL,
+  `fk_usuario_par` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -42,7 +43,7 @@ CREATE TABLE `usuario` (
   `senha` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `atividade`
+ALTER TABLE `resposta`
   ADD PRIMARY KEY (`codigo`);
 
 
@@ -62,7 +63,7 @@ ALTER TABLE `usuario`
   ADD PRIMARY KEY (`nickname`);
 
 
-ALTER TABLE `atividade`
+ALTER TABLE `resposta`
   MODIFY `codigo` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 
@@ -74,7 +75,7 @@ ALTER TABLE `sala_usuario`
   MODIFY `id_sala_usuario` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 
-ALTER TABLE `atividade`
+ALTER TABLE `resposta`
   ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`fk_usuario`) REFERENCES `usuario` (`nickname`),
   ADD CONSTRAINT `fk_sala` FOREIGN KEY (`fk_sala`) REFERENCES `sala` (`chaveAcesso`);
 

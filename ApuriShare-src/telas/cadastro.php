@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
 </head>
 <body>
     <!--CABEÇALHO-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">
             <img src="./img/logo_preta.png" alt="Logo" style="max-height: 50px;">
         </a>

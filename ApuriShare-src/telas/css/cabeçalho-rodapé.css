@@ -3,16 +3,17 @@
             min-height: 100vh;
         }
 
-        #github-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: white;
+        body nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+            border-bottom: 1px solid #ccc;
         }
 
-        #github-icon {
-            margin-left: 10px;
+        main {
+            min-height: calc(100vh - 80px);
         }
 
         footer {
@@ -26,15 +27,14 @@
             bottom: 0;
         }
 
-        body nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #ccc;
+        #github-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
         }
 
-        main {
-            min-height: calc(100vh - 80px);
+        #github-icon {
+            margin-left: 10px;
         }

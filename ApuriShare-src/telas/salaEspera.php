@@ -1,13 +1,13 @@
 <?php
-    include_once('conexao.php');
+    require('conexao.php');
+    require('inicia_sessao.php');
 
-    session_start();
     $nome_user = $_SESSION['nickname'];
     $chaveAcesso = $_SESSION['chaveAcesso'];
 
     $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
 
-    $sql_usuarios = mysqli_query($con, "SELECT * from sala_usuario WHERE chaveAcesso = '$chaveAcesso'");
+    $sql_usuarios = mysqli_query($con, "SELECT * from sala_usuario WHERE fk_sala = '$chaveAcesso'");
 
     while($dados = mysqli_fetch_assoc($sql)){
 ?>
@@ -19,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./css/iniciacao_partida.css">
-    <meta http-equiv="refresh" content="2"> <!-- Atualiza a página a cada 10 segundos -->
+    <meta http-equiv="refresh" content="10"> <!-- Atualiza a página a cada 10 segundos -->
     <meta charset="UTF-8">
     <title>ApuriShare</title>
 </head>
@@ -35,9 +35,9 @@
     <br><br>
 
     <?php 
-        if($dados['fk_situacao'] === '1'){
+        if($dados['fk_situacao'] == 1){
             echo "<h3>Aguarde até a atividade ser iniciada!</h3>";
-        }else if($dados['fk_situacao'] === '2'){
+        }else if($dados['fk_situacao'] == 2){
             header('Location: think.php');
         }else{
             echo "<h3>A sala solicitada foi finalizada!</h3>";

@@ -22,7 +22,6 @@
         while($dado = mysqli_fetch_assoc($resultado)){
             $dados[] = $dado;
         }
-
         return $dados;
     }
 

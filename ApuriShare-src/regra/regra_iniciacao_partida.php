@@ -60,7 +60,7 @@ function contaParticipantes($chave, $con)
         $row = mysqli_fetch_row($qtde_users);
         return $row[0];
     } else {
-        error_log("\n Erro na consulta SQL para contar participantes: " . mysqli_error($con), 3, "file.log");
+        error_log("\n Erro na consulta SQL (contar participantes): " . mysqli_error($con), 3, "file.log");
         return 0;
     }
 }

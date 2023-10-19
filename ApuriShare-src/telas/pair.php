@@ -3,37 +3,35 @@
 
     session_start();
     $nome_user = $_SESSION['nickname'];
-    $id_respostaThink = $_SESSION['codigo'];
-    $dupla = $_SESSION['dupla'];
-
+    $respostaThink = $_SESSION['respostaThink'];
+    $chaveAcesso = $_SESSION['chaveAcesso'];
 
     if(isset($_POST['btnEnviar'])){
-
         $respostaPair = $_POST['txtRespostaPair'];
-
-        $sql = mysqli_query($con, "UPDATE atividade SET respostaPair = '$respostaPair' 
-        where codigo = '$id_respostaThink'");
+        
+        
+        $sql = mysqli_query($con, "UPDATE resposta SET resposta = '$respostaPair' where fk_usuario = '$nome_user' where fk_sala = '$chaveAcesso'");
 
         header('Location: esperaBtnPair.php');
-        }
-
-        $chaveAcesso = $_SESSION['chaveAcesso'];
+    
+    }
 
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
-        $sql_id = mysqli_query($con, "SELECT * from atividade WHERE codigo = '$id_respostaThink'");
-    
+        $sql_think = mysqli_query($con, "SELECT * from resposta WHERE fk_usuario = '$nome_user' and resposta = '$respostaThink'");
+        
+        $sql_dupla = mysqli_query($con, "SELECT * from resposta where fk_usuario = '$nome_user' and situacao = 'pares' and fk_sala = '$chaveAcesso'");
+        
+        
         while($dados = mysqli_fetch_assoc($sql)){
 
 
-    $sql_user = mysqli_query($con, "SELECT a.fk_usuario, b.fk_usuario 
-                            FROM atividade a 
-                            JOIN atividade b ON a.fk_sala = b.fk_sala 
+    /*$sql_user = mysqli_query($con, "SELECT a.fk_usuario, b.fk_usuario 
+                            FROM resposta a 
+                            JOIN resposta b ON a.fk_sala = b.fk_sala 
                             WHERE a.fk_sala = '$chaveAcesso' AND a.fk_usuario != b.fk_usuario 
                             ORDER BY RAND() 
                             ");
-
-        //RASCUNHO SOMENTE PARA NÃO ESQUECER O QUE ESTAVA FAZENDO 
-       //$sql_dupla = mysqli_query($con, "SELECT * from atividade AND '$dupla' = nickname"); PEGAR RESPOSTA DO USUARIO
+    */
     ?>
 
     <!DOCTYPE html>
@@ -68,18 +66,16 @@
         <div class="resp1">
             <br>
             <h3> <?php echo $nome_user ?> </h3>
-            <p> <?php
-            while($resposta = mysqli_fetch_assoc($sql_id)){
-                echo $resposta['respostaThink']; 
-            }
-             ?></p>
+            <p> <?php echo $respostaThink ?></p>
         </div>
         <br><br>
         <div class="resp2">
-            <?php while($usuarios = mysqli_fetch_assoc($sql_user)){ ?>
-            <h3><?php echo $usuarios['b.fk_usuario'] ?></h3>
-            <p>testetestetestetestetesteteste</p>
-           <?php } ?>
+        <h3> <?php while($dupla = mysqli_fetch_assoc($sql_dupla)){
+                echo $dupla['fk_usuario_par']; 
+            }?></h3>
+            <p><?php while($dupla = mysqli_fetch_assoc($sql_dupla)){
+                echo $dupla['resposta']; 
+            }?></p>
         </div>
     </div>
         </form>

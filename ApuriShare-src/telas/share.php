@@ -8,14 +8,8 @@
         $chaveAcesso = $_SESSION['chaveAcesso'];
 
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
-        $sql_id = mysqli_query($con, "SELECT * from atividade WHERE fk_sala = '$chaveAcesso'");
+        $sql_id = mysqli_query($con, "SELECT * from resposta WHERE fk_sala = '$chaveAcesso'");
 
-//TESTE QUE DERAM ERRADO
-        //if(isset($_POST['btnX'])){
-            //$sql = mysqli_query($con, "DELETE from sala_usuario where id_sala_usuario = '$chaveAcesso' and fk_usuario = '$nome_user'");            
-            
-            //header('Location: tela_inicial.php');
-        //}
         while($dados = mysqli_fetch_assoc($sql)){
 ?>
 <!DOCTYPE html>
@@ -46,10 +40,9 @@
 <br>
 <div class="border border-2 respShare">
     <H3>Resposta dos Participantes</H3>
-    <h4><!--<?php  echo $dados['fk.usuarios']; ?>--></h4>
+    <h4>Nome Users</h4>
     <p><?php while($resposta = mysqli_fetch_assoc($sql_id)){
-        
-                echo "<td>".$resposta['respostaPair']."</td><br>";
+                echo "<td>".$resposta['resposta']."</td><br>";
             }?> </p>
     <br>
 </div>

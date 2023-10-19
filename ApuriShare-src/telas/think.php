@@ -7,17 +7,18 @@
 
     if(isset($_POST['btnEnviar'])){
 
+        $situacao = "individual";
         $respostaThink = $_POST['txtRespostaThink'];
 
-        $sql = mysqli_query($con, "INSERT into atividade(respostaThink, fk_sala, fk_usuario)
-        values ('$respostaThink', '$chaveAcesso', '$nome_user')");
+        $sql = mysqli_query($con, "INSERT into resposta(resposta, fk_sala, fk_usuario, situacao)
+        values ('$respostaThink', '$chaveAcesso', '$nome_user', '$situacao')");
 
         header('Location: esperaBtnThink.php');
+        
+        $_SESSION['respostaThink'] = $respostaThink;
     }
         
-
-        $id_respostaThink = mysqli_insert_id($con);
-        $_SESSION['codigo'] = $id_respostaThink;
+        
     
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
         while($dados = mysqli_fetch_assoc($sql)){
@@ -36,9 +37,6 @@
 <body>
     <center>
     <form action="think.php" method="POST">
-        <div class="cabecalho">
-        <h2> <?php echo $dados['tempoThink']?> </h2>
-    </div>
     <div class="atividade">
         <h3> <?php echo $dados['nome']?> </h3>
         <p> <?php echo $dados['atividade']?> </p>

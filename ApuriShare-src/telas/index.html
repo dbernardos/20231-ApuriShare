@@ -5,60 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ApuriShare</title>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
-    <style>
-        body {
-            position: relative;
-            min-height: 100vh;
-        }
-
-        #github-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: white;
-        }
-
-        #github-icon {
-            margin-left: 10px;
-        }
-
-        footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #343a40;
-            width: 100%;
-            height: 80px;
-            position: absolute;
-            bottom: 0;
-        }
-
-        body nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #ccc;
-        }
-
-        main {
-            min-height: calc(100vh - 80px);
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
 
-    <!--CABEÇALHO-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+    <div style="flex-grow: 1;"></div>
+
+    <!-- Cabeçalho -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="border-bottom: 1px solid #ccc;">
         <a class="navbar-brand" href="index.html">
-            <img src="./img/logo_preta.png" alt="Logo" style="max-height: 50px;">
+            <img src="./img/logo_preta.png" alt="Logo do ApuriShare" style="max-height: 50px;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Menu hamburguer">
@@ -67,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="cadastro.php">Cadastrar</a>
+                    <a class="nav-link" href="cadastro.php">Criar conta</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.php">Entrar</a>
@@ -76,18 +38,22 @@
         </div>
     </nav>
 
-    <!--CONTEÚDO-->
-    <main>
 
-    </main>
+    <div class="container" style="margin-top: 130px;">
+        
+    </div>
 
-    <!--RODAPÉ-->
-    <footer>
-        <a id="github-link" href="https://github.com/dbernardos/20231-ApuriShare" target="_blank"
-            rel="noopener noreferrer">
-            Repositório do site <i class="fab fa-github fa-2x" id="github-icon"></i>
-        </a>
+    <!-- Rodapé -->
+    <footer class="bg-dark text-light py-3" id="footer" style="width: 100%; margin-top: 50px;">
+        <div class="container text-center">
+            <a href="https://github.com/dbernardos/20231-ApuriShare" target="_blank"
+                style="color: white; text-decoration: none; display: inline-block;">
+                <i class="fab fa-github" style="font-size: 30px; vertical-align: middle;"></i>
+                <span style="font-size: 17px; vertical-align: middle; font-weight: bold">GitHub</span>
+            </a>
+        </div>
     </footer>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -96,8 +62,6 @@
         integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kAx2jc5Pv5B1f5F6F5F5F5F5F5"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
-
 </body>
 
 </html>
-

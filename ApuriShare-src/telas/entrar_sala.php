@@ -28,6 +28,15 @@ require('../regra/regra_entrar_sala.php');
             <br>
             <input type="submit" value="Entrar" class="btn btn-outline-dark btnEntrar" name="btnEntrar" id="btnEntrar"><br><br>
         </form>
+
+        <form>
+        <h3>Salas Registradas </h3>
+        <?php 
+        foreach(listarSalasRegistradas($con) as $dados):
+            echo "Chave de acesso: {$dados['sChave']} | Nome da sala: {$dados['sNome']} \n" ;
+        endforeach;
+        ?>
+        </form>
     </div>
 
 </body>

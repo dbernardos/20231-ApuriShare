@@ -1,5 +1,4 @@
 <?php 
-
 $sql_select = "SELECT * FROM sala AS s 
         INNER JOIN sala_usuario AS su 
         INNER JOIN situacao si
@@ -12,25 +11,27 @@ $sql_resultado = buscar_dados($con, $sql_select);
 
 if (isset($_POST['btnIniciar'])) :
     $horaAtual = date('H:i:s');
-
-    if ($_POST['id_situacao'] == 1 && verificaNumeroDeParticipantes(contaParticipantes($_POST['chave_acesso'], $con))) :
+    $participantesPar = verificaNumeroDeParticipantes(contaParticipantes($_POST['chave_acesso'], $con));
+    
+    if ($_POST['id_situacao'] == 1 && $participantesPar) :
+        
         $sql_update = "UPDATE sala SET fk_situacao =  2 WHERE chaveAcesso = {$_POST['chave_acesso']}";
-        executar_sql($con, $sql_update);
+        mysqli_query($con, $sql_update);
 
     elseif ($_POST['id_situacao'] == 2) :
         //LOGICA PARA O SORTEIO DOS PARES
         recuperaParticipantes($_POST['chave_acesso'], $con);
 
         $sql_update = "UPDATE sala SET fk_situacao =  3 WHERE chaveAcesso = {$_POST['chave_acesso']}";
-        executar_sql($con, $sql_update);
+        mysqli_query($con, $sql_update);
 
     elseif ($_POST['id_situacao'] == 3) :
         $sql_update = "UPDATE sala SET fk_situacao =  4 WHERE chaveAcesso = {$_POST['chave_acesso']}";
-        executar_sql($con, $sql_update);
+        mysqli_query($con, $sql_update);
 
     elseif ($_POST['id_situacao'] == 4) :
         $sql_update = "UPDATE sala SET fk_situacao =  5 WHERE chaveAcesso = {$_POST['chave_acesso']}";
-        executar_sql($con, $sql_update);
+        mysqli_query($con, $sql_update);
 
     elseif ($_POST['id_situacao'] == 5) :
         echo "A tarefa foi finalizada (compartilhar), precisamos pensar se manda para outra página ou o que faz";

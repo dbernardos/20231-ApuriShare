@@ -1,15 +1,23 @@
 <?php
-    $nome_user = $_SESSION['nickname'];
     $chaveAcesso = $_SESSION['chaveAcesso'];
+    $nome_user = $_SESSION['nickname'];
 
-    if (isset($_POST['btnIniciar'])){
+    if(isset($_POST['btnEnviar'])){
+        error_log("\n ENTROU NO POST REGRA THINK", 3, "file.log");
         $situacao = "individual";
         $respostaThink = $_POST['txtRespostaThink'];
 
         // Enviar resposta para o banco de dados
         $comando = "INSERT INTO resposta VALUES (NULL, '$respostaThink', '$situacao', $chaveAcesso, '$nome_user', '')"; 
-        executar_sql($con, $comando);
-        header('Location: esperaBtnThink.php');
+        error_log("\n regra think: $comando", 3, "file.log");
+        mysqli_query($con, $comando);
+
+        // mysqli_insert_id(): obter a chave primária do registro inserido
+        $_SESSION['codigoRespostaThink'] = mysqli_insert_id($con);
+        
+        $_SESSION['espera'] = false;
+
+        header('Location: salaEspera.php');
     }
         
 ?>

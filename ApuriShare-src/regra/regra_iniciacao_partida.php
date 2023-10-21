@@ -18,7 +18,7 @@ if (isset($_POST['btnIniciar'])) :
         $sql_update = "UPDATE sala SET fk_situacao =  2 WHERE chaveAcesso = {$_POST['chave_acesso']}";
         mysqli_query($con, $sql_update);
 
-    elseif ($_POST['id_situacao'] == 2) :
+    elseif ($_POST['id_situacao'] == 2 && $participantesPar) :
         //LOGICA PARA O SORTEIO DOS PARES
         recuperaParticipantes($_POST['chave_acesso'], $con);
 

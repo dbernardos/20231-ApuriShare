@@ -6,7 +6,6 @@
     $chaveAcesso = $_SESSION['chaveAcesso'];
 
     $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
-
     $sql_usuarios = mysqli_query($con, "SELECT * from sala_usuario WHERE fk_sala = '$chaveAcesso'");
 
     while($dados = mysqli_fetch_assoc($sql)){
@@ -35,11 +34,19 @@
     <br><br>
 
     <?php 
-        if($dados['fk_situacao'] == 1){
+        $situacao = $dados['fk_situacao'];
+        $espera = $_SESSION['espera']; 
+
+        if($situacao == 1 && $espera){
             echo "<h3>Aguarde até a atividade ser iniciada!</h3>";
-        }else if($dados['fk_situacao'] == 2){
+        }else if($situacao == 2 && $espera){
+            //$_SESSION['espera'] = false;
             header('Location: think.php');
-        }else{
+        }else if($situacao == 3 && $espera){
+            header('Location: pair.php');
+        }else if($situacao == 4 && $espera){
+            header('Location: share.php');
+        }else if($situacao == 5){
             echo "<h3>A sala solicitada foi finalizada!</h3>";
         }
     ?>

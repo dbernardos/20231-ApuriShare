@@ -14,6 +14,7 @@ if (isset($_POST['btnEntrar'])) {
             executar_sql($con, $sql);
         }
         $_SESSION['chaveAcesso'] = $chaveAcesso;
+        $_SESSION['espera'] = true;
         header('Location: salaEspera.php');
     }
 }

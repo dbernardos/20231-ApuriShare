@@ -18,12 +18,11 @@ require('../regra/regra_think.php');
 
 <body>
     <?php include('menu.php'); ?>
-
     <?php 
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
         while ($dados = mysqli_fetch_assoc($sql)) : ?>
         <center>
-            <form action="pair.php" method="POST">
+            <form action="think.php" method="POST">
                 <div class="atividade">
                     <h3> <?php echo $dados['nome'] ?> </h3>
                     <p> <?php echo $dados['atividade'] ?> </p>
@@ -31,15 +30,11 @@ require('../regra/regra_think.php');
                 <div class="resposta">
                     <h3><?php echo $nome_user ?></h3>
                     <textarea class="form-control textoarea" placeholder="Escreva sua resposta" name="txtRespostaThink" id="txtRespostaThink" required></textarea>
-                    <input type="submit" value="Enviar" name="btnEnviar" class="btn btn-outline-dark btnEnviar">
+                    <input type="submit" value="Enviar" name="btnEnviar" id="btnEnviar" class="btn btn-outline-dark btnEnviar">
                 </div>
-
             </form>
         </center>
     <?php
-        if ($dados['fk_situacao'] === '3') {
-            header('Location: pair.php');
-        }
     endwhile; ?>
 </body>
 

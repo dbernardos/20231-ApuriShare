@@ -32,7 +32,7 @@ require('../regra/regra_pair.php');
                 <div class="respShare">
                     <br>
                     <h3>Nova Resposta</h3>
-                    <textarea class="form-control textoarea" placeholder="Escreva sua resposta" name="txtRespostaPair" id="resposta" required></textarea>
+                    <textarea class="form-control textoarea" placeholder="Escreva sua resposta" name="txtRespostaPair" id="txtRespostaPair" required></textarea>
                     <input type="submit" value="Enviar" name="btnEnviar" class="btn btn-outline-dark btnEnviar">
                 </div>
                 <div class="respostas">

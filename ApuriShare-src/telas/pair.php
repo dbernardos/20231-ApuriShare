@@ -17,7 +17,7 @@ require('../regra/regra_pair.php');
 </head>
 
 <body>
-    <?php while ($dados = mysqli_fetch_assoc($sql)) : ?>
+
         <center>
             <form action="pair.php" method="POST">
                 <div class="cabecalho">
@@ -25,8 +25,8 @@ require('../regra/regra_pair.php');
                 </div>
                 <div class="atividade">
                     <br>
-                    <h3> <?php echo $dados['nome'] ?></h3>
-                    <p> <?php echo $dados['atividade'] ?> </p>
+                    <h3> <?php echo $nome_user1 ?></h3>
+                    <p> <?php echo $atividade ?> </p>
 
                 </div>
                 <div class="respShare">
@@ -38,26 +38,30 @@ require('../regra/regra_pair.php');
                 <div class="respostas">
                     <div class="resp1">
                         <br>
-                        <h3> <?php echo $nome_user ?> </h3>
-                        <p> <?php echo $respostaThink ?></p>
+                        <h3> <?php echo $nome_user1 ?> </h3>
+                        <p> <?php 
+                                while ($dupla = mysqli_fetch_assoc($sql_respostaThink1)):
+                                    echo $dupla['resposta'];
+                                endwhile; 
+                            ?></p>
                     </div>
                     <br><br>
                     <div class="resp2">
-                        <h3> <?php while ($dupla = mysqli_fetch_assoc($sql_dupla)) {
-                                    echo $dupla['fk_usuario_par'];
-                                } ?></h3>
-                        <p><?php while ($dupla = mysqli_fetch_assoc($sql_dupla)) {
+                        <h3> <?php echo $nome_user2; ?></h3>
+                        <p><?php 
+                            while ($dupla = mysqli_fetch_assoc($sql_respostaThink2)):
                                 echo $dupla['resposta'];
-                            } ?></p>
+                            endwhile; 
+                        ?></p>
                     </div>
                 </div>
             </form>
         </center>
     <?php
-        if ($dados['fk_situacao'] === '4') :
+        if ($situacao == 4) :
             header('Location: share.php');
         endif;
-    endwhile; ?>
+ ?>
 </body>
 
 </html>

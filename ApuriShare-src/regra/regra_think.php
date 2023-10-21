@@ -3,7 +3,6 @@
     $nome_user = $_SESSION['nickname'];
 
     if(isset($_POST['btnEnviar'])){
-        error_log("\n ENTROU NO POST REGRA THINK", 3, "file.log");
         $situacao = "individual";
         $respostaThink = $_POST['txtRespostaThink'];
 
@@ -14,10 +13,7 @@
 
         // mysqli_insert_id(): obter a chave primária do registro inserido
         $_SESSION['codigoRespostaThink'] = mysqli_insert_id($con);
-        
-        $_SESSION['espera'] = false;
-
-        header('Location: salaEspera.php');
+        header('Location: esperaBtnThink.php');
     }
         
 ?>

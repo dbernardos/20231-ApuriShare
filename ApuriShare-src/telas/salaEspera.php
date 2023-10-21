@@ -35,11 +35,18 @@
 
     <?php 
         $situacao = $dados['fk_situacao'];
-        $espera = $_SESSION['espera']; 
+        //$espera = $_SESSION['espera']; 
 
-        if($situacao == 1 && $espera){
+        if($situacao == 1){
             echo "<h3>Aguarde até a atividade ser iniciada!</h3>";
-        }else if($situacao == 2 && $espera){
+        }else if($situacao == 2){
+            header('Location: think.php');
+        }else{
+            echo "<h3>A sala solicitada foi finalizada!</h3>";
+        }
+        
+        // era uma lógica para ter apenas uma sala de espera, mas não deu certo por enquanto
+        /*if($situacao == 2 && $espera){
             //$_SESSION['espera'] = false;
             header('Location: think.php');
         }else if($situacao == 3 && $espera){
@@ -48,7 +55,7 @@
             header('Location: share.php');
         }else if($situacao == 5){
             echo "<h3>A sala solicitada foi finalizada!</h3>";
-        }
+        }*/
     ?>
     
     <br><br>

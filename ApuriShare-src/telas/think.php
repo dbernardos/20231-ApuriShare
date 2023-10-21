@@ -35,7 +35,10 @@ require('../regra/regra_think.php');
             </form>
         </center>
     <?php
-    endwhile; ?>
+        if ($dados['fk_situacao'] == 3) :
+            header('Location: pair.php');
+        endif;
+        endwhile; ?>
 </body>
 
 </html>

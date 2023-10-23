@@ -7,24 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="./css/cabeçalho-rodapé.css">
     <title>Entrar</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .container-full-height{
-            min-height: calc(100vh - 105px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
 </head>
 <body>
-    <!--CABEÇALHO-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+    <!-- Cabeçalho -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #ccc;">
         <a class="navbar-brand" href="index.html">
-            <img src="./img/logo_preta.png" alt="Logo" style="max-height: 50px;">
+            <img src="./img/logo_preta.png" alt="Logo do ApuriShare" style="max-height: 50px;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Menu hamburguer">
@@ -33,23 +21,23 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="cadastro.php">Cadastrar</a>
+                    <a class="nav-link" href="cadastro.php">Criar conta</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.php">Entrar</a>
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav>  
 
     <!--FORMULÁRIO-->
-    <div class="container-full-height">
-        <div class="container">
+
+        <div class="container mt-5 mb-5">
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Entrar</h5>
+                            Entrar
                         </div>
                         <div class="card-body">
                             <form action="testelogin.php" method="POST">
@@ -68,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

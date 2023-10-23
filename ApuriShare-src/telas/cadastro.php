@@ -31,23 +31,14 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="./css/cabeçalho-rodapé.css">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .container-full-height{
-            min-height: calc(100vh - 105px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        
     </style>
 </head>
 <body>
-    <!--CABEÇALHO-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       <!-- Cabeçalho -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #ccc;">
         <a class="navbar-brand" href="index.html">
-            <img src="./img/logo_preta.png" alt="Logo" style="max-height: 50px;">
+            <img src="./img/logo_preta.png" alt="Logo do ApuriShare" style="max-height: 50px;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Menu hamburguer">
@@ -56,15 +47,53 @@ if(isset($_POST['submit'])){
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="cadastro.php">Cadastrar</a>
+                    <a class="nav-link" href="cadastro.php">Criar conta</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.php">Entrar</a>
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav>  
 
+
+    <!--Formulário-->
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Criar conta</div>
+                    <div class="card-body">
+                    <form action="cadastro.php" method="POST">
+                                <div class="form-group">
+                                    <label for="nome">Nome:</label>
+                                    <input type="text" class="form-control" id="nome" name="nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nickname">Apelido:</label>
+                                    <input type="text" class="form-control" id="nickname" name="nickname" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="senha">Senha:</label>
+                                    <input type="password" class="form-control" id="senha" name="senha" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confsenha">Confirmar senha:</label>
+                                    <input type="password" class="form-control" id="confsenha" name="confirmar_senha" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="aceitar" name="aceitar" required>
+                                        <label class="custom-control-label" for="aceitar">Aceitar os Termos de Uso</label>
+                                    </div>
+                                </div>
+                                <input type="submit" name="submit" id="submit" class="btn btn-primary enviar">
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

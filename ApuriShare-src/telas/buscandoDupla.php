@@ -8,7 +8,7 @@ include_once('conexao.php');
     
     $sorteado = array();//inicializa vetor
 
-    for (int $i = 0; $i < count($vetorDuplas); $i++){
+    for ($i = 0; $i < count($vetorDuplas); $i++){
         $sorteado = $vetorDuplas[$i];
 
         if($sorteado[0] == $nome_user || $sorteado[1] == $nome_user){

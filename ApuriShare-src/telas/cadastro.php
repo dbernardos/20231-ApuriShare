@@ -1,41 +1,23 @@
-<?php
-if(isset($_POST['submit'])){
-    include_once('conexao.php');
-    $nome = $_POST['nome'];
-    $nickname = $_POST['nickname'];
-    $senha = $_POST['senha'];
-    $confirmar_senha = $_POST['confirmar_senha'];
-
-    if($confirmar_senha == $senha){
-        mysqli_query($con, "INSERT into usuario(nome, nickname, senha)
-        values ('$nome', '$nickname', '$senha')");
-        header('Location: login.php');
-    }
-    else{
-        echo "Erro: As senhas não coincidem.";
-    }
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="./css/cadastro.css">
     <title>Criar conta</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="./css/cabeçalho-rodapé.css">
-    
+
     <style>
-        
+
     </style>
 </head>
+
 <body>
-       <!-- Cabeçalho -->
+    <!-- Cabeçalho -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #ccc;">
         <a class="navbar-brand" href="index.html">
             <img src="./img/logo_preta.png" alt="Logo do ApuriShare" style="max-height: 50px;">
@@ -54,7 +36,7 @@ if(isset($_POST['submit'])){
                 </li>
             </ul>
         </div>
-    </nav>  
+    </nav>
 
 
     <!--Formulário-->
@@ -64,31 +46,71 @@ if(isset($_POST['submit'])){
                 <div class="card">
                     <div class="card-header">Criar conta</div>
                     <div class="card-body">
-                    <form action="cadastro.php" method="POST">
-                                <div class="form-group">
-                                    <label for="nome">Nome:</label>
-                                    <input type="text" class="form-control" id="nome" name="nome" required>
+                        <form action="cadastro.php" method="POST">
+                            <div class="form-group">
+                                <label for="nome">Nome:</label>
+                                <input type="text" class="form-control" id="nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nickname">Apelido:</label>
+                                <input type="text" class="form-control" id="nickname" name="nickname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="senha">Senha:</label>
+                                <input type="password" class="form-control" id="senha" name="senha" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confsenha">Confirmar senha:</label>
+                                <input type="password" class="form-control" id="confsenha" name="confirmar_senha"
+                                    required>
+                            </div>
+
+
+                            <?php
+                            if (isset($_POST['submit'])) {
+                                include_once('conexao.php');
+                                $nome = $_POST['nome'];
+                                $nickname = $_POST['nickname'];
+                                $senha = $_POST['senha'];
+                                $confirmar_senha = $_POST['confirmar_senha'];
+
+                                // Array para armazenar as mensagens de erro
+                                $errors = array();
+
+                                // Verificar se o nickname já existe no banco de dados
+                                $query = "SELECT * FROM usuario WHERE nickname = '$nickname'";
+                                $result = mysqli_query($con, $query);
+
+                                if (mysqli_num_rows($result) > 0) {
+                                    $errors[] = "O nickname já está em uso.";
+                                }
+
+                                if ($confirmar_senha != $senha) {
+                                    $errors[] = "As senhas não coincidem.";
+                                }
+
+                                // Se houver erros, exibi-los
+                                if (!empty($errors)) {
+                                    foreach ($errors as $error) {
+                                        echo "<span><strong>Erro: $error</strong></span><br><br>";
+                                    }
+                                } else {
+                                    // Caso contrário, continue com a inserção no banco de dados
+                                    mysqli_query($con, "INSERT into usuario(nome, nickname, senha) values ('$nome', '$nickname', '$senha')");
+                                    header('Location: login.php');
+                                }
+                            }
+                            ?>
+
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="aceitar" name="aceitar"
+                                        required>
+                                    <label class="custom-control-label" for="aceitar">Aceitar os Termos de Uso</label>
                                 </div>
-                                <div class="form-group">
-                                    <label for="nickname">Apelido:</label>
-                                    <input type="text" class="form-control" id="nickname" name="nickname" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="senha">Senha:</label>
-                                    <input type="password" class="form-control" id="senha" name="senha" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="confsenha">Confirmar senha:</label>
-                                    <input type="password" class="form-control" id="confsenha" name="confirmar_senha" required>
-                                </div>
-                                <div class="form-group">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="aceitar" name="aceitar" required>
-                                        <label class="custom-control-label" for="aceitar">Aceitar os Termos de Uso</label>
-                                    </div>
-                                </div>
-                                <input type="submit" name="submit" id="submit" class="btn btn-primary enviar">
-                            </form>
+                            </div>
+                            <input type="submit" name="submit" id="submit" class="btn btn-primary enviar">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -103,4 +125,5 @@ if(isset($_POST['submit'])){
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>

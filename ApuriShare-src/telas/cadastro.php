@@ -18,7 +18,7 @@
 
 <body>
     <!-- Cabeçalho -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #ccc;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #ccc; height: 10vh">
         <a class="navbar-brand" href="index.html">
             <img src="./img/logo_preta.png" alt="Logo do ApuriShare" style="max-height: 50px;">
         </a>
@@ -40,7 +40,7 @@
 
 
     <!--Formulário-->
-    <div class="container align-items-center" style="margin-top: 20vh;">
+    <div class="container" style="margin-top: 20vh; margin-bottom:20vh;">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">

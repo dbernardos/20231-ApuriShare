@@ -51,15 +51,11 @@
                             if (mysqli_num_rows($result) == 1) {
                                 $user = mysqli_fetch_assoc($result);
                                 if (password_verify($senha, $user['senha'])) {
-                                    // Senha correta, o usuário pode ser autenticado
-                                    // Coloque aqui o código para redirecionar para a página de sucesso
-                                    header('Location: sucesso.php');
+                                    header('Location: tela_inicial.php');
                                 } else {
-                                    // Senha incorreta
                                     echo '<div class="alert alert-danger" role="alert">Senha incorreta. Tente novamente.</div>';
                                 }
                             } else {
-                                // O nickname não existe
                                 echo '<div class="alert alert-danger" role="alert">Nickname não encontrado. Registre-se ou verifique o nickname inserido.</div>';
                             }
                         }

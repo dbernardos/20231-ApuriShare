@@ -32,7 +32,7 @@
 
     <!--FORMULÁRIO-->
 
-        <div class="container mt-5 mb-5">
+        <div class="container" style="margin-top: 30vh; margin-bottom: 30vh;">
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="card">

@@ -38,7 +38,7 @@ require('../regra/regra_entrar_sala.php');
         ?>
         </form>
     </div>
-
+        
 </body>
 
 </html>

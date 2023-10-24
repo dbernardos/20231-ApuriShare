@@ -40,7 +40,7 @@
 
 
     <!--Formulário-->
-    <div class="container" style="margin-top: 20vh; margin-bottom: 20vh;">
+    <div class="container align-items-center" style="margin-top: 20vh;">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">

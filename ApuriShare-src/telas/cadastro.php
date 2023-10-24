@@ -102,7 +102,7 @@
                             }
                             ?>
 
-                            <div class="form-group">
+        <div class="form-group">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="aceitar" name="aceitar"
                                         required>

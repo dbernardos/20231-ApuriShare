@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -28,54 +32,44 @@
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav>  
 
-    <!-- FORMULÁRIO -->
-    <div class="container" style="margin-top: 30vh; margin-bottom: 30vh;">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        Entrar
-                    </div>
-                    <div class="card-body">
-                    <?php
-                        if (isset($_POST['submit'])) {
-                            include('conexao.php');
-                            $nickname = $_POST['nickname'];
-                            $senha = $_POST['senha'];
+    <!--FORMULÁRIO-->
 
-                            $query = "SELECT * FROM usuario WHERE nickname = '$nickname'";
-                            $result = mysqli_query($con, $query);
+        <div class="container" style="margin-top: 30vh; margin-bottom: 30vh;">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Entrar
+                        </div>
+                        <div class="card-body">
+                            <form action="testelogin.php" method="POST">
+                            <?php
 
-                            if (mysqli_num_rows($result) == 1) {
-                                $user = mysqli_fetch_assoc($result);
-                                if (password_verify($senha, $user['senha'])) {
-                                    header('Location: tela_inicial.php');
-                                } else {
-                                    echo '<div class="alert alert-danger" role="alert">Senha incorreta. Tente novamente.</div>';
-                                }
-                            } else {
-                                echo '<div class="alert alert-danger" role="alert">Nickname não encontrado. Registre-se ou verifique o nickname inserido.</div>';
-                            }
-                        }
-                        ?>
-                        <form action="testelogin.php" method="POST">
-                            <div class="form-group">
-                                <label for="nickname">Apelido:</label>
-                                <input type="text" class="form-control" id="nickname" name="nickname" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="senha">Senha:</label>
-                                <input type="password" class="form-control" id="senha" name="senha" required>
-                            </div>
-                            <input type="submit" name="submit" id="submit" class="btn btn-primary enviar">
-                        </form>
+            if (isset($_SESSION['login_error'])) {
+                echo '<div class="alert alert-danger">' . $_SESSION['login_error'] . '</div>';
+                unset($_SESSION['login_error']); 
+            }
+            ?>
+                                <div class="form-group">
+                                    <label for="nickname">Apelido:</label>
+                                    <input type="text" class="form-control" id="nickname" name="nickname" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="senha">Senha:</label>
+                                    <input type="password" class="form-control" id="senha" name="senha" required>
+                                </div>
+
+                                
+                                <input type="submit" name="submit" id="submit" class="btn btn-primary enviar">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

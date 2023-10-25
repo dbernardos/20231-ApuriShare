@@ -1,3 +1,0 @@
-utf8mb4
-
-utf8_general_ci

@@ -14,19 +14,19 @@
 </head>
 <body>
 <?php include('menu.php');?>
-<center>
-    <div class="centro">
-        <h1>Entre ou Crie Salas</h1><br><br>
-        <div class="botoes">
-            <a href="./entrar_sala.php"><button type="button" class="btn btn-outline-dark"> Entrar </button></a>
-            <a href="./criar_sala.php"><button type="button" class="btn btn-outline-dark"> Criar </button></a>    
+    <center>
+        <div class="centro">
+            <h1>Entre ou Crie Salas</h1><br><br>
+            <div class="botoes">
+                <a href="./entrar_sala.php"><button type="button" class="btn btn-outline-dark"> Entrar </button></a>
+                <a href="./criar_sala.php"><button type="button" class="btn btn-outline-dark"> Criar </button></a>    
+            </div>
+            <br>
+            <p>Entre em salas para realizar atividades e desafios feitos pelos usúario!</p>
+            <a href="" class="link-opacity-10-hover">Não sabe como funciona? Clique aqui</a>
+            <br><br>
         </div>
-        <br>
-        <p>Entre em salas para realizar atividades e desafios feitos pelos usúario!</p>
-        <a href="" class="link-opacity-10-hover">Não sabe como funciona? Clique aqui</a>
-        <br><br>
-    </div>
-</center>
+    </center>
     <br><br>
     <div class="sair">
         <a href="./sair.php"><button type="submit" class="btn btn-outline-dark"><img src="./img/Icon_Sair.png" width="20" height="20"><strong> Sair da Conta</strong></button></a>

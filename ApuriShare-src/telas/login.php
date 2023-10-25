@@ -60,7 +60,7 @@
                             }
                         }
                         ?>
-                        <form action="login.php" method="POST">
+                        <form action="testelogin.php" method="POST">
                             <div class="form-group">
                                 <label for="nickname">Apelido:</label>
                                 <input type="text" class="form-control" id="nickname" name="nickname" required>

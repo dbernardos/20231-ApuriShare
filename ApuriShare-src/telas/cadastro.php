@@ -46,6 +46,38 @@
                 <div class="card">
                     <div class="card-header">Criar conta</div>
                     <div class="card-body">
+                    <?php
+                        if (isset($_POST['submit'])) {
+                            include('conexao.php');
+                            $nome = $_POST['nome'];
+                            $nickname = $_POST['nickname'];
+                            $senha = $_POST['senha'];
+                            $senha = $_POST['senha'];
+                            $confirmar_senha = $_POST['confirmar_senha'];
+
+                            $query = "SELECT * FROM usuario WHERE nickname = '$nickname'";
+                            $result = mysqli_query($con, $query);
+
+                            if (mysqli_num_rows($result) > 0) {
+                                $errors[] = "O nickname já está em uso.";
+                            }
+
+                            if ($confirmar_senha != $senha) {
+                                $errors[] = "As senhas não coincidem.";
+                            }
+
+                            // Se houver erros, exibi-los
+                            if (!empty($errors)) {
+                                foreach ($errors as $error) {
+                                    echo "<div class='alert alert-danger' role='alert'>Erro: $error</div>";
+                                }
+                            } else {
+                                mysqli_query($con, "INSERT into usuario(nome, nickname, senha) values ('$nome', '$nickname', '$senha')");
+                                header('Location: login.php');
+                            }
+                        }
+                        ?>
+
                         <form action="cadastro.php" method="POST">
                             <div class="form-group">
                                 <label for="nome">Nome:</label>
@@ -64,43 +96,6 @@
                                 <input type="password" class="form-control" id="confsenha" name="confirmar_senha"
                                     required>
                             </div>
-
-
-                            <?php
-                            if (isset($_POST['submit'])) {
-                                include_once('conexao.php');
-                                $nome = $_POST['nome'];
-                                $nickname = $_POST['nickname'];
-                                $senha = $_POST['senha'];
-                                $confirmar_senha = $_POST['confirmar_senha'];
-
-                                // Array para armazenar as mensagens de erro
-                                $errors = array();
-
-                                // Verificar se o nickname já existe no banco de dados
-                                $query = "SELECT * FROM usuario WHERE nickname = '$nickname'";
-                                $result = mysqli_query($con, $query);
-
-                                if (mysqli_num_rows($result) > 0) {
-                                    $errors[] = "O nickname já está em uso.";
-                                }
-
-                                if ($confirmar_senha != $senha) {
-                                    $errors[] = "As senhas não coincidem.";
-                                }
-
-                                // Se houver erros, exibi-los
-                                if (!empty($errors)) {
-                                    foreach ($errors as $error) {
-                                        echo "<span><strong>Erro: $error</strong></span><br><br>";
-                                    }
-                                } else {
-                                    // Caso contrário, continue com a inserção no banco de dados
-                                    mysqli_query($con, "INSERT into usuario(nome, nickname, senha) values ('$nome', '$nickname', '$senha')");
-                                    header('Location: login.php');
-                                }
-                            }
-                            ?>
 
         <div class="form-group">
                                 <div class="custom-control custom-checkbox">

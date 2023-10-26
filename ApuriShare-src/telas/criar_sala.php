@@ -38,7 +38,6 @@
 </head>
 
 <body>
-<?php include('menu.php');?>
     <center>
         <br><br><br><br>
         <form action="criar_sala.php" method="POST">

@@ -3,3 +3,54 @@
  regra think: INSERT INTO resposta VALUES (NULL, 'ssssss', 'individual', 36, 'larap02', '')
  Numero par de participantes: 2
 sorteado >>> larap02 e raque.lis 
+ O usuário será registrado: larap02
+ O usuário já está registrado: larap02
+ O usuário será registrado: raque.lis
+ O usuário será registrado: belly.90
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ Numero impar de participantes: 3
+ O usuário já está registrado: belly.90
+ O usuário será registrado: italo.ramos
+ O usuário será registrado: raque.lis
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'Resposta do Italooooooo', 'individual', 52, 'italo.ramos', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'teste Raquel', 'individual', 52, 'raque.lis', '')
+ Numero par de participantes: 2
+sorteado >>> italo.ramos e raque.lis 
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ O usuário será registrado: raque.lis
+ O usuário será registrado: larap02
+ O usuário será registrado: belly.90
+ O usuário será registrado: portuga.2004
+ Numero par de participantes: 4
+ regra think: INSERT INTO resposta VALUES (NULL, 'cafe sa manha', 'individual', 53, 'portuga.2004', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'Café da manhã(Lara)', 'individual', 53, 'larap02', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'cafe da manha - belly', 'individual', 53, 'belly.90', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'cafe da manha - raquel', 'individual', 53, 'raque.lis', '')
+ Numero par de participantes: 4
+sorteado >>> raque.lis e belly.90 
+restante: larap02 
+restante: portuga.2004 
+sorteado >>> larap02 e portuga.2004 
+ Numero par de participantes: 4

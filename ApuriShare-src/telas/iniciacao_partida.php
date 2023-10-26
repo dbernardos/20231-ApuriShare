@@ -19,7 +19,6 @@ require('../regra/regra_iniciacao_partida.php');
 </head>
 
 <body>
-    <?php include('menu.php'); ?>
     <div class="grid">
         <?php foreach ($sql_resultado as $dados) :
             $registrados = contaParticipantes($dados['chaveAcesso'], $con)

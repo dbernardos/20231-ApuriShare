@@ -3,7 +3,6 @@
 
     session_start();
     $nome_user = $_SESSION['nickname'];
-    $id_respostaThink = $_SESSION['codigo'];
 
         $chaveAcesso = $_SESSION['chaveAcesso'];
 

@@ -17,8 +17,6 @@ require('../regra/regra_entrar_sala.php');
 </head>
 
 <body>
-    <?php include('menu.php'); ?>
-
     <div class="centro">
         <form method="POST">
             <h1>Chave de Acesso</h1> <br><br>

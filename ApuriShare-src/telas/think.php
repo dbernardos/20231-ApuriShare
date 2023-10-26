@@ -17,7 +17,6 @@ require('../regra/regra_think.php');
 </head>
 
 <body>
-    <?php include('menu.php'); ?>
     <?php 
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
         while ($dados = mysqli_fetch_assoc($sql)) : ?>

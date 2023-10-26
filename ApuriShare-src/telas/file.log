@@ -54,3 +54,61 @@ restante: larap02
 restante: portuga.2004 
 sorteado >>> larap02 e portuga.2004 
  Numero par de participantes: 4
+ O usuário será registrado: larap02
+ Numero impar de participantes: 1
+ Numero impar de participantes: 1
+ O usuário será registrado: portuga.2004
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'SLa', 'individual', 54, 'larap02', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'REsp', 'individual', 54, 'portuga.2004', '')
+ Numero par de participantes: 2
+sorteado >>> larap02 e portuga.2004 
+ Numero par de participantes: 2
+ O usuário será registrado: portuga.2004
+ O usuário será registrado: larap02
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'pao', 'individual', 55, 'larap02', '')
+ Numero par de participantes: 2
+sorteado >>> portuga.2004 e larap02 
+ Numero par de participantes: 2
+ O usuário será registrado: larap02
+ O usuário já está registrado: larap02
+ O usuário será registrado: larap02
+ O usuário já está registrado: portuga.2004
+ O usuário já está registrado: portuga.2004
+ O usuário será registrado: larap02
+ O usuário será registrado: portuga.2004
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, '\savhk dfzkvkdfhb', 'individual', 10, 'larap02', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'dxgfxhb', 'individual', 10, 'portuga.2004', '')
+ Numero par de participantes: 2
+sorteado >>> larap02 e portuga.2004 
+ Numero par de participantes: 2
+ O usuário será registrado: larap02
+ O usuário será registrado: portuga.2004
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'sbvkhsbe', 'individual', 35, 'larap02', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'dads', 'individual', 35, 'portuga.2004', '')
+ Numero par de participantes: 2
+sorteado >>> larap02 e portuga.2004 
+ Numero par de participantes: 2
+ O usuário será registrado: larap02
+ O usuário será registrado: portuga.2004
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'testestestes', 'individual', 56, 'larap02', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'huhubhbj
+', 'individual', 56, 'portuga.2004', '')
+ Numero par de participantes: 2
+sorteado >>> larap02 e portuga.2004 
+ O usuário será registrado: larap02
+ O usuário já está registrado: larap02
+ O usuário já está registrado: larap02
+ O usuário já está registrado: larap02
+ O usuário já está registrado: larap02
+ O usuário será registrado: belly.90
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'TEsteLara', 'individual', 57, 'larap02', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'teste teste teste da belly', 'individual', 57, 'belly.90', '')
+ Numero par de participantes: 2
+sorteado >>> larap02 e belly.90 
+ Numero par de participantes: 2

@@ -9,6 +9,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `resposta` (
   `codigo` int NOT NULL,
   `resposta` TEXT NOT NULL,
+  `resposta_par` TEXT NOT NULL,
   `situacao` enum('individual','pares') NOT NULL DEFAULT 'individual',
   `fk_sala` int DEFAULT NULL,
   `fk_usuario` varchar(100) DEFAULT NULL,

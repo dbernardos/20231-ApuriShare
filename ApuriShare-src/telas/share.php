@@ -7,8 +7,7 @@
         $chaveAcesso = $_SESSION['chaveAcesso'];
 
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
-        $sql_id = mysqli_query($con, "SELECT * from resposta WHERE fk_sala = '$chaveAcesso'");
-
+        $sql_id = mysqli_query($con, "SELECT * from resposta WHERE fk_sala = '$chaveAcesso' AND situacao = 'pares'");
         while($dados = mysqli_fetch_assoc($sql)){
 ?>
 <!DOCTYPE html>
@@ -39,7 +38,7 @@
 <br>
 <div class="border border-2 respShare">
     <H3>Resposta dos Participantes</H3>
-    <h4>Nome Users</h4>
+    <h4></h4>
     <p><?php while($resposta = mysqli_fetch_assoc($sql_id)){
                 echo "<td>".$resposta['resposta']."</td><br>";
             }?> </p>

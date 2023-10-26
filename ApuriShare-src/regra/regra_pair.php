@@ -4,11 +4,20 @@
 
     if(isset($_POST['btnEnviar'])){
         $respostaPair = $_POST['txtRespostaPair'];
-        //$codigoRespostaPair = $_SESSION['codigoRespostaPair'];
-         
-        $comando = "UPDATE resposta SET resposta = '$respostaPair' WHERE codigo = $id_resposta_par";
+        //$codigoRespostaPair = $_SESSION['codigoRespostaPair']; 
+
+        $comando = "SELECT * FROM resposta SET resposta WHERE situacao = 'pares' AND (fk_usuario = '$nome_user' OR fk_usuario_par = '$nome_user') AND fk_sala = '$chaveAcesso'";
         echo "\n" . $comando . " \n";
         $sql = mysqli_query($con, $comando);
+        
+        if(mysqli_num_rows($sql) > 0){
+            $resposta = $respostaPair;
+        }else{
+            $resposta = $sql . " " . $respostaPair;
+        }
+            $respPares =  "UPDATE resposta SET resposta = '$resposta' WHERE situacao = 'pares' AND (fk_usuario = '$nome_user' OR fk_usuario_par = '$nome_user') AND fk_sala = '$chaveAcesso'";
+            $juntar = mysqli_query($con, $respPares);
+
         
         header('Location: esperaBtnPair.php');
     }

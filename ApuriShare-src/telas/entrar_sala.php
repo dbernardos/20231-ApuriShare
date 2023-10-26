@@ -31,7 +31,7 @@ require('../regra/regra_entrar_sala.php');
         <h3>Salas Registradas </h3>
         <?php 
         foreach(listarSalasRegistradas($con) as $dados):
-            echo "Chave de acesso: {$dados['sChave']} | Nome da sala: {$dados['sNome']} \n" ;
+            echo "Chave de acesso: {$dados['sChave']} | Nome da sala: {$dados['sNome']} <br>" ;
         endforeach;
         ?>
         </form>

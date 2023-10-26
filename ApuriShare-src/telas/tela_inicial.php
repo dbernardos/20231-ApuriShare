@@ -20,14 +20,11 @@
         <a class="navbar-brand" href="tela_inicial.php">
             <img src="./img/logo_preta.png" alt="Logo do ApuriShare" style="max-height: 50px;">
         </a>
-
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item" style="">
-                    <?php
-                        echo "<h4><a class='nav-link text-dark' href='iniciacao_partida.php'>Salas de {$_SESSION['nickname']}</a></h4>";
-                    ?>
-            
-
+                    <div class="navbar-nav ml-auto">
+                            <?php
+                                echo "<h4><a class='nav-link' href='iniciacao_partida.php'>Salas de {$_SESSION['nickname']}</a></h4>";
+                            ?>
+                    </div>
     </nav>
         
         <div class="container d-flex justify-content-center" style="height: 100vh">

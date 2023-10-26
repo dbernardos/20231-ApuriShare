@@ -16,7 +16,7 @@
     <body>
         
         <!-- Cabeçalho -->
-    <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="border-bottom: 1px solid #ccc;">
+    <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="border-bottom: 1px solid #ccc; height: 8vh;">
         <a class="navbar-brand" href="tela_inicial.php">
             <img src="./img/logo_preta.png" alt="Logo do ApuriShare" style="max-height: 50px;">
         </a>
@@ -26,14 +26,11 @@
                     <?php
                         echo "<h4><a class='nav-link text-dark' href='iniciacao_partida.php'>Salas de {$_SESSION['nickname']}</a></h4>";
                     ?>
-                
+            
 
     </nav>
         
-        <?php
-            echo "<h4><a href='iniciacao_partida.php'>{$_SESSION['nickname']}</a></h4>";
-        ?>
-        <center>
+        <div class="container d-flex justify-content-center" style="height: 100vh">
             <div class="centro">
                 <h1>Entre ou Crie Salas</h1><br><br>
                 <div class="botoes">
@@ -45,7 +42,7 @@
                 <a href="" class="link-opacity-10-hover">Não sabe como funciona? Clique aqui</a>
                 <br><br>
             </div>
-        </center>
+        </div>
             <br><br>
             <div class="sair">
                 <a href="./sair.php"><button type="submit" class="btn btn-outline-dark"><img src="./img/Icon_Sair.png" width="20" height="20"><strong> Sair da Conta</strong></button></a>

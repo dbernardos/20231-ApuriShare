@@ -14,7 +14,7 @@ session_start();
 </head>
 <body>
     <!-- Cabeçalho -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #ccc;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #ccc; height: 8vh;">
         <a class="navbar-brand" href="index.html">
             <img src="./img/logo_preta.png" alt="Logo do ApuriShare" style="max-height: 50px;">
         </a>

@@ -61,17 +61,21 @@ function verificaSituacaoSala($chave, $con)
     $comando = "SELECT fk_situacao from sala WHERE chaveAcesso = $chave";
     $situacao = mysqli_query($con, $comando);
 
-    if ($situacao) {
+    if ($situacao && mysqli_num_rows($situacao) > 0) {
         // Obtém a primeira (e única) linha do resultado
         $row = mysqli_fetch_row($situacao);
-        // 1 significa que a partida ainda nao foi iniciada
-        if ($row[0] == 1) { 
+        // 1 significa que a partida ainda não foi iniciada
+        if ($row[0] == 1) {
             return true;
         }
     } else {
-        error_log("\n Erro na consulta SQL (situação da sala): " . mysqli_error($con), 3, "file.log");
+        // Verifica se o resultado da consulta é nulo
+        if ($situacao === null) {
+            // Suprimir os erros usando o @ antes de error_log e registrar o erro se necessário
+            @error_log("\n Erro na consulta SQL (situação da sala): " . mysqli_error($con), 3, "file.log");
+        }
+        echo "A sala solicitada encontra-se em andamento";
+        return false;
     }
-    echo "A sala solicitada encontra-se em andamento";
     return false;
 }
-?>

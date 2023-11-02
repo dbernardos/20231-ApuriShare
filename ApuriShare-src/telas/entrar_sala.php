@@ -7,20 +7,18 @@ require('../regra/regra_entrar_sala.php');
 <html>
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="./css/geral.css">
-    <link rel="stylesheet" href="./css/entrar_sala.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>ApuriShare - Entrar na Sala</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApuriShare</title>
     <style>
         body {
             background-color: #f7f7f7;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         .centro {
@@ -62,12 +60,41 @@ require('../regra/regra_entrar_sala.php');
         .sala-info span {
             font-weight: bold;
         }
+
+        .aviso {
+            background-color: #f44336;
+            color: #fff;
+            display: none;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+
+
+        <nav id="header" class="navbar navbar-expand-lg navbar-light" style="border-bottom: 1px solid #ccc; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+        <a class="navbar-brand" href="tela_inicial.php">
+            <img src="./img/logo_preta.png" alt="Logo do ApuriShare" style="max-height: 50px;">
+        </a>
+        <div class="navbar-nav ml-auto">
+            <?php
+            echo "<h4><a class='nav-link' href='iniciacao_partida.php'>Salas de {$_SESSION['nickname']}</a></h4>";
+            ?>
+        </div>
+    </nav>
+
+
+    <div class="container d-flex justify-content-center align-items-center" style="margin-top: 20vh; margin-bottom: 20vh;">
         <div class="centro text-center">
+            <div class="aviso">
+                A sala solicitada encontra-se em andamento
+            </div>
             <form method="POST">
                 <h1>Chave de Acesso</h1><br><br>
                 <div class="cod">
@@ -88,6 +115,15 @@ require('../regra/regra_entrar_sala.php');
         </div>
     </div>
 
+    <script>
+        <?php
+        if (verificaSituacaoSala($chaveAcesso, $con) || verificaParticipanteRegistrado($chaveAcesso, $con)) {
+            echo 'document.querySelector(".aviso").style.display = "none";';
+        } else {
+            echo 'document.querySelector(".aviso").style.display = "block";';
+        }
+        ?>
+    </script>
 </body>
 
 </html>

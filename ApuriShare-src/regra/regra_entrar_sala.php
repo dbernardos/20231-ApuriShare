@@ -37,11 +37,10 @@ function listarSalasRegistradas($con){
 // FUNÇÃO PARA VERIFICAR SE O USUARIO ESTÁ REGISTRADO NA SALA
 function verificaParticipanteRegistrado($chave, $con){
     $nickname = $_SESSION['nickname'];
-    $comando = "SELECT COUNT(*) from sala_usuario WHERE fk_sala = $chave AND fk_usuario = '$nickname' AND tipoUsuario = 'participante'";
+    $comando = "SELECT COUNT(*) from sala_usuario WHERE fk_sala = '$chave' AND fk_usuario = '$nickname' AND tipoUsuario = 'participante'";
     $registro = mysqli_query($con, $comando);
 
     if ($registro) {
-        // Obtém a primeira (e única) linha do resultado
         $row = mysqli_fetch_row($registro);
         if ($row[0] == 1) {
             error_log("\n O usuário já está registrado: $nickname", 3, "file.log"); 
@@ -58,23 +57,18 @@ function verificaParticipanteRegistrado($chave, $con){
 // FUNÇÃO PARA VERIFICAR SE A SALA AINDA NÃO FOI INICIADA
 function verificaSituacaoSala($chave, $con)
 {
-    $comando = "SELECT fk_situacao from sala WHERE chaveAcesso = $chave";
-    $situacao = mysqli_query($con, $comando);
+    $comando = "SELECT fk_situacao from sala WHERE chaveAcesso = '$chave'";
+    $situacao = @mysqli_query($con, $comando);
 
     if ($situacao && mysqli_num_rows($situacao) > 0) {
-        // Obtém a primeira (e única) linha do resultado
         $row = mysqli_fetch_row($situacao);
-        // 1 significa que a partida ainda não foi iniciada
         if ($row[0] == 1) {
             return true;
         }
     } else {
-        // Verifica se o resultado da consulta é nulo
         if ($situacao === null) {
-            // Suprimir os erros usando o @ antes de error_log e registrar o erro se necessário
             @error_log("\n Erro na consulta SQL (situação da sala): " . mysqli_error($con), 3, "file.log");
         }
-        echo "A sala solicitada encontra-se em andamento";
         return false;
     }
     return false;

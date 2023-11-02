@@ -17,11 +17,6 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        #header {
-            background-color: #fff;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
         .centro {
             background-color: #fff;
             border-radius: 10px;
@@ -64,8 +59,7 @@
 
 <body>
 
-    <!-- Cabeçalho -->
-    <nav id="header" class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light" style="border-bottom: 1px solid #ccc; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
         <a class="navbar-brand" href="tela_inicial.php">
             <img src="./img/logo_preta.png" alt="Logo do ApuriShare" style="max-height: 50px;">
         </a>
@@ -76,7 +70,7 @@
         </div>
     </nav>
 
-    <div class="container d-flex justify-content-center align-items-center" style="height: 92vh;">
+    <div class="container d-flex justify-content-center align-items-center" style="height: 75vh">
         <div class="centro text-center">
             <h1>Entre ou Crie Salas</h1>
             <div class="botoes mt-4">

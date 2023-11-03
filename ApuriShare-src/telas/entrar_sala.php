@@ -2,10 +2,22 @@
 require('conexao.php');
 require('inicia_sessao.php');
 require('../regra/regra_entrar_sala.php');
+
+$chaveAcesso = isset($_POST['txtCodigo']) ? $_POST['txtCodigo'] : null;
+$mostrarMensagem = false;  // Inicialmente, não mostra a mensagem
+
+if (isset($_POST['btnEntrar'])) {
+    if (verificaSituacaoSala($chaveAcesso, $con) || verificaParticipanteRegistrado($chaveAcesso, $con)) {
+        header('Location: salaEspera.php');
+        exit;  // Redireciona sem mostrar a página
+    } else {
+        $mostrarMensagem = true;
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html>
-
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -14,7 +26,7 @@ require('../regra/regra_entrar_sala.php');
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ApuriShare</title>
+    <title>Entrar Sala</title>
     <style>
         body {
             background-color: #f7f7f7;
@@ -53,32 +65,22 @@ require('../regra/regra_entrar_sala.php');
             margin-top: 20px;
         }
 
-        .sala-info {
-            color: #333;
+        .botoes {
+            margin-top: 20px;
         }
 
-        .sala-info span {
-            font-weight: bold;
-        }
-
-        .aviso {
-            background-color: #f44336;
+        .botoes input {
+            background-color: #343a40;
             color: #fff;
-            display: none;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 18px;
-            margin-top: 10px;
-            margin-bottom: 10px;
+        }
+
+        .botoes input:hover {
+            background-color: #292b2c;
         }
     </style>
 </head>
-
 <body>
-
-
-        <nav id="header" class="navbar navbar-expand-lg navbar-light" style="border-bottom: 1px solid #ccc; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+    <nav id="header" class="navbar navbar-expand-lg navbar-light" style="border-bottom: 1px solid #ccc; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
         <a class="navbar-brand" href="tela_inicial.php">
             <img src="./img/logo_preta.png" alt="Logo do ApuriShare" style="max-height: 50px;">
         </a>
@@ -89,19 +91,22 @@ require('../regra/regra_entrar_sala.php');
         </div>
     </nav>
 
-
     <div class="container d-flex justify-content-center align-items-center" style="margin-top: 20vh; margin-bottom: 20vh;">
         <div class="centro text-center">
-            <div class="aviso">
-                A sala solicitada encontra-se em andamento
-            </div>
+            <?php
+            if ($mostrarMensagem) {
+                echo '<div class="aviso">A sala solicitada encontra-se em andamento</div>';
+            }
+            ?>
             <form method="POST">
                 <h1>Chave de Acesso</h1><br><br>
                 <div class="cod">
                     <input type="text" name="txtCodigo" maxlength="6" placeholder="Insira o código">
                 </div>
                 <br>
-                <input type="submit" value="Entrar" class="btn btnEntrar" name="btnEntrar" id="btnEntrar"><br><br>
+                <div class="botoes">
+                    <input type="submit" value="Entrar" class="btn btn-outline-dark" name="btnEntrar" id="btnEntrar"><br><br>
+                </div>
             </form>
 
             <h3>Salas Registradas</h3>
@@ -117,13 +122,12 @@ require('../regra/regra_entrar_sala.php');
 
     <script>
         <?php
-        if (verificaSituacaoSala($chaveAcesso, $con) || verificaParticipanteRegistrado($chaveAcesso, $con)) {
-            echo 'document.querySelector(".aviso").style.display = "none";';
-        } else {
+        if ($mostrarMensagem) {
             echo 'document.querySelector(".aviso").style.display = "block";';
+        } else {
+            echo 'document.querySelector(".aviso").style.display = "none";';
         }
         ?>
     </script>
 </body>
-
 </html>

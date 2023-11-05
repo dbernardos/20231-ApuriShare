@@ -96,47 +96,93 @@ if(isset($_POST['btnCriarSala'])){
     .botoes input:hover {
         background-color: #292b2c;
     }
+
+    .file-input {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .file-label {
+        background-color: #343a40;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .file-label:hover {
+        background-color: #292b2c;
+    }
+
+    #imagem {
+        display: none; /* Esconda o input de arquivo padrão */
+    }
+
+    #file-name {
+        margin-top: 10px;
+        color: #343a40;
+    }
 </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light" style="border-bottom: 1px solid #ccc; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
-    <a class="navbar-brand" href="tela_inicial.php">
-        <img src="./img/logo_preta.png" alt="Logo do ApuriShare" style="max-height: 50px;">
-    </a>
-    <div class="navbar-nav ml-auto">
-        <?php
-        echo "<h4><a class='nav-link' href='iniciacao_partida.php'>Salas de {$_SESSION['nickname']}</a></h4>";
-        ?>
-    </div>
-</nav>
-<div class="container d-flex justify-content-center align-items-center" style="margin-top: 20vh; margin-bottom: 20vh;">
-    <div class="centro text-center">
-        <form action="criar_sala.php" method="POST">
-            <div class="form-container">
-                <div class="esquerda">
-                    <h1>Criar Sala</h1>
-                    <h3>Nome da Sala</h3>
-                    <input type="text" name="txtNome" id="nome" required>
-                    <h3>Atividade</h3>
-                    <textarea class="form-control textoarea" placeholder="Se João comprar um..." name="txtAtividade" id="atividade" required></textarea>
-                    <h3>Comentário</h3>
-                    <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtObservacao" id="comentario"></textarea>
-                </div>
-                <div class="direita">
-                    <h3>Adicionar Imagem</h3>
-                    <input type="file" name="imagem" id="imagem">
-                    <h3>Número Máximo de Pessoas</h3>
-                    <div class="selecao">
-                        <input type="number" name="QntUsers" required>
+    <nav class="navbar navbar-expand-lg navbar-light" style="border-bottom: 1px solid #ccc; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+        <a class="navbar-brand" href="tela_inicial.php">
+            <img src="./img/logo_preta.png" alt="Logo do ApuriShare" style="max-height: 50px;">
+        </a>
+        <div class="navbar-nav ml-auto">
+            <?php
+            echo "<h4><a class='nav-link' href='iniciacao_partida.php'>Salas de {$_SESSION['nickname']}</a></h4>";
+            ?>
+        </div>
+    </nav>
+
+    <div class="container d-flex justify-content-center align-items-center" style="margin-top: 20vh; margin-bottom: 20vh;">
+        <div class="centro text-center">
+            <form action="criar_sala.php" method="POST">
+                <div class="form-container">
+                    <div class="esquerda">
+                        <h1>Criar Sala</h1>
+                        <h3>Nome da Sala</h3>
+                        <input type="text" name="txtNome" id="nome" required>
+                        <h3>Atividade</h3>
+                        <textarea class="form-control textoarea" placeholder="Se João comprar um..." name="txtAtividade" id="atividade" required></textarea>
+                        <h3>Comentário</h3>
+                        <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtObservacao" id="comentario"></textarea>
                     </div>
-                    <div class="aviso">Ps: Todos os campos devem ser preenchidos!</div>
-                    <div class="botoes">
-                        <input type="submit" name="btnCriarSala" class="btn btn-outline-dark" value="Criar Sala">
+                    <div class="direita">
+                        <h3>Adicionar Imagem</h3>
+                        <div class="file-input">
+                            <label for="imagem" class="file-label">Escolher arquivo</label>
+                            <input type="file" name="imagem" id="imagem" onchange="updateFileName()">
+                            <div id="file-name" class="file-name">Nenhum arquivo selecionado</div>
+                        </div>
+                        <h3>Número Máximo de Pessoas</h3>
+                        <div class="selecao">
+                            <input type="number" name="QntUsers" required>
+                        </div>
+                        <div class="aviso">Ps: Todos os campos devem ser preenchidos!</div>
+                        <div class="botoes">
+                            <input type="submit" name="btnCriarSala" class="btn btn-outline-dark" value="Criar Sala">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
+
+    <script>
+    // JavaScript para atualizar o nome do arquivo selecionado
+    function updateFileName() {
+            const fileInput = document.getElementById('imagem');
+            const fileNameDisplay = document.getElementById('file-name');
+
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent = fileInput.files[0].name;
+            } else {
+                fileNameDisplay.textContent = 'Nenhum arquivo selecionado';
+            }
+            }
+    </script>
 </body>
 </html>

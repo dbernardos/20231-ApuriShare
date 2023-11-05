@@ -46,23 +46,18 @@ if(isset($_POST['btnCriarSala'])){
         padding: 20px;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
     }
 
-    .esquerda {
-        width: 45%;
-        padding-right: 20px;
-    }
-
-    .direita {
-        width: 45%;
-        padding-left: 20px;
+    .esquerda, .direita {
+        width: 100%;
+        padding: 10px;
     }
 
     .form-container {
         display: flex;
-        justify-content: space-between;
-        width: 100%; /* Ocupa toda a largura da tela */
+        flex-direction: column;
     }
 
     .btnCriarSala {
@@ -116,7 +111,7 @@ if(isset($_POST['btnCriarSala'])){
     }
 
     #imagem {
-        display: none; /* Esconda o input de arquivo padrão */
+        display: none;
     }
 
     #file-name {
@@ -140,7 +135,7 @@ if(isset($_POST['btnCriarSala'])){
     <div class="container d-flex justify-content-center align-items-center" style="margin-top: 20vh; margin-bottom: 20vh;">
         <div class="centro text-center">
             <form action="criar_sala.php" method="POST">
-                <div class="form-container">
+                <div class="form-container flex-md-row">
                     <div class="esquerda">
                         <h1>Criar Sala</h1>
                         <h3>Nome da Sala</h3>
@@ -172,7 +167,7 @@ if(isset($_POST['btnCriarSala'])){
     </div>
 
     <script>
-    // JavaScript para atualizar o nome do arquivo selecionado
+
     function updateFileName() {
             const fileInput = document.getElementById('imagem');
             const fileNameDisplay = document.getElementById('file-name');

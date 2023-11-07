@@ -10,13 +10,12 @@
         echo "\n" . $comando . " \n";
         $sql = mysqli_query($con, $comando);
         
-        if(mysqli_num_rows($sql) > 0){
-            $resposta = $respostaPair;
+        if(mysqli_num_rows($sql) == 0){
+            $resposta = "UPDATE resposta SET resposta = '$respostaPair' WHERE situacao = 'pares' AND (fk_usuario = '$nome_user' OR fk_usuario_par = '$nome_user') AND fk_sala = '$chaveAcesso'";
         }else{
-            $resposta = $sql . " " . $respostaPair;
+            $resposta = "UPDATE resposta SET resposta_par = '$respostaPair' WHERE situacao = 'pares' AND (fk_usuario = '$nome_user' OR fk_usuario_par = '$nome_user') AND fk_sala = '$chaveAcesso'";;
         }
-            $respPares =  "UPDATE resposta SET resposta = '$resposta' WHERE situacao = 'pares' AND (fk_usuario = '$nome_user' OR fk_usuario_par = '$nome_user') AND fk_sala = '$chaveAcesso'";
-            $juntar = mysqli_query($con, $respPares);
+            $juntar = mysqli_query($con, $resposta);
 
         
         header('Location: esperaBtnPair.php');

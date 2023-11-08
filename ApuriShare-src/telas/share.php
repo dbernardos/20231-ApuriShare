@@ -3,8 +3,7 @@
 
     session_start();
     $nome_user = $_SESSION['nickname'];
-
-        $chaveAcesso = $_SESSION['chaveAcesso'];
+    $chaveAcesso = $_SESSION['chaveAcesso'];
 
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
         $sql_id = mysqli_query($con, "SELECT * from resposta WHERE fk_sala = '$chaveAcesso' AND situacao = 'pares'");
@@ -37,11 +36,11 @@
 </div>
 <br>
 <div class="border border-2 respShare">
-    <H3>Resposta dos Participantes</H3>
-    <h4></h4>
-    <p><?php while($resposta = mysqli_fetch_assoc($sql_id)){
-                echo "<td>".$resposta['resposta']."</td><br>";
-            }?> </p>
+    <H3>Resposta dos Participantes</H3><br>
+    <?php
+    while($resposta = mysqli_fetch_assoc($sql_id)){
+            echo "<span>Dupla: </span> {$resposta['fk_usuario']} | {$resposta['fk_usuario_par']} <br> <span>Resposta:</span> <br>{$resposta['resposta']} | {$resposta['resposta_par']}<br>";
+}?>
     <br>
 </div>
 <br>

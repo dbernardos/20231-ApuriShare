@@ -85,16 +85,6 @@ Coloque um passo a passo para executar os testes
 ainda não pronto
 ```
 
-## Tarefas em aberto
-
-Ainda não pronto
-
-:memo: Tarefa 1 
-
-:memo: Tarefa 2 
-
-:memo: Tarefa 3 
-
 ## Desenvolvedores e Contribuintes :octocat:
 
 Equipe responsável pelo desenvolvimento do projeto

@@ -7,7 +7,7 @@
         $respostaThink = $_POST['txtRespostaThink'];
 
         // Enviar resposta para o banco de dados
-        $comando = "INSERT INTO resposta VALUES (NULL, '$respostaThink', '$situacao', '$chaveAcesso', '$nome_user', '')"; 
+        $comando = "INSERT INTO resposta VALUES (NULL, '$respostaThink', '', '$situacao', '$chaveAcesso', '$nome_user', '')"; 
         error_log("\n regra think: $comando", 3, "file.log");
         mysqli_query($con, $comando);
 

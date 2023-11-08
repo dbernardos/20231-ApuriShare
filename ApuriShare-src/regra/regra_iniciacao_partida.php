@@ -89,7 +89,7 @@ function recuperaParticipantes($chave, $con)
         error_log("\nsorteado >>> {$sorteado0} e {$sorteado1} ", 3, "file.log");
 
         // Insere os dois participantes na tabela de respostas
-        $comando = "INSERT INTO resposta VALUES (NULL, '', 'pares', $chave, '$sorteado0', '$sorteado1')"; 
+        $comando = "INSERT INTO resposta VALUES (NULL, '', '', 'pares', '$chave', '$sorteado0', '$sorteado1')"; 
         executar_sql($con, $comando);
 
         unset($vetParticipantes[$sorteados[0]]);

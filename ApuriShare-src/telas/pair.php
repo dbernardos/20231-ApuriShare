@@ -25,7 +25,7 @@ require('../regra/regra_pair.php');
                 </div>
                 <div class="atividade">
                     <br>
-                    <h3> <?php echo $nome_user1 ?></h3>
+                    <h3> <?php echo $nome_user ?></h3>
                     <p> <?php echo $atividade ?> </p>
 
                 </div>
@@ -47,7 +47,7 @@ require('../regra/regra_pair.php');
                     </div>
                     <br><br>
                     <div class="resp2">
-                        <h3> <?php echo $nome_user2; ?></h3>
+                        <h3> <?php echo $nome_user2 ?></h3>
                         <p><?php 
                             while ($dupla = mysqli_fetch_assoc($sql_respostaThink2)):
                                 echo $dupla['resposta'];

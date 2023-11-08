@@ -6,14 +6,15 @@
         $respostaPair = $_POST['txtRespostaPair'];
         //$codigoRespostaPair = $_SESSION['codigoRespostaPair']; 
 
-        $comando = "SELECT * FROM resposta SET resposta WHERE situacao = 'pares' AND (fk_usuario = '$nome_user' OR fk_usuario_par = '$nome_user') AND fk_sala = '$chaveAcesso'";
+        $comando = "SELECT * FROM resposta WHERE situacao = 'pares' AND (fk_usuario = '$nome_user' OR fk_usuario_par = '$nome_user') AND fk_sala = '$chaveAcesso'";
         echo "\n" . $comando . " \n";
         $sql = mysqli_query($con, $comando);
+        $resultado = mysqli_num_rows($sql);
         
-        if(mysqli_num_rows($sql) == 0){
+        if($resultado == 0){
             $resposta = "UPDATE resposta SET resposta = '$respostaPair' WHERE situacao = 'pares' AND (fk_usuario = '$nome_user' OR fk_usuario_par = '$nome_user') AND fk_sala = '$chaveAcesso'";
         }else{
-            $resposta = "UPDATE resposta SET resposta_par = '$respostaPair' WHERE situacao = 'pares' AND (fk_usuario = '$nome_user' OR fk_usuario_par = '$nome_user') AND fk_sala = '$chaveAcesso'";;
+            $resposta = "UPDATE resposta SET resposta_par = '$respostaPair' WHERE situacao = 'pares' AND (fk_usuario = '$nome_user' OR fk_usuario_par = '$nome_user') AND fk_sala = '$chaveAcesso'";
         }
             $juntar = mysqli_query($con, $resposta);
 
@@ -29,7 +30,7 @@
     foreach ($sql_respostaPares as $dados){
         $id_resposta_par = $dados['codigo'];
         $nome_user1 = $dados['fk_usuario'];
-        $nome_user2 = $dados['fk_usuario_par'];;
+        $nome_user2 = $dados['fk_usuario_par'];
     }
     
     // Recuperar a resposta individual do primeiro usuario

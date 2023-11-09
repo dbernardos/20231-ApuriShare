@@ -47,7 +47,7 @@
             color: white;
             border: none;
             width: 100%;
-            max-width: 200px; /* Defina a largura máxima desejada */
+            max-width: 150px; /* Ajuste a largura máxima conforme desejado */
             margin-left: auto;
             margin-right: auto;
         }

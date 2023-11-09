@@ -74,8 +74,7 @@
         ?>
         <br><br>
         <div class="text-center">
-            <a href="./tela_inicial.php" class="btn btn-outline-dark">Voltar</a>
-            <button class="btn btn-close" onclick="fecharPagina()"><i class="fas fa-times"></i> Fechar</button>
+            <button class="btn btn-close" onclick="fecharPagina()"><i class="fas fa-times"></i> Sair</button>
         </div>
     </div>
 

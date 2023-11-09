@@ -26,9 +26,18 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
         .btn-close {
             color: #ffffff;
@@ -43,33 +52,30 @@
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6"></div>
-            <div class="col-md-6">
-                <h1><?php echo $dados['nome']; ?></h1>
-                <h1>
-                    <?php 
-                        while($resposta = mysqli_fetch_assoc($sql_usuarios)){
-                            // Aqui você pode exibir informações dos usuários, se necessário
-                        }
-                    ?>
-                </h1>
-                <br><br>
-                <?php 
-                    $situacao = $dados['fk_situacao'];
-                    if($situacao == 1){
-                        echo "<h3>Aguarde até a atividade ser iniciada!</h3>";
-                    }else if($situacao == 2){
-                        header('Location: think.php');
-                    }else{
-                        echo "<h3>A sala solicitada foi finalizada!</h3>";
-                    }
-                ?>
-                <br><br>
-                <a href="./tela_inicial.php" class="btn btn-outline-dark">Voltar</a>
-                <button class="btn btn-close" onclick="fecharPagina()"><i class="fas fa-times"></i> Fechar</button>
-            </div>
+    <div class="container">
+        <h1 class="text-center"><?php echo $dados['nome']; ?></h1>
+        <h1 class="text-center">
+            <?php 
+                while($resposta = mysqli_fetch_assoc($sql_usuarios)){
+                    // Aqui você pode exibir informações dos usuários, se necessário
+                }
+            ?>
+        </h1>
+        <br><br>
+        <?php 
+            $situacao = $dados['fk_situacao'];
+            if($situacao == 1){
+                echo "<h3 class='text-center'>Aguarde até a atividade ser iniciada!</h3>";
+            }else if($situacao == 2){
+                header('Location: think.php');
+            }else{
+                echo "<h3 class='text-center'>A sala solicitada foi finalizada!</h3>";
+            }
+        ?>
+        <br><br>
+        <div class="text-center">
+            <a href="./tela_inicial.php" class="btn btn-outline-dark">Voltar</a>
+            <button class="btn btn-close" onclick="fecharPagina()"><i class="fas fa-times"></i> Fechar</button>
         </div>
     </div>
 

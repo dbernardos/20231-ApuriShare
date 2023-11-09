@@ -47,6 +47,9 @@
             color: white;
             border: none;
             width: 100%;
+            max-width: 200px; /* Defina a largura máxima desejada */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btnEnviar:hover {

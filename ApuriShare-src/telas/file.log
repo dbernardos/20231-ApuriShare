@@ -626,3 +626,60 @@ sorteado >>> MAURICIO e maria
 >>>>>>> b44e6b5fcefcca2c70b874a50de4e0bea5b72257
 
  O usuário será registrado: mauricio
+ O usuário será registrado: mauricio
+ O usuário será registrado: mauricio
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ O usuário será registrado: mauricio
+ O usuário será registrado: mauricio
+ O usuário será registrado: mauricio
+ O usuário será registrado: mauricio
+ Numero par de participantes: 0
+ O usuário será registrado: maria
+ O usuário será registrado: maria
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ O usuário será registrado: maria
+ regra think: INSERT INTO resposta VALUES (NULL, 'essa pergunta é muito difícil para eu responder.', '', 'individual', '54', 'maria', '')
+ Numero par de participantes: 0
+ O usuário será registrado: maria
+ Numero par de participantes: 0
+ O usuário será registrado: maria
+ O usuário será registrado: maria
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ regra think: INSERT INTO resposta VALUES (NULL, 'sdasdas', '', 'individual', '54', 'maria', '')
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ O usuário será registrado: maria
+ O usuário será registrado: mauricio
+ Numero par de participantes: 0
+ regra think: INSERT INTO resposta VALUES (NULL, 'como?', '', 'individual', '55', 'maria', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'hum...', '', 'individual', '55', 'mauricio', '')
+ Numero par de participantes: 0
+ regra think: INSERT INTO resposta VALUES (NULL, 'hum...', '', 'individual', '55', 'mauricio', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'como?', '', 'individual', '55', 'maria', '')
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ O usuário será registrado: mauricio
+ O usuário será registrado: maria
+ Numero par de participantes: 0
+ regra think: INSERT INTO resposta VALUES (NULL, '2', '', 'individual', '56', 'mauricio', '')
+ regra think: INSERT INTO resposta VALUES (NULL, '1', '', 'individual', '56', 'maria', '')
+ Numero par de participantes: 0
+ Numero par de participantes: 0

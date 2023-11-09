@@ -683,3 +683,27 @@ sorteado >>> MAURICIO e maria
  regra think: INSERT INTO resposta VALUES (NULL, '1', '', 'individual', '56', 'maria', '')
  Numero par de participantes: 0
  Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ O usuário será registrado: mauricio
+ O usuário será registrado: maria
+ Numero par de participantes: 0
+ regra think: INSERT INTO resposta VALUES (NULL, '1', '', 'individual', '57', 'mauricio', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'oi', '', 'individual', '57', 'maria', '')
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ O usuário será registrado: larap02
+ O usuário será registrado: mauricio
+ Numero par de participantes: 0
+ regra think: INSERT INTO resposta VALUES (NULL, '5', '', 'individual', '58', 'mauricio', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'laraa', '', 'individual', '58', 'larap02', '')
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0

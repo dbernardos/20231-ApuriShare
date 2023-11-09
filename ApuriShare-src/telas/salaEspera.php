@@ -74,13 +74,13 @@
         ?>
         <br><br>
         <div class="text-center">
-            <button class="btn btn-close" onclick="fecharPagina()"><i class="fas fa-times"></i> Sair</button>
+            <button class="btn btn-close" onclick="sairPagina()"><i class="fas fa-times"></i> Sair</button>
         </div>
     </div>
 
     <script>
-        function fecharPagina() {
-            window.close();
+        function sairPagina() {
+            window.location.href = "./tela_inicial.php";
         }
     </script>
 </body>

@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 80%;
             margin-top: 50px;
             margin-bottom: 50px;
         }
@@ -65,7 +65,11 @@
         @media (min-width: 768px) {
             /* Estilos para dispositivos com largura maior que 768px */
             .container {
-                max-width: 80%;
+                max-width: 600px;
+            }
+
+            .resposta {
+                text-align: center;
             }
 
             .btnEnviar {

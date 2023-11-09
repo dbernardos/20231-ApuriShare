@@ -641,4 +641,30 @@ sorteado >>> MAURICIO e maria
  Numero par de participantes: 2
 sorteado >>> maria e fulano123 
  Numero par de participantes: 2
+<<<<<<< Updated upstream
  Numero par de participantes: 2
+=======
+ Numero par de participantes: 2
+=======
+ O usuário será registrado: maria
+>>>>>>> b44e6b5fcefcca2c70b874a50de4e0bea5b72257
+
+ O usuário será registrado: maria
+ O usuário será registrado: maria
+ O usuário será registrado: maria
+ O usuário será registrado: maria
+ O usuário será registrado: maria
+ O usuário será registrado: maria
+ O usuário já está registrado: maria
+ O usuário será registrado: maria
+ O usuário já está registrado: maria
+ O usuário será registrado: fulano123
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'lalaal', '', 'individual', '36', 'maria', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'italia', '', 'individual', '36', 'fulano123', '')
+ Numero par de participantes: 2
+sorteado >>> maria e fulano123 
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ O usuário será registrado: maria
+>>>>>>> Stashed changes

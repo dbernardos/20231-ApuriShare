@@ -620,6 +620,7 @@ sorteado >>> MAURICIO e maria
  O usuário já está registrado: mauricio
  Numero par de participantes: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
  Numero par de participantes: 2
 =======
  O usuário será registrado: maria
@@ -713,3 +714,6 @@ sorteado >>> MAURICIO e maria
  Numero par de participantes: 0
  Numero par de participantes: 0
 >>>>>>> 8b48235fc5a1768625e80d69e3f5764888c3d972
+=======
+ Numero par de participantes: 2
+>>>>>>> parent of 3d1ba26 (.)

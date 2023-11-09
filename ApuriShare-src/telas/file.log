@@ -535,3 +535,46 @@ sorteado >>> raque.lis e italo.ramos
  Numero par de participantes: 2
 sorteado >>> italo.ramos e raque.lis 
  Numero par de participantes: 2
+ O usuário será registrado: maria
+ O usuário será registrado: larap02
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'b)
+', '', 'individual', '51', 'maria', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'a)', '', 'individual', '51', 'larap02', '')
+ Numero par de participantes: 2
+sorteado >>> maria e larap02 
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ O usuário será registrado: maria
+ O usuário será registrado: larap02
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'ploef', '', 'individual', '52', 'larap02', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'não sei(maria)
+pq sim
+', '', 'individual', '52', 'maria', '')
+ Numero par de participantes: 2
+sorteado >>> maria e larap02 
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 0
+ Numero par de participantes: 2
+ O usuário será registrado: italo.ramos
+ O usuário será registrado: raque.lis
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'teste raquel', '', 'individual', '54', 'raque.lis', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'resposta talo
+', '', 'individual', '54', 'italo.ramos', '')
+ Numero par de participantes: 2
+sorteado >>> italo.ramos e raque.lis 
+ Numero par de participantes: 2

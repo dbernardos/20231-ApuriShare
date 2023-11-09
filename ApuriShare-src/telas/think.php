@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 80%;
+            max-width: 600px;
             margin-top: 50px;
             margin-bottom: 50px;
         }
@@ -60,6 +60,17 @@
 
         .link-opacity-10-hover:hover {
             opacity: 1;
+        }
+
+        @media (min-width: 768px) {
+            /* Estilos para dispositivos com largura maior que 768px */
+            .container {
+                max-width: 80%;
+            }
+
+            .btnEnviar {
+                width: auto;
+            }
         }
     </style>
 </head>

@@ -578,6 +578,7 @@ sorteado >>> maria e larap02
  Numero par de participantes: 2
 sorteado >>> italo.ramos e raque.lis 
  Numero par de participantes: 2
+<<<<<<< HEAD
  O usuário já está registrado: MAURICIO
  O usuário será registrado: maria
  O usuário já está registrado: maria
@@ -620,3 +621,6 @@ sorteado >>> MAURICIO e maria
  O usuário já está registrado: mauricio
  Numero par de participantes: 2
  Numero par de participantes: 2
+=======
+ O usuário será registrado: maria
+>>>>>>> b44e6b5fcefcca2c70b874a50de4e0bea5b72257

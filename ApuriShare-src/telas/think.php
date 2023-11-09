@@ -41,12 +41,13 @@
         .btnEnviar {
             margin-top: 15px;
             background-color: #343a40;
-            color: #fff;
+            color: white;
             border: none;
         }
 
         .btnEnviar:hover {
             background-color: #292b2c;
+            color: white;
         }
 
         .link-opacity-10-hover {

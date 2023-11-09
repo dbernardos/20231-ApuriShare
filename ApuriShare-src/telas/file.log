@@ -578,7 +578,6 @@ sorteado >>> maria e larap02
  Numero par de participantes: 2
 sorteado >>> italo.ramos e raque.lis 
  Numero par de participantes: 2
-<<<<<<< HEAD
  O usuário já está registrado: MAURICIO
  O usuário será registrado: maria
  O usuário já está registrado: maria
@@ -620,6 +619,7 @@ sorteado >>> MAURICIO e maria
  O usuário será registrado: mauricio
  O usuário já está registrado: mauricio
  Numero par de participantes: 2
+<<<<<<< HEAD
  Numero par de participantes: 2
 =======
  O usuário será registrado: maria
@@ -683,3 +683,6 @@ sorteado >>> MAURICIO e maria
  regra think: INSERT INTO resposta VALUES (NULL, '1', '', 'individual', '56', 'maria', '')
  Numero par de participantes: 0
  Numero par de participantes: 0
+=======
+ Numero par de participantes: 2
+>>>>>>> parent of 3d1ba26 (.)

@@ -22,21 +22,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .btn-close {
+            color: #ffffff;
+            background-color: #007bff;
+            border: 1px solid #007bff;
+        }
+        .btn-close:hover {
+            color: #ffffff;
+            background-color: #0056b3;
+            border: 1px solid #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <a href="./tela_inicial.php" class="btn btn-outline-dark">Voltar</a>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-6">
-            <a href="./tela_inicial.php"><button class="btnX btn btn-outline-dark"> X </button></a>
-            </div>
+            <div class="col-md-6"></div>
             <div class="col-md-6">
                 <h1><?php echo $dados['nome']; ?></h1>
                 <h1>
                     <?php 
                         while($resposta = mysqli_fetch_assoc($sql_usuarios)){
-
+                            // Aqui você pode exibir informações dos usuários, se necessário
                         }
                     ?>
                 </h1>
@@ -52,9 +67,17 @@
                     }
                 ?>
                 <br><br>
+                <a href="./tela_inicial.php" class="btn btn-outline-dark">Voltar</a>
+                <button class="btn btn-close" onclick="fecharPagina()"><i class="fas fa-times"></i> Fechar</button>
             </div>
         </div>
     </div>
+
+    <script>
+        function fecharPagina() {
+            window.close();
+        }
+    </script>
 </body>
 <?php } ?>
 </html>

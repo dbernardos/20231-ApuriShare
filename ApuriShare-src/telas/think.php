@@ -38,6 +38,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         .btnEnviar {
@@ -66,14 +67,6 @@
             /* Estilos para dispositivos com largura maior que 768px */
             .container {
                 max-width: 600px;
-            }
-
-            .resposta {
-                text-align: center;
-            }
-
-            .btnEnviar {
-                width: auto;
             }
         }
     </style>

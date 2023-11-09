@@ -40,6 +40,22 @@
 
         .btnEnviar {
             margin-top: 15px;
+            background-color: #343a40;
+            color: #fff;
+            border: none;
+        }
+
+        .btnEnviar:hover {
+            background-color: #292b2c;
+        }
+
+        .link-opacity-10-hover {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .link-opacity-10-hover:hover {
+            opacity: 1;
         }
     </style>
 </head>

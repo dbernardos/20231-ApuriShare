@@ -8,6 +8,8 @@
     $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
     $sql_usuarios = mysqli_query($con, "SELECT * from sala_usuario WHERE fk_sala = '$chaveAcesso'");
 
+    
+
     while($dados = mysqli_fetch_assoc($sql)){
 ?>
 
@@ -80,7 +82,12 @@
 
     <script>
         function sairPagina() {
-            window.location.href = "./tela_inicial.php";
+            <?php
+            $comando = "DELETE from sala_usuario WHERE fk_sala = '$chaveAcesso' AND fk_usuario = '$nome_user' AND tipoUsuario = 'participante'";
+            $saindo = mysqli_query($con, $comando);
+            ?>
+            
+          window.location.href = "./tela_inicial.php";
         }
     </script>
 </body>

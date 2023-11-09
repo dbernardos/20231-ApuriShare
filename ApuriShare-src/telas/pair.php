@@ -66,24 +66,18 @@ require('../regra/regra_pair.php');
         }
 
         .respostas {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            margin-top: 20px;
         }
 
-        .resp1,
-        .resp2 {
+        .respostaUsuario {
             background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-top: 20px;
-            flex: 0 1 calc(50% - 20px);
+            margin-bottom: 20px;
         }
 
-        .resp1 p,
-        .resp2 p {
+        .respostaUsuario p {
             margin-bottom: 0;
         }
 
@@ -91,10 +85,6 @@ require('../regra/regra_pair.php');
             /* Estilos para dispositivos com largura maior que 768px */
             .container {
                 max-width: 600px;
-            }
-
-            .respostas {
-                flex-wrap: nowrap;
             }
         }
     </style>
@@ -117,11 +107,11 @@ require('../regra/regra_pair.php');
             </div>
         </form>
         <div class="respostas">
-            <div class="resp1">
+            <div class="respostaUsuario">
                 <h3><?php echo $nome_user1 ?></h3>
                 <p><?php while ($dupla = mysqli_fetch_assoc($sql_respostaThink1)) : echo $dupla['resposta']; endwhile; ?></p>
             </div>
-            <div class="resp2">
+            <div class="respostaUsuario">
                 <h3><?php echo $nome_user2 ?></h3>
                 <p><?php while ($dupla = mysqli_fetch_assoc($sql_respostaThink2)) : echo $dupla['resposta']; endwhile; ?></p>
             </div>

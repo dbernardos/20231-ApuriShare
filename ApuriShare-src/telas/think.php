@@ -60,7 +60,7 @@
                 <div class="resposta">
                     <h3><?php echo $nome_user ?></h3>
                     <textarea class="form-control mb-3" placeholder="Escreva sua resposta" name="txtRespostaThink" id="txtRespostaThink" required></textarea>
-                    <input type="submit" value="Enviar" name="btnEnviar" id="btnEnviar" class="btn btn-outline-dark btnEnviar">
+                    <input type="submit" value="Enviar" name="btnEnviar" id="btnEnviar" class="btn btnEnviar">
                 </div>
             </form>
             <?php

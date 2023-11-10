@@ -706,3 +706,54 @@ sorteado >>> portuga.2004 e belly.90
  O usuário já está registrado: portuga.2004
  O usuário já está registrado: portuga.2004
  O usuário já está registrado: portuga.2004
+ regra think: INSERT INTO resposta VALUES (NULL, 'aataaaa', '', 'individual', '53', 'portuga.2004', '')
+ Numero par de participantes: 2
+sorteado >>> portuga.2004 e belly.90 
+ O usuário já está registrado: portuga.2004
+ O usuário já está registrado: portuga.2004
+ O usuário já está registrado: portuga.2004
+ O usuário já está registrado: belly.90
+ O usuário já está registrado: belly.90
+ O usuário já está registrado: belly.90
+ Numero impar de participantes: 1
+ Numero impar de participantes: 1
+ Numero impar de participantes: 1
+ Numero par de participantes: 0
+ Numero impar de participantes: 1
+ Numero par de participantes: 0
+ O usuário será registrado: raque.lis
+ O usuário será registrado: belly.90
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'hbjkm', '', 'individual', '54', 'raque.lis', '')
+ Numero par de participantes: 2
+sorteado >>> raque.lis e belly.90 
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+sorteado >>> raque.lis e belly.90 
+ Numero par de participantes: 2
+sorteado >>> raque.lis e belly.90 
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ O usuário será registrado: raque.lis
+ O usuário será registrado: belly.90
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'uhjkol', '', 'individual', '55', 'raque.lis', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'iajsjdiw', '', 'individual', '55', 'belly.90', '')
+ Numero par de participantes: 2
+sorteado >>> raque.lis e belly.90 
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ O usuário já está registrado: raque.lis
+ O usuário já está registrado: raque.lis
+ O usuário já está registrado: belly.90
+ O usuário será registrado: raque.lis
+ O usuário será registrado: belly.90
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+sorteado >>> raque.lis e belly.90 
+ O usuário já está registrado: belly.90
+ O usuário já está registrado: belly.90
+ O usuário já está registrado: belly.90
+ Numero par de participantes: 2

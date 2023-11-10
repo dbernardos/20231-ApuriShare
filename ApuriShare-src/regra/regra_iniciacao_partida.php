@@ -30,7 +30,8 @@ if (isset($_POST['btnIniciar'])) :
         mysqli_query($con, $sql_update);
 
     elseif ($_POST['id_situacao'] == 4) :
-        echo "A tarefa foi finalizada (compartilhar), precisamos pensar se manda para outra página ou o que faz";
+        $sql_update = "UPDATE sala SET fk_situacao =  1 WHERE chaveAcesso = {$_POST['chave_acesso']}";
+        mysqli_query($con, $sql_update);
     endif;
 endif;
 

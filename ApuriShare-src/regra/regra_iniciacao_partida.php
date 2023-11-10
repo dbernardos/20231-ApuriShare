@@ -30,10 +30,6 @@ if (isset($_POST['btnIniciar'])) :
         mysqli_query($con, $sql_update);
 
     elseif ($_POST['id_situacao'] == 4) :
-        $sql_update = "UPDATE sala SET fk_situacao =  5 WHERE chaveAcesso = {$_POST['chave_acesso']}";
-        mysqli_query($con, $sql_update);
-
-    elseif ($_POST['id_situacao'] == 5) :
         echo "A tarefa foi finalizada (compartilhar), precisamos pensar se manda para outra página ou o que faz";
     endif;
 endif;
@@ -59,7 +55,7 @@ function contaParticipantes($chave, $con)
     if ($qtde_users) {
         // Obtém a primeira (e única) linha do resultado
         $row = mysqli_fetch_row($qtde_users);
-        return $row[0];
+        return $row[0]; //numero de participantes na sala
     } else {
         error_log("\n Erro na consulta SQL (contar participantes): " . mysqli_error($con), 3, "file.log");
         return 0;
@@ -111,17 +107,3 @@ function sorteiaParticipantes($vetParticipantes)
 {
     return array_rand($vetParticipantes, 2);
 }
-
-// FUNÇÃO PARA CONTROLAR O TEMPORIZADOR (Talvez não seja mais necessario)
-/*function retornaHoraInicio($id, $hrThink, $hrPair, $tpThink, $tpPair)
-{
-    $horaAtual = date('H:i:s');
-
-    if ($id === 1) :
-        return $tpThink;
-    elseif ($id === 2) :
-        return $tpThink - ($horaAtual - $hrThink);
-    elseif ($id === 2) :
-        return $tpPair - ($horaAtual - $hrPair);
-    endif;
-}*/

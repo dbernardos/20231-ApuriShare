@@ -668,3 +668,15 @@ sorteado >>> maria e fulano123
  Numero par de participantes: 2
  O usuário será registrado: maria
 >>>>>>> Stashed changes
+
+ O usuário será registrado: portuga.2004
+ O usuário já está registrado: portuga.2004
+ O usuário será registrado: belly.90
+ O usuário será registrado: portuga.2004
+ O usuário será registrado: belly.90
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'Bolsonaro', '', 'individual', '52', 'portuga.2004', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'bolsonaro', '', 'individual', '52', 'belly.90', '')
+ Numero par de participantes: 2
+sorteado >>> portuga.2004 e belly.90 
+ Numero par de participantes: 2

@@ -14,7 +14,7 @@ require('../regra/regra_iniciacao_partida.php');
     <link rel="stylesheet" href="./css/geral.css">
     <link rel="stylesheet" href="./css/iniciacao_partida.css">
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="10">
+    <meta http-equiv="refresh" content="2">
     <title>ApuriShare</title>
 </head>
 

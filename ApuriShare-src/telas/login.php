@@ -53,12 +53,12 @@ session_start();
             }
             ?>
                                 <div class="form-group">
-                                    <label for="nickname">Apelido:</label>
-                                    <input type="text" class="form-control" id="nickname" name="nickname" required>
+                                    <label for="nickname">Apelido: *</label>
+                                    <input type="text" class="form-control" id="nickname" name="nickname" maxlength="100" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="senha">Senha:</label>
-                                    <input type="password" class="form-control" id="senha" name="senha" required>
+                                    <label for="senha">Senha: *</label>
+                                    <input type="password" class="form-control" id="senha" name="senha" minlength="4" maxlength="8" required>
                                 </div>
 
                                 

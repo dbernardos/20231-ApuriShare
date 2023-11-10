@@ -138,12 +138,12 @@ if(isset($_POST['btnCriarSala'])){
                 <div class="form-container flex-md-row">
                     <div class="esquerda">
                         <h1>Criar Sala</h1>
-                        <h3>Nome da Sala</h3>
-                        <input type="text" name="txtNome" id="nome" required>
-                        <h3>Atividade</h3>
-                        <textarea class="form-control textoarea" placeholder="Se João comprar um..." name="txtAtividade" id="atividade" required></textarea>
+                        <h3>Nome da Sala *</h3>
+                        <input type="text" name="txtNome" id="nome" maxlength="45" required>
+                        <h3>Atividade *</h3>
+                        <textarea class="form-control textoarea" placeholder="Se João comprar um..." name="txtAtividade" id="atividade" maxlength="1000" required></textarea>
                         <h3>Comentário</h3>
-                        <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtObservacao" id="comentario"></textarea>
+                        <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtObservacao" id="comentario" maxlength="1000"></textarea>
                     </div>
                     <div class="direita">
                         <h3>Adicionar Imagem</h3>
@@ -152,9 +152,9 @@ if(isset($_POST['btnCriarSala'])){
                             <input type="file" name="imagem" id="imagem" onchange="updateFileName()">
                             <div id="file-name" class="file-name">Nenhum arquivo selecionado</div>
                         </div>
-                        <h3>Número Máximo de Pessoas</h3>
+                        <h3>Número Máximo de Pessoas *</h3>
                         <div class="selecao">
-                            <input type="number" name="QntUsers" required>
+                            <input type="number" name="QntUsers" min="2" max="20" step="2" required>
                         </div>
                         <div class="aviso">Ps: Todos os campos devem ser preenchidos!</div>
                         <div class="botoes">

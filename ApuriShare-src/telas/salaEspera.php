@@ -11,7 +11,6 @@
     if(isset($_POST['btnSair'])){
             $comando = "DELETE from sala_usuario WHERE fk_sala = '$chaveAcesso' AND fk_usuario = '$nome_user' AND tipoUsuario = 'participante'";
             $saindo = mysqli_query($con, $comando);
-            
             header('Location: tela_inicial.php');
     }
 

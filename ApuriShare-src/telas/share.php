@@ -8,12 +8,12 @@
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'");
         $sql_id = mysqli_query($con, "SELECT * from resposta WHERE fk_sala = '$chaveAcesso' AND situacao = 'pares'");
 
-        if(isset($_POST['btnSair'])){
+        /*if(isset($_POST['btnSair'])){
             $comando = "DELETE from sala_usuario WHERE fk_sala = '$chaveAcesso' AND fk_usuario = '$nome_user' AND tipoUsuario = 'participante'";
             $saindo = mysqli_query($con, $comando);
             
             header('Location: tela_inicial.php');
-    }
+    }*/
          
         while($dados = mysqli_fetch_assoc($sql)){
 ?>
@@ -28,13 +28,12 @@
     <title>ApuriShare</title>
 </head>
 <body>
-    <form>
         <center>
 <br>
 <div class="cabecalho">
-    <form action="share.php" method="POST">
-        <h2>Finalização da Atividade</h2>
-        <button type="submit" name="btnSair"> Sair</button>
+    <h2>Finalização da Atividade</h2>
+    <form method="POST" action="share.php">
+            <button type="submit" name="btnSair"> X</button>
         </form>
 </div>
 <br><br>

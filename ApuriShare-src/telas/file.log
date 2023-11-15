@@ -757,3 +757,41 @@ sorteado >>> raque.lis e belly.90
  O usuário já está registrado: belly.90
  O usuário já está registrado: belly.90
  Numero par de participantes: 2
+ O usuário será registrado: raque.lis
+ O usuário será registrado: portuga.2004
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, '9', '', 'individual', '56', 'raque.lis', '')
+ regra think: INSERT INTO resposta VALUES (NULL, '9', '', 'individual', '56', 'portuga.2004', '')
+ Numero par de participantes: 2
+sorteado >>> raque.lis e portuga.2004 
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ O usuário será registrado: raque.lis
+ O usuário será registrado: belly.90
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'tukuj', '', 'individual', '57', 'belly.90', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'eefsa', '', 'individual', '57', 'raque.lis', '')
+ Numero par de participantes: 2
+sorteado >>> raque.lis e belly.90 
+ Numero par de participantes: 2
+ O usuário será registrado: raque.lis
+ O usuário será registrado: italo.ramos
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'dfghj', '', 'individual', '58', 'italo.ramos', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'dxcfgvhbj', '', 'individual', '58', 'raque.lis', '')
+ Numero par de participantes: 2
+sorteado >>> raque.lis e italo.ramos 
+ Numero par de participantes: 2
+ O usuário será registrado: raque.lis
+ O usuário será registrado: belly.90
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'dfghj', '', 'individual', '59', 'belly.90', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'fghjk', '', 'individual', '59', 'raque.lis', '')
+ Numero par de participantes: 2
+sorteado >>> raque.lis e belly.90 
+ Numero par de participantes: 2
+ Numero par de participantes: 0
+ O usuário será registrado: portuga.2004
+ O usuário será registrado: raque.lis
+ O usuário será registrado: belly.90
+ O usuário será registrado: portuga.2004

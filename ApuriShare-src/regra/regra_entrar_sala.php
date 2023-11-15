@@ -66,4 +66,15 @@ function verificaSituacaoSala($chave, $con) {
     }
     return false;
 }
+
+function verificaQuantidadeMAx($chave, $con) {
+    $comando = "SELECT qntUsers from sala WHERE chaveAcesso = '$chave'";
+    $maxUsers = @mysqli_query($con, $comando);
+    $registrados = contaParticipantes($chave, $con);
+
+    if ($registrados > $maxUsers) {
+        error_log("\n Erro na consulta SQL (capacidade maxima): " . mysqli_error($con), 3, "file.log");
+    }
+    return false;
+}
 ?>

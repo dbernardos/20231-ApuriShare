@@ -28,10 +28,11 @@ if (isset($_POST['btnIniciar'])) :
     elseif ($_POST['id_situacao'] == 3) :
         $sql_update = "UPDATE sala SET fk_situacao =  4 WHERE chaveAcesso = {$_POST['chave_acesso']}";
         mysqli_query($con, $sql_update);
+        //header('Location: share.php');
 
     elseif ($_POST['id_situacao'] == 4) :
-        $sql_update = "UPDATE sala SET fk_situacao =  1 WHERE chaveAcesso = {$_POST['chave_acesso']}";
-        mysqli_query($con, $sql_update);
+        //$sql_update = "UPDATE sala SET fk_situacao =  1 WHERE chaveAcesso = {$_POST['chave_acesso']}";
+        //mysqli_query($con, $sql_update);
     endif;
 endif;
 

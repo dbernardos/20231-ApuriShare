@@ -96,7 +96,6 @@
             </form>
             <?php
             if ($dados['fk_situacao'] == 3) :
-                
                 header('Location: pair.php');
             endif;
         endwhile; ?>

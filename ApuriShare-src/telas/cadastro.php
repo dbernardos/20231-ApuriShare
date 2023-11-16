@@ -80,19 +80,19 @@
 
                         <form action="cadastro.php" method="POST">
                             <div class="form-group">
-                                <label for="nome">Nome: *</label>
+                                <label for="nome"><span style="color: red">*</span>Nome:</label>
                                 <input type="text" class="form-control" id="nome" name="nome" maxlength="100" required>
                             </div>
                             <div class="form-group">
-                                <label for="nickname">Apelido: *</label>
+                                <label for="nickname"><span style="color: red">*</span>Apelido:</label>
                                 <input type="text" class="form-control" id="nickname" name="nickname" maxlength="100" required>
                             </div>
                             <div class="form-group">
-                                <label for="senha">Senha: *</label>
+                                <label for="senha"><span style="color: red">*</span>Senha:</label>
                                 <input type="password" class="form-control" id="senha" name="senha" minlength="4" maxlength="8" required>
                             </div>
                             <div class="form-group">
-                                <label for="confsenha">Confirmar senha: *</label>
+                                <label for="confsenha"><span style="color: red">*</span>Confirmar senha:</label>
                                 <input type="password" class="form-control" id="confsenha" name="confirmar_senha"
                                     required>
                             </div>

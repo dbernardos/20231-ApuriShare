@@ -795,12 +795,3 @@ sorteado >>> raque.lis e belly.90
  O usuário será registrado: raque.lis
  O usuário será registrado: belly.90
  O usuário será registrado: portuga.2004
- O usuário será registrado: portuga.2004
- O usuário será registrado: italo.ramos
- O usuário será registrado: pri_user
- Numero par de participantes: 2
- regra think: INSERT INTO resposta VALUES (NULL, '2', '', 'individual', '51', 'italo.ramos', '')
- regra think: INSERT INTO resposta VALUES (NULL, '2', '', 'individual', '51', 'portuga.2004', '')
- Numero par de participantes: 2
-sorteado >>> portuga.2004 e italo.ramos 
- Numero par de participantes: 2

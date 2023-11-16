@@ -146,12 +146,12 @@ if(isset($_POST['btnCriarSala'])){
                         <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtObservacao" id="comentario" maxlength="1000"></textarea>
                     </div>
                     <div class="direita">
-                        <h3>Adicionar Imagem</h3>
+                    <!--<h3>Adicionar Imagem</h3>
                         <div class="file-input">
                             <label for="imagem" class="file-label">Escolher arquivo</label>
                             <input type="file" name="imagem" id="imagem" onchange="updateFileName()">
                             <div id="file-name" class="file-name">Nenhum arquivo selecionado</div>
-                        </div>
+                        </div>-->
                         <h3>Número Máximo de Pessoas *</h3>
                         <div class="selecao">
                             <input type="number" name="QntUsers" min="2" max="20" step="2" required>

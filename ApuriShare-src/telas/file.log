@@ -795,3 +795,11 @@ sorteado >>> raque.lis e belly.90
  O usuário será registrado: raque.lis
  O usuário será registrado: belly.90
  O usuário será registrado: portuga.2004
+ O usuário será registrado: larap02
+ O usuário será registrado: italo.ramos
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, '3,14', '', 'individual', '51', 'larap02', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'Aproximadamente o valor de 3,14 pois o valor é infinito', '', 'individual', '51', 'italo.ramos', '')
+ Numero par de participantes: 2
+sorteado >>> larap02 e italo.ramos 
+ Numero par de participantes: 2

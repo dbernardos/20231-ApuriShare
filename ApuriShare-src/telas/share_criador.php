@@ -8,12 +8,6 @@
         $sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$idsala'");
         $sql_id = mysqli_query($con, "SELECT * from resposta WHERE fk_sala = '$idsala' AND situacao = 'pares'");
 
-        /*if(isset($_POST['btnSair'])){
-            $comando = "DELETE from sala_usuario WHERE fk_sala = '$chaveAcesso' AND fk_usuario = '$nome_user' AND tipoUsuario = 'participante'";
-            $saindo = mysqli_query($con, $comando);
-            
-            header('Location: tela_inicial.php');
-    }*/
          
         while($dados = mysqli_fetch_assoc($sql)){
 ?>
@@ -33,7 +27,7 @@
 <div class="cabecalho">
     <h2>Finalização da Atividade</h2>
     <form method="POST" action="share.php">
-            <button type="submit" name="btnSair"> X</button>
+            <button type="submit" name="btnSair"><a href="tela_inicial.php">X</a></button>
         </form>
 </div>
 <br><br>

@@ -141,9 +141,9 @@ if(isset($_POST['btnCriarSala'])){
                         <h3>Nome da Sala *</h3>
                         <input type="text" name="txtNome" id="nome" maxlength="45" required>
                         <h3>Atividade *</h3>
-                        <textarea class="form-control textoarea" placeholder="Se João comprar um..." name="txtAtividade" id="atividade" maxlength="1000000" required></textarea>
+                        <textarea class="form-control textoarea" placeholder="Se João comprar um..." name="txtAtividade" id="atividade" maxlength="100000000" required></textarea>
                         <h3>Comentário</h3>
-                        <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtObservacao" id="comentario" maxlength="1000"></textarea>
+                        <textarea class="form-control textoarea" placeholder="A resposta desta questão pode ser..." name="txtObservacao" id="comentario" maxlength="100000000"></textarea>
                     </div>
                     <div class="direita">
                     <!--<h3>Adicionar Imagem</h3>

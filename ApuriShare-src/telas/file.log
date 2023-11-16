@@ -795,3 +795,22 @@ sorteado >>> raque.lis e belly.90
  O usuário será registrado: raque.lis
  O usuário será registrado: belly.90
  O usuário será registrado: portuga.2004
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ O usuário será registrado: larap02
+ O usuário será registrado: belly.90
+ O usuário será registrado: italo.ramos
+ O usuário será registrado: portuga.2004
+ Numero par de participantes: 4
+ regra think: INSERT INTO resposta VALUES (NULL, '3,14
+', '', 'individual', '52', 'larap02', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'Não lembro', '', 'individual', '52', 'belly.90', '')
+ regra think: INSERT INTO resposta VALUES (NULL, '3', '', 'individual', '52', 'portuga.2004', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'Aproximadamente 3,14 pois o valor de pi é infinito', '', 'individual', '52', 'italo.ramos', '')
+ Numero par de participantes: 4
+sorteado >>> larap02 e portuga.2004 
+restante: belly.90 
+restante: italo.ramos 
+sorteado >>> belly.90 e italo.ramos 
+ Numero par de participantes: 4

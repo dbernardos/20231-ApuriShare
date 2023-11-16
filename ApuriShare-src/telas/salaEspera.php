@@ -22,7 +22,7 @@ while ($dados = mysqli_fetch_assoc($sql)) {
 
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="2"> 
+        <meta http-equiv="refresh" content="2"> <!-- Atualiza a página a cada 2 segundos -->
         <title>Esperando partida iniciar</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -41,7 +41,7 @@ while ($dados = mysqli_fetch_assoc($sql)) {
             }
 
             .container {
-                max-width: 800px;
+                max-width: 800px; /* Aumentei a largura máxima para acomodar mais informações */
                 background-color: #ffffff;
                 padding: 20px;
                 border-radius: 10px;

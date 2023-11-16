@@ -1,7 +1,7 @@
 <?php 
     include_once('conexao.php');
+    require('inicia_sessao.php');
 
-    session_start();
     $nome_user = $_SESSION['nickname'];
     $chaveAcesso = $_SESSION['chaveAcesso'];
 
@@ -14,6 +14,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+    <link rel="stylesheet" href="./css/salaShare.css">
+    <meta charset="UTF-8">
+    <title>ApuriShare</title>
+</head>
+<body>
+        <center>
+<br>
+<div class="cabecalho">
+    <h2>Finalização da Atividade</h2>
+    <form method="POST" action="share.php">
+        <button type="submit" name="btnSair"><a href="./tela_inicial.php">X</a></button>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

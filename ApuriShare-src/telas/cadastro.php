@@ -72,7 +72,10 @@
                                     echo "<div class='alert alert-danger' role='alert'>Erro: $error</div>";
                                 }
                             } else {
-                                mysqli_query($con, "INSERT into usuario(nome, nickname, senha) values ('$nome', '$nickname', '$senha')");
+                                $senha_hash = hash("sha3-256", $senha);
+                                $senha_hash_segura = password_hash($senha_hash, PASSWORD_BCRYPT);
+                                
+                                mysqli_query($con, "INSERT into usuario(nome, nickname, senha) values ('$nome', '$nickname', '$senha_hash_segura')");
                                 header('Location: login.php');
                             }
                         }

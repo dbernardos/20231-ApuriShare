@@ -12,8 +12,9 @@ $sql_resultado = buscar_dados($con, $sql_select);
 if (isset($_POST['btnIniciar'])) :
     $horaAtual = date('H:i:s');
     $participantesPar = verificaNumeroDeParticipantes(contaParticipantes($_POST['chave_acesso'], $con));
+    $Qnt = mysqli_query($con, "SELECT qntUsers FROM sala WHERE chaveAcesso = '$chaveAcesso'");
     
-    if ($_POST['id_situacao'] == 1 && $participantesPar) :
+    if ($_POST['id_situacao'] == 1 && $participantesPar && $Qnt <= contaParticipantes($_POST['chave_acesso'], $con)) :
         
         $sql_update = "UPDATE sala SET fk_situacao =  2 WHERE chaveAcesso = {$_POST['chave_acesso']}";
         mysqli_query($con, $sql_update);
@@ -62,6 +63,8 @@ function contaParticipantes($chave, $con)
         error_log("\n Erro na consulta SQL (contar participantes): " . mysqli_error($con), 3, "file.log");
         return 0;
     }
+
+    $_SESSION['qtde_users'] = $qtde_users;
 }
 
 // FUNÇÃO PARA RECUPERAR OS PARTICIPANTES E ORGANIZAR O ARRAY

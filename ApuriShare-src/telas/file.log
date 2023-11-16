@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
  ENTROU NO POST REGRA THINK
  regra think: INSERT INTO resposta VALUES (NULL, 'ssssss', 'individual', 36, 'larap02', '')
@@ -795,3 +796,28 @@ sorteado >>> raque.lis e belly.90
  O usuário será registrado: raque.lis
  O usuário será registrado: belly.90
  O usuário será registrado: portuga.2004
+=======
+
+ NUMERO: 2
+ O usuário será registrado: belly.90
+ NUMERO: 2
+ O usuário será registrado: belly.90
+ NUMERO: 2
+ NUMERO: 2
+ NUMERO: 2
+ NUMERO: 2
+ NUMERO: 2
+ NUMERO: 2
+ NUMERO: 2
+ O usuário será registrado: belly.90
+ NUMERO: 2
+ O usuário será registrado: belly.90
+ NUMERO: 2
+ NUMERO: 2
+ NUMERO: 2
+ O usuário será registrado: belly.90
+ NUMERO: 2
+ NUMERO: 2
+ O usuário será registrado: Usuário
+ NUMERO: 2
+>>>>>>> Stashed changes

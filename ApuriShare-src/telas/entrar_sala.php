@@ -6,14 +6,8 @@ require('../regra/regra_entrar_sala.php');
 $chaveAcesso = isset($_POST['txtCodigo']) ? $_POST['txtCodigo'] : null;
 $mostrarMensagem = false;  // Inicialmente, não mostra a mensagem
 
-if (isset($_POST['btnEntrar'])) {
-    if (verificaSituacaoSala($chaveAcesso, $con) || verificaParticipanteRegistrado($chaveAcesso, $con)) {
-        header('Location: salaEspera.php');
-        exit;  // Redireciona sem mostrar a página
-    } else {
-        $mostrarMensagem = true;
-    }
-}
+
+
 ?>
 
 <!DOCTYPE html>

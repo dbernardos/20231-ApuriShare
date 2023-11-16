@@ -1,9 +1,38 @@
 <?php
+
+// FUNÇÃO PARA CONTAR PARTICIPANTES
+function contaParticipantes($chave, $con)
+{
+    $comando = "SELECT COUNT(*) from sala_usuario WHERE fk_sala = '$chave' AND tipoUsuario = 'participante'";
+    $qtde_users = mysqli_query($con, $comando);
+
+    if ($qtde_users) {
+        // Obtém a primeira (e única) linha do resultado
+        $row = mysqli_fetch_row($qtde_users);
+        return $row[0]; //numero de participantes na sala
+    } else {
+        error_log("\n Erro na consulta SQL (contar participantes): " . mysqli_error($con), 3, "file.log");
+        return 0;
+    }
+
+    $_SESSION['qtde_users'] = $qtde_users;
+}
+
 if (isset($_POST['btnEntrar'])) {
     $chaveAcesso = $_POST['txtCodigo'];
     $nickname = $_SESSION['nickname'];
 
-    if (verificaSituacaoSala($chaveAcesso, $con) || verificaParticipanteRegistrado($chaveAcesso, $con)) {
+    $comando = "SELECT qntUsers FROM sala WHERE chaveAcesso = '$chaveAcesso'";
+    $qtde_users_total = mysqli_query($con, $comando);
+
+    $row = mysqli_fetch_row($qtde_users_total);
+    error_log("\n NUMERO: " . $row[0], 3, "file.log");  
+
+
+
+
+
+    if ((verificaSituacaoSala($chaveAcesso, $con) || verificaParticipanteRegistrado($chaveAcesso, $con)) && contaParticipantes($chaveAcesso, $con) < $row[0]) {
         $sql = "SELECT * from sala WHERE chaveAcesso = '$chaveAcesso'";
         $sql_query = $con->query($sql);
 
@@ -66,5 +95,8 @@ function verificaSituacaoSala($chave, $con) {
     }
     return false;
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 ?>

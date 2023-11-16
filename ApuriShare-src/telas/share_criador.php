@@ -1,7 +1,7 @@
 <?php 
     include_once('conexao.php');
+    require('inicia_sessao.php');
 
-    session_start();
     $nome_user = $_SESSION['nickname'];
     $idsala = $_SESSION['idsala'];
 
@@ -27,7 +27,7 @@
 <div class="cabecalho">
     <h2>Finalização da Atividade</h2>
     <form method="POST" action="share.php">
-            <button type="submit" name="btnSair"><a href="tela_inicial.php">X</a></button>
+            <button type="submit" name="btnSair"><a href="./tela_inicial.php">X</a></button>
         </form>
 </div>
 <br><br>

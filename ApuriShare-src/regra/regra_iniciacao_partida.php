@@ -38,7 +38,7 @@ endif;
 
 // FUNÇÃO PARA VERIFICAR SE TEM NUMERO PAR DE PARTICIPANTES
 function verificaNumeroDeParticipantes($qtde)
-{
+{  
     if ($qtde % 2 == 0) {
         error_log("\n Numero par de participantes: $qtde", 3, "file.log");
         return true;

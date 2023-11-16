@@ -1,6 +1,6 @@
 <?php require('inicia_sessao.php'); ?>
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
@@ -83,7 +83,7 @@
     <div class="sair text-center">
         <a href="./sair.php">
             <button type="submit" class="btn btn-outline-dark">
-                <img src="./img/Icon_Sair.png" width="10" height="20"><strong> Sair da Conta</strong>
+                <img src="./img/Icon_Sair.png" width="20" height="20"><strong> Sair da Conta</strong>
             </button>
         </a>
     </div>

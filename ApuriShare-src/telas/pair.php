@@ -39,6 +39,7 @@ require('../regra/regra_pair.php');
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            margin-bottom: 10px;
         }
 
         .respShare {
@@ -107,7 +108,6 @@ require('../regra/regra_pair.php');
         </div>
         <form action="pair.php" method="POST">
             <div class="atividade">
-                <h3><?php echo $nome_user ?></h3>
                 <p><?php echo $atividade ?></p>
             </div>
             <div class="respShare">

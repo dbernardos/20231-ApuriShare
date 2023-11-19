@@ -5,10 +5,10 @@ session_start();
 $nome_user = $_SESSION['nickname'];
 $idsala = $_SESSION['idsala'];
 
-$sql = mysqli_query($con, "SELECT * from sala WHERE chaveAcesso = '$idsala'");
-$sql_id = mysqli_query($con, "SELECT * from resposta WHERE fk_sala = '$idsala' AND situacao = 'pares'");
+$sql = mysqli_query($con, "SELECT * FROM sala WHERE chaveAcesso = '$idsala'");
+$sql_id = mysqli_query($con, "SELECT * FROM resposta WHERE fk_sala = '$idsala' AND situacao = 'pares'");
 
-while($dados = mysqli_fetch_assoc($sql)){
+while ($dados = mysqli_fetch_assoc($sql)) {
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +29,7 @@ while($dados = mysqli_fetch_assoc($sql)){
             font-family: 'Poppins', sans-serif;
             background-color: #f8f9fa;
             font-size: 20px;
-            margin-bottom: 60px;
+            margin-bottom: 60px; /* Adicionado espaço na parte inferior para acomodar o botão */
         }
 
         .cabecalho {
@@ -57,11 +57,11 @@ while($dados = mysqli_fetch_assoc($sql)){
             color: white;
             cursor: pointer;
             transition: background-color 0.3s;
-            position: relative; 
-            bottom: 0; 
-            width: auto; 
-            margin: 0 auto;
-            display: block; 
+            position: relative; /* Alterado para relative */
+            bottom: 0; /* Coloca o botão no final do conteúdo */
+            width: auto; /* Alterado para ajustar automaticamente ao conteúdo */
+            margin: 0 auto; /* Centraliza horizontalmente */
+            display: block; /* Para centralizar automaticamente o margin: 0 auto */
         }
 
         .btn-sair a {
@@ -91,39 +91,18 @@ while($dados = mysqli_fetch_assoc($sql)){
         </div>
 
         <div class="row">
-    <div class="col">
-        <div class="border respShare">
-            <h3 style="font-size: 30px;">Resposta dos Participantes</h3>
-            <?php
-            $respostasDuplas = [];
-            while ($resposta = mysqli_fetch_assoc($sql_id)) {
-                $dupla = $resposta['fk_usuario'] . ' e ' . $resposta['fk_usuario_par'];
-                $respostasDuplas[$dupla][] = $resposta;
-            }
-
-            foreach ($respostasDuplas as $dupla => $respostas) {
-                echo "<hr><p><strong>Dupla:  </strong> {$dupla}<br><br>";
-
-                $usuarios = explode(" e ", $dupla);
-
-                foreach ($usuarios as $usuario) {
-                    $respostaUsuario = array_filter($respostas, function ($r) use ($usuario) {
-                        return $r['fk_usuario'] == $usuario || $r['fk_usuario_par'] == $usuario;
-                    });
-
-                    echo "<strong>Resposta pair do {$usuario}:</strong> ";
-                    if (!empty($respostaUsuario)) {
-                        echo $respostaUsuario[0]['resposta'] ?? '';
+            <div class="col">
+                <div class="border respShare">
+                    <h3 style="font-size: 30px;">Resposta dos Participantes</h3>
+                    <?php
+                    while ($resposta = mysqli_fetch_assoc($sql_id)) {
+                        echo " <hr> <p><strong>Dupla:  </strong> {$resposta['fk_usuario']} e {$resposta['fk_usuario_par']}<br><br> <strong>Resposta pair do {$resposta['fk_usuario']}:</strong> {$resposta['resposta']} 
+                        <br> <strong>Resposta pair do {$resposta['fk_usuario_par']}:</strong> {$resposta['resposta_par']}</p>";
                     }
-                    echo "<br>";
-                }
-
-                echo "</p>";
-            }
-            ?>
+                    ?>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
         <div class="row">
             <div class="col">
@@ -151,3 +130,4 @@ while($dados = mysqli_fetch_assoc($sql)){
 </html>
 
 <?php } ?>
+

@@ -914,3 +914,61 @@ sorteado >>> portuga.2004 e raque.lis
  Numero par de participantes: 2
 sorteado >>> raque.lis e portuga.2004 
  Numero par de participantes: 2
+ NUMERO: 4
+ O usuário será registrado: portuga.2004
+ NUMERO: 4
+ O usuário será registrado: belly.90
+ NUMERO: 4
+ O usuário será registrado: betania
+ NUMERO: 4
+ O usuário será registrado: bianca
+ Numero par de participantes: 4
+ regra think: INSERT INTO resposta VALUES (NULL, 'lalala', '', 'individual', '62', 'portuga.2004', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'ebanan', '', 'individual', '62', 'belly.90', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'eeeeee', '', 'individual', '62', 'bianca', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'aaavaaaaa', '', 'individual', '62', 'betania', '')
+ Numero par de participantes: 4
+sorteado >>> portuga.2004 e belly.90 
+restante: betania 
+restante: bianca 
+sorteado >>> betania e bianca 
+ Numero par de participantes: 4
+ NUMERO: 2
+ O usuário será registrado: belly.90
+ NUMERO: 2
+ O usuário será registrado: portuga.2004
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'khbfewklf', '', 'individual', '63', 'portuga.2004', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'rnvklsdfjv', '', 'individual', '63', 'belly.90', '')
+ Numero par de participantes: 2
+sorteado >>> belly.90 e portuga.2004 
+ Numero par de participantes: 2
+ NUMERO: 2
+ O usuário será registrado: portuga.2004
+ NUMERO: 2
+ O usuário será registrado: italo.ramos
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'hygtr', '', 'individual', '64', 'italo.ramos', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'jnkml,ç.', '', 'individual', '64', 'portuga.2004', '')
+ Numero par de participantes: 2
+sorteado >>> portuga.2004 e italo.ramos 
+ Numero par de participantes: 2
+ NUMERO: 4
+ O usuário será registrado: belly.90
+ NUMERO: 4
+ O usuário será registrado: italo.ramos
+ NUMERO: 4
+ O usuário será registrado: bertila
+ NUMERO: 4
+ O usuário será registrado: raque.lis
+ Numero par de participantes: 4
+ regra think: INSERT INTO resposta VALUES (NULL, 'Giardini', '', 'individual', '65', 'raque.lis', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'Valdete', '', 'individual', '65', 'belly.90', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'Abdon', '', 'individual', '65', 'italo.ramos', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'Darci', '', 'individual', '65', 'bertila', '')
+ Numero par de participantes: 4
+sorteado >>> belly.90 e raque.lis 
+restante: italo.ramos 
+restante: bertila 
+sorteado >>> italo.ramos e bertila 
+ Numero par de participantes: 4

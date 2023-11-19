@@ -96,8 +96,8 @@ while ($dados = mysqli_fetch_assoc($sql)) {
                     <h3 style="font-size: 30px;">Resposta dos Participantes</h3>
                     <?php
                     while ($resposta = mysqli_fetch_assoc($sql_id)) {
-                        echo "<p><strong>Dupla:  </strong> {$resposta['fk_usuario']} e {$resposta['fk_usuario_par']}<br><br> <strong>Resposta pair do {$resposta['fk_usuario']}:</strong> {$resposta['resposta']} 
-                        <br> <hr> <strong>Resposta pair do {$resposta['fk_usuario_par']}:</strong> {$resposta['resposta_par']}</p>";
+                        echo " <hr> <p><strong>Dupla:  </strong> {$resposta['fk_usuario']} e {$resposta['fk_usuario_par']}<br><br> <strong>Resposta pair do {$resposta['fk_usuario']}:</strong> {$resposta['resposta']} 
+                        <br> <strong>Resposta pair do {$resposta['fk_usuario_par']}:</strong> {$resposta['resposta_par']}</p>";
                     }
                     ?>
                 </div>

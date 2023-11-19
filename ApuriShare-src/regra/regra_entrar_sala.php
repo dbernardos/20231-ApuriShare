@@ -95,8 +95,3 @@ function verificaSituacaoSala($chave, $con) {
     }
     return false;
 }
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
-?>

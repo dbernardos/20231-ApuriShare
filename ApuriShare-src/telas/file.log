@@ -821,3 +821,96 @@ sorteado >>> raque.lis e belly.90
  O usuário será registrado: Usuário
  NUMERO: 2
 >>>>>>> Stashed changes
+
+ NUMERO: 2
+ O usuário será registrado: belly.90
+ NUMERO: 2
+ O usuário será registrado: portuga.2004
+ NUMERO: 2
+ NUMERO: 2
+ NUMERO: 2
+ Numero impar de participantes: 1
+ Numero impar de participantes: 1
+ Numero impar de participantes: 1
+ Numero impar de participantes: 1
+ Numero impar de participantes: 1
+ Numero impar de participantes: 1
+ Numero impar de participantes: 1
+ Numero impar de participantes: 1
+ NUMERO: 2
+ O usuário será registrado: portuga.2004
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ NUMERO: 2
+ Numero par de participantes: 2
+ NUMERO: 2
+ O usuário será registrado: belly.90
+ NUMERO: 2
+ O usuário será registrado: portuga.2004
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ NUMERO: 2
+ O usuário será registrado: portuga.2004
+ Numero impar de participantes: 1
+ NUMERO: 2
+ O usuário será registrado: raque.lis
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+sorteado >>> portuga.2004 e raque.lis 
+ Numero par de participantes: 2
+sorteado >>> portuga.2004 e raque.lis 
+ Numero par de participantes: 2
+ NUMERO: 2
+ O usuário será registrado: portuga.2004
+ NUMERO: 2
+ O usuário será registrado: raque.lis
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+sorteado >>> portuga.2004 e raque.lis 
+ Numero par de participantes: 2
+ NUMERO: 2
+ O usuário será registrado: raque.lis
+ NUMERO: 2
+ O usuário será registrado: portuga.2004
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ Numero par de participantes: 2
+ regra think: INSERT INTO resposta VALUES (NULL, 'sdrfgy', '', 'individual', '61', 'portuga.2004', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'djifnwmkwl', '', 'individual', '61', 'raque.lis', '')
+ Numero par de participantes: 2
+sorteado >>> raque.lis e portuga.2004 
+ Numero par de participantes: 2

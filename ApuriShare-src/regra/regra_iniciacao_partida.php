@@ -10,11 +10,12 @@ $sql_select = "SELECT * FROM sala AS s
 $sql_resultado = buscar_dados($con, $sql_select);
 
 if (isset($_POST['btnIniciar'])) :
-    $horaAtual = date('H:i:s');
-    $participantesPar = verificaNumeroDeParticipantes(contaParticipantes($_POST['chave_acesso'], $con));
-    $Qnt = mysqli_query($con, "SELECT qntUsers FROM sala WHERE chaveAcesso = '$chaveAcesso'");
     
-    if ($_POST['id_situacao'] == 1 && $participantesPar && $Qnt <= contaParticipantes($_POST['chave_acesso'], $con)) :
+
+    $participantesPar = verificaNumeroDeParticipantes(contaParticipantes($_POST['chave_acesso'], $con));
+    $Qnt = mysqli_query($con, "SELECT qntUsers FROM sala WHERE chaveAcesso = {$_POST['chave_acesso']}");
+    
+    if ($_POST['id_situacao'] == 1 && $participantesPar /*&& $Qnt <= contaParticipantes($_POST['chave_acesso'], $con)*/) :
         
         $sql_update = "UPDATE sala SET fk_situacao =  2 WHERE chaveAcesso = {$_POST['chave_acesso']}";
         mysqli_query($con, $sql_update);

@@ -972,3 +972,24 @@ restante: italo.ramos
 restante: bertila 
 sorteado >>> italo.ramos e bertila 
  Numero par de participantes: 4
+ NUMERO: 4
+ O usuário será registrado: raque.lis
+ NUMERO: 4
+ O usuário será registrado: fulano123
+ NUMERO: 4
+ O usuário já está registrado: raque.lis
+ NUMERO: 4
+ O usuário será registrado: maria
+ NUMERO: 4
+ O usuário será registrado: joana
+ Numero par de participantes: 4
+ regra think: INSERT INTO resposta VALUES (NULL, '-2', '', 'individual', '57', 'fulano123', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'Eu acho que é 9', '', 'individual', '57', 'joana', '')
+ regra think: INSERT INTO resposta VALUES (NULL, '1', '', 'individual', '57', 'maria', '')
+ regra think: INSERT INTO resposta VALUES (NULL, 'A resposta certa é -1', '', 'individual', '57', 'raque.lis', '')
+ Numero par de participantes: 4
+sorteado >>> fulano123 e maria 
+restante: raque.lis 
+restante: joana 
+sorteado >>> raque.lis e joana 
+ Numero par de participantes: 4
